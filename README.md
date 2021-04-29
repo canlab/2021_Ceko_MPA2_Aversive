@@ -1,6 +1,6 @@
-# 2021_Ceko_Aversive_Multimodal
+## 2021_Ceko_Aversive_Multimodal
 
-Summary and requirements 
+### Summary and requirements 
 
 This repository contains MATLAB code used to develop common and stimulus-type specifc predictive brain models of aversiveness, using 4 types of stimuli (mechanical pain, thermal pain, aversive sound, aversive picture). 
 
