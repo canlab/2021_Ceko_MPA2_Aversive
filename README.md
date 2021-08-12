@@ -16,7 +16,7 @@ This repository contains MATLAB code used to develop common and stimulus-type sp
 
 ### Model evaluation (Fig. 2B, 2C) 
 
-#### Valence test (positive affect stimuli), Fig. 2D 
+### Valence test (positive affect stimuli), Fig. 2D 
 
 ### Variance decomposition (Fig. 2E)
 
