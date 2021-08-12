@@ -4,34 +4,35 @@
 
 This repository contains MATLAB code used to develop common and stimulus-type specifc predictive brain models of negative affect, using 4 types of aversive stimuli (mechanical pain, thermal pain, aversive sound, aversive picture). 
 
-- code has been tested using MATLAB 2016b
-- code requires CANLAB core tools
-- necessary scripts and tools are loaded with a2_mc_set_up_paths.m
-- code requires data available on Dropbox (for access, contact Marta at marta.ceko@gmail.com)
+- code runs ok on MATLAB 2019b
+- code requires CANLAB core tools and a few other tools, all loaded using a2_mc_set_up_paths.m
+- smaller data files are in /data or in /results
+- larger data files are on Dropbox (for access, contact Marta at marta.ceko@gmail.com)
+- GM mask is in /masks
 
 ### Behavioral results (Fig. 2A)
-
-### Univariate analyses (Suppl. Fig XX)
 
 ### Brain model development using Partial Least Squares (PLS) 
 
 ### Model evaluation (Fig. 2B, 2C) 
 
-#### Sensitivity and specificity 
+#### Valence test (positive affect stimuli), Fig. 2D 
 
-#### Classification accuracy
+### Variance decomposition (Fig. 2E)
 
-#### Valence test (positive affect stimuli)  
+### Univariate maps (Suppl. Fig. 2A)
 
-### Cross-prediction (Fig. 3A)
+### Model encoding maps (= structure coefficients) (Suppl. Fig. 2B) 
 
-### Variance decomposition (Fig. 3B)
+### Core systems (Fig. 3A, 3B) 
 
-### Local (ROI) representation (Fig. 4)
+### Local (ROI) representation (Fig. 3C, 3D)
 
-### Model encoding ( = structure coefficient) analyses (Fig. 5) 
+### Common vs. type-specific importance (Fig. 3E)
 
-### Application of patterns in independent samples (Fig. 6, Suppl. Fig. XXX) 
+### Data for organization into pathways (Fig. 4)
+
+### Validation in independent samples (Fig. 5) 
 
 
 
