@@ -24,7 +24,7 @@ This repository contains MATLAB code used to develop common and stimulus-type sp
 
 ### Model encoding maps (= structure coefficients) (Suppl. Fig. 2B) 
 
-### Core systems (Fig. 3A, 3B) 
+### Core systems (Fig. 3A, 3B; Suppl. Fig. 3) 
 
 ### Local (ROI) representation (Fig. 3C, 3D)
 
