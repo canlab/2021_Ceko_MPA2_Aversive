@@ -7,8 +7,8 @@ This repository contains MATLAB code used to develop common and stimulus-type sp
 
 - code runs ok on MATLAB 2019b
 - code requires CANLAB core tools and a few other tools, all loaded using a2_mc_set_up_paths.m
-- smaller data files are in /data or in /results
-- larger data files are on Dropbox (for access, contact Marta at marta.ceko@gmail.com)
+- data and results files are on Dropbox (for access, contact Marta at marta.ceko@gmail.com)
+- ROIs are in /rois
 - GM mask is in /masks
 
 ### Behavioral results (Fig. 2A)
