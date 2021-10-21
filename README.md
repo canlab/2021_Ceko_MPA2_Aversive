@@ -1,4 +1,5 @@
-## 2021_Ceko_Aversive_Multimodal
+## 2021_Ceko_MPA2_Aversive
+## Neural architecture of negative affect: common and stimulus type-specific representations
 
 ### Summary and requirements 
 
