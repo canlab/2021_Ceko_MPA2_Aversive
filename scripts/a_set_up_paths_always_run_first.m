@@ -28,28 +28,16 @@
 
 % Base directory for whole study/analysis
 %basedir = '/Users/marta/Google Drive/A_Multi_lab_world_map/Ceko_MPA2';
-basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/Analysis/MPA2_EXP/';
+basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/';
 cd(basedir)
 
-datadir = fullfile(basedir, 'data');  % data are actually in .... 
+scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
+
+datadir = fullfile(basedir, 'data');  % placeholder, data are locally in /Documents/DATA .... 
 resultsdir = fullfile(basedir, 'results');
-scriptsdir = fullfile(basedir, 'scripts');
 figsavedir = fullfile(resultsdir, 'figures');
 
-
-diarydir=fullfile(resultsdir, 'diaries');
-
-if ~exist(basedir, 'dir'), mkdir(datadir); end
-if ~exist(basedir, 'dir'), mkdir(scriptsdir); end
-
-if ~exist(resultsdir, 'dir'), mkdir(resultsdir); end
-if ~exist(figsavedir, 'dir'), mkdir(figsavedir); end
-if ~exist(diarydir, 'dir'), mkdir(diarydir); end
-
-
-% You may need this, but now should be in CANlab Private repository
-% g = genpath('/Users/tor/Documents/matlab_code_external/spider');
-% addpath(g)
+addpath(scriptsdir)
 
 % Display helper functions: Called by later scripts
 

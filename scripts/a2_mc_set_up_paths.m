@@ -16,17 +16,13 @@ addpath(genpath('/Applications/Canlab/MasksPrivate/Masks_private'));
 addpath(genpath('/Applications/Canlab/Neuroimaging_Pattern_Masks'));
 addpath(genpath('/Applications/Canlab/MediationToolbox')); % for RB_empirical_bayes_params ...
 %addpath(genpath('/Applications/Canlab/Canlab_MKDA_MetaAnalysis'));
-%addpath(genpath('/Applications/Canlab/ROI_masks_and_parcellations')); % copied from Tor's shared Gdrive folder
+addpath(genpath('/Applications/Canlab/ROI_masks_and_parcellations')); % copied from Tor's shared Gdrive folder
 addpath(genpath('/Applications/Canlab/2017_kragel_mfc_generalizability_natneurosci/')); 
 addpath(genpath('/Applications/Canlab/RobustToolbox/'));
 %addpath(genpath('/Applications/aal')); 
 
 %% add anne urai's plotting tools
 addpath(genpath('/Applications/Canlab/Tools'));
-
-% add wani's plots (TOPS paper)
-addpath (genpath('/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/Analysis/MPA2_EXP/scripts/tops_figure_2_ex'));
-
 
 % add wani's repo
 addpath(genpath('/Applications/Canlab/cocoanCORE'));
