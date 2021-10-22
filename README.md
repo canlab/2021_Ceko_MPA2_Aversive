@@ -7,7 +7,10 @@ This repository contains MATLAB code used to develop common and stimulus-type sp
 
 - code runs ok on MATLAB 2019b
 - code requires CANLAB core tools and a few other tools, all loaded using a2_mc_set_up_paths.m
-- data and results are on Dropbox (for access, contact Marta at marta.ceko@gmail.com)
+- main input data for these analyses in Dropbox (for access, contact Marta at marta.ceko@gmail.com):
+
+LINK XXXXXX
+
 
 ### Behavioral results (Fig. 2A)
 
