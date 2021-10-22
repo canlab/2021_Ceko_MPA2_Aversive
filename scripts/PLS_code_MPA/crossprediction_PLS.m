@@ -1,8 +1,4 @@
-% Marta: Modified to fit own environment + mask + colors
-% Marta: added saving of statistical bs images 
 
-% addpath(genpath('D:\GitHub\'))
-% addpath(genpath('D:\spm12'))
 
 %% load data 
 
@@ -11,12 +7,13 @@ cd(scriptsdir)
 load(fullfile(resultsdir, 'data_objects.mat'));
 import_Behav_MPA2
 
+
 % Specify models 
 models = {'General' 'Pressure' 'Thermal' 'Sound' 'Visual'};
 %
 modality=[];stim_int=[];
-subjects=repmat(1:55,1,16)';
-ints=rem(1:16,4);ints(ints==0)=4;
+subjects=repmat(1:55,1,16)';      
+ints=rem(1:16,4);ints(ints==0)=4;     
 for d=1:16
     
     if d==1
@@ -59,69 +56,132 @@ dat=apply_mask(dat,gm_mask);
 
 
 %%
-% kinds=ceil(subjects/11);  
-% 
-% for k=1:5
-%     
-%     train= kinds~=k;
-%     test= ~train;
-%     [xl,yl,xs,ys,b_pls,pctvar] = plsregress(dat.dat(:,train)',avers_mat(train,:),20);
-%     
-%     yhat(test,:)=[ones(length(find(test)),1) dat.dat(:,test)']*b_pls;
-% 
-% end
+ % TOR modified: Document KINDS, add some spaces for readability
+ 
+kinds=ceil(subjects/11);  % Training Fold (number indicates which test fold the participant belongs to
 
-%%
-kinds=ceil(subjects/11);
-for k=1:5
+% TOR:
+% organize into a cv_bpls object with each fold as an image.
+% save info about subjects and folds in metadata and save intercept
+
+% metadata table:
+t = table(subjects, kinds, avers_mat, 'VariableNames', {'Subject' 'Fold' 'Aversion_ratings'});
+t = splitvars(t, 'Aversion_ratings', 'NewVariableNames', models);
+[indic, xlevels] = condf2indic(kinds);
+t = addvars(t, indic, 'NewVariableNames', 'fold_indic');
+t = splitvars(t, 'fold_indic', 'NewVariableNames', {'fold1' 'fold2' 'fold3' 'fold4' 'fold5'});
+t.Properties.Description = 'MPA2 cross-validated PLS metadata. Aversion ratings included (these are Y in PLS).';
+t.Properties.VariableDescriptions = {'Participant number' 'Cross-val fold number (test fold' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' 'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'};
+
+% Initialize objects and add metadata:
+% ----------------------------------------------
+
+dat=DATA_OBJ{1};
+
+for m = 1:length(models)
+    
+    modeltable = addvars(t, pexp_xval_cs(:, m), 'NewVariableNames', 'pexp_xval_cs');
+    
+    modeltable.Properties.VariableDescriptions{end} = 'Cross-validated pattern expression, cosine sim';
+    
+    modeltable = addvars(modeltable, pexp_xval_dp(:, m), 'NewVariableNames', 'pexp_xval_dp');
+    
+    modeltable.Properties.VariableDescriptions{end} = 'Cross-validated pattern expression, dot product';
+    
+    eval(['cv_bpls_object_' models{m} ' = fmri_data;'])
+    
+    eval(['cv_bpls_object_' models{m} '.volInfo = dat.volInfo;'])
+    
+    eval(['cv_bpls_object_' models{m} '.metadata_table = t;'])
+    
+    
+end
+
+
+
+% Run the models
+% ----------------------------------------------
+    
+for k = 1:5
+    
     train= kinds~=k;
     test= ~train;
-    [xl,yl,xs,ys,b_pls,pctvar] = plsregress(dat.dat(:,train)',avers_mat(train,:),20);
-    yhat(test,:)=[ones(length(find(test)),1) dat.dat(:,test)']*b_pls;
     
-    for m=1:length(models)
-        cv_bpls=fmri_data;
-        cv_bpls.volInfo=dat.volInfo;
-        cv_bpls.dat=b_pls(2:end,m);
-        cv_bpls.removed_voxels=dat.removed_voxels;
-%         cv_bpls.fullpath=[models{m} '_CV' num2str(k)  '.nii'];
-%         write(cv_bpls,'overwrite');
-%         
+    [xl,yl,xs,ys,b_pls,pctvar] = plsregress(dat.dat(:,train)', avers_mat(train,:), 20);
+    
+    yhat(test,:) = [ones(length(find(test)),1) dat.dat(:,test)'] * b_pls;
+    
+    cv_pls_intercepts{k} = b_pls(1, :);
+    
+
+    for m = 1:length(models)
+        
+        cv_bpls = fmri_data;             % Note: this only works if the training data space matches the standard default space exactly! It should be ok here.
+        cv_bpls.volInfo = dat.volInfo;
+        
+        % TOR modified: save CV, save intercepts
+               
+        cv_bpls.dat = b_pls(2:end, m);
+        cv_bpls.removed_voxels = dat.removed_voxels;
+
+        cv_bpls.fullpath=[models{m} '_CV' num2str(k)  '.nii'];
+        write(cv_bpls,'overwrite');
+        
+        % TOR:
+        % organize into a cv_bpls object with each fold as an image (5 images for 5 folds). 
+        % save info about subjects and folds in metadata and save intercept
+        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;'])
+        
+        eval(['cv_bpls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);'])
+        
+        eval(['cv_bpls_object_' models{m} '.additional_info{2} = ''Model intercepts'';'])
+        
         dat.removed_images = 0;
         test_dat=dat;
         test_dat.dat=test_dat.dat(:,test);
-        pexp_xval_cs(test,m) = apply_mask(test_dat,cv_bpls,'pattern_expression','cosine_similarity');
+        pexp_xval_cs(test,m) = apply_mask(test_dat,cv_bpls,'pattern_expression', 'cosine_similarity');
         pexp_xval_dp(test,m) = apply_mask(test_dat,cv_bpls,'pattern_expression');
+        
     end
 end
 
-%
-%[xl,yl,xs,ys,b_pls,pctvar] = plsregress(dat.dat',avers_mat,20);
+% Run full model
+% ----------------------------------------------
 
 [xl,yl,xs,ys,b_plsfull,pctvar,mse,stats] = plsregress(dat.dat',avers_mat,20);
 
 yhatfull = [ones(length(find(subjects)),1) dat.dat']*b_plsfull; 
 
+
 %% Save stats
 % --------------------------------------------------------------------
+
+% Cross-validated
+% --------------------
+
 savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
 %savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm_L2.mat'));
 
-save(savefilename, 'avers_mat', '-v7.3');
+save(savefilename, 'avers_mat', '-v7.3'); % ratings 
 
 save(savefilename, 'yhat','b_pls', 'pexp_xval_cs', 'pexp_xval_dp', '-append'); % cross-val PLS outcomes 
 
+save(savefilename, 'models', '-append');  % save model names 
+
+
+% Full model 
+% -------------------
+
 save(savefilename, 'yhatfull', 'b_plsfull', '-append'); % full PLS outcomes 
 
-%% Save intercepts into a separate variable (1 per model) 
-% --------------------------------------------------------------------
 int_plsfull = b_plsfull(1,:);
 
-save(savefilename, 'int_plsfull', '-append'); % full PLS outcomes 
+save(savefilename, 'int_plsfull', '-append'); % full model intercept in separate variable
 
-save(savefilename, 'models', '-append'); % full PLS outcomes
 
-%% Write files w/ b_pls weights on full sample --> final signature weight map for application to new datasets   
+%% Write files w/ b_pls weights on full sample --> final signature weight maps for application to new datasets  
+% -----------------------------------------------------------------------------------------------------------
+
 for m=1:length(models)
     bs_stat=statistic_image;
     bs_stat.volInfo=dat.volInfo;
@@ -135,14 +195,10 @@ for m=1:length(models)
     write(bs_stat, 'overwrite');  
 end
 
-%% Bootstrap 
-% 
-% bs_b=bootstrp(10000,@bootpls20dim,dat.dat',avers_mat);
-% r_bs_b=reshape(bs_b,10000,1+size(dat.dat,1),5);
-% r_bs_b=r_bs_b(:,2:end,:);
+%% Bootstrap 10,000
 
 bs_b=bootstrp(10000,@bootpls20dim,dat.dat',avers_mat); % function BETA = bootpls20dim(x,y)[~,~,~,~,BETA] = plsregress(x,y,20);
-r_bs_b=reshape(bs_b,10,1+size(dat.dat,1),5);
+r_bs_b=reshape(bs_b,10000,1+size(dat.dat,1),5);
 r_bs_b=r_bs_b(:,2:end,:);
 
 b_mean_coeff = squeeze(nanmean(r_bs_b));
@@ -156,14 +212,14 @@ b_P_coeff = 2*normcdf(-1*abs(b_Z_coeff),0,1);
 savefilenamedata =(fullfile(resultsdir,'PLS_bootstats10000_N55_gm.mat'));
 save(savefilenamedata, 'b_Z_coeff', '-v7.3');
 save(savefilenamedata, 'b_P_coeff', '-append');
-%save(savefilenamedata, 'bs_b', 'r_bs_b','b_mean_coeff', 'b_pls', '-append');
+save(savefilenamedata, 'bs_b', 'r_bs_b','b_mean_coeff', 'b_pls', '-append');
 
 
 % save other useful information 
 datvol = dat.volInfo;  % why can't I save under orig name? 
 datnovox = dat.removed_voxels;
 models = {'General' 'Mechanical' 'Thermal' 'Sound' 'Visual'};
-save(savefilenamedata, 'datvol', '-append'); % version flag is not required when using the '-append' flag 
+save(savefilenamedata, 'datvol', '-append'); % Note to self: version flag is not required when using the '-append' flag 
 save(savefilenamedata, 'datnovox', '-append'); 
 save(savefilenamedata, 'models', '-append'); 
 
@@ -172,7 +228,7 @@ save(savefilenamedata, 'models', '-append');
 load(fullfile(resultsdir,'PLS_bootstats10000_N55_gm.mat'));
 
 % Display and save pattern maps
-%Original code: 
+% Original code: 
 for m=1:length(models)
     
     % create stat img
@@ -216,20 +272,12 @@ for m=1:length(models)
 end
 
 
-% Save data together with the bootstrapped output 'package' 
+% Save data together with the bootstrapped output  
 % -------------------------------------------------------------------------
 % reminder where we are saving
 savefilenamedata =(fullfile(resultsdir,'PLS_bootstats10000_N55_gm.mat'));
-save(savefilenamedata, 'pls_bs_statimg', '-append'); % version flag is not required when using the '-append' flag 
-save(savefilenamedata, 'pls_bs_statimg_fdr05', '-append'); % version flag is not required when using the '-append' flag 
-
-
-
-
-
-
-
-
+save(savefilenamedata, 'pls_bs_statimg', '-append'); 
+save(savefilenamedata, 'pls_bs_statimg_fdr05', '-append');
 
 
 %% Write bootstrapped files for interpretation and display 
