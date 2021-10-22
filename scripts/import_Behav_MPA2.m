@@ -4,7 +4,7 @@
 %% Import the data
 %[~, ~, raw] = xlsread('/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/Analysis/MPA2_EXP/scripts/PLS_code_MPA/MPA2_Masterlist_Final_N55.xlsx','Avoidance_exp_for_cross','B2:U56');
 
-[~, ~, raw] = xlsread(fullfile(datadir, 'MPA2_Masterlist_Final_N55.xlsx'),'Avoidance_exp_for_cross','B2:U56');
+[~, ~, raw] = xlsread(fullfile(behdatadir, 'MPA2_Masterlist_Final_N55.xlsx'),'Avoidance_exp_for_cross','B2:U56');
 
 
 % note: ratings in excel tab rearranged to match DAT.conditions order:

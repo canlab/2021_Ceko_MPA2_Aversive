@@ -33,7 +33,8 @@ cd(basedir)
 
 scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
 
-datadir = fullfile(basedir, 'data');  % placeholder, data are locally in /Documents/DATA .... 
+datadir = fullfile(basedir, 'data');  % placeholder, data are locally in /Documents/DATA ....
+behdatadir = '/Users/marta/Documents/DATA/MPA2/Behavior/data_behavior';
 resultsdir = fullfile(basedir, 'results');
 figsavedir = fullfile(resultsdir, 'figures');
 
