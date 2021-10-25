@@ -13,25 +13,20 @@
 % - then 2nd level t-test 
 %
 
-%% Create new dirs for these analyses 
-SR_analysisdir = fullfile(basedir, 'SR_analysis');
-SR_resultsdir = fullfile(SR_analysisdir, 'results');
-SR_scriptsdir = fullfile(SR_analysisdir, 'scripts');
-SR_figsavedir = fullfile(SR_resultsdir, 'figures');
-SR_datadir = fullfile(SR_analysisdir, 'data');
+%% Define dirs for these analyses 
 
+% a_set_up_paths_always_run_first 
+
+SR_scriptsdir = fullfile(scriptsdir, 'scripts_SC');
+SR_resultsdir = fullfile (resultsdir, 'results_SC/results');
+SR_figsavedir = fullfile(SR_resultsdir, 'figures');
+
+
+SR_datadir = fullfile(SR_resultsdir, 'data');
 SR_datarobdir = fullfile(SR_datadir, 'reg_rob');
 SR_datatraddir = fullfile(SR_datadir, 'reg_trad');
 SR_datamaxrobdir = fullfile(SR_datadir, 'max_rob');
 
-if ~exist(SR_analysisdir, 'dir'), mkdir(SR_analysisdir); end
-if ~exist(SR_resultsdir, 'dir'), mkdir(SR_resultsdir); end
-if ~exist(SR_scriptsdir, 'dir'), mkdir(SR_scriptsdir); end
-if ~exist(SR_figsavedir, 'dir'), mkdir(SR_figsavedir); end
-if ~exist(SR_datadir, 'dir'), mkdir(SR_datadir); end
-if ~exist(SR_datarobdir, 'dir'), mkdir(SR_datadir); end
-if ~exist(SR_datatraddir, 'dir'), mkdir(SR_datadir); end
-if ~exist(SR_datamaxrobdir, 'dir'), mkdir(SR_datadir); end
 
 %% IF RERUNNING PARTS OF THE SCRIPT, LOAD SAVED DATA FIRST:
 
@@ -49,8 +44,6 @@ models = {'General' 'Mechanical' 'Thermal' 'Sound' 'Visual'};
 %% Load data 
 cd(scriptsdir);
 
-% to set up overall dir structure posthoc
-% a_set_up_paths_always_run_first 
 
 load(fullfile(resultsdir, 'data_objects.mat'));
 import_Behav_MPA2

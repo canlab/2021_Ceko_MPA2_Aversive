@@ -26,13 +26,10 @@ parallelstr = 'parallel';   % parallel proc for boot. 'parallel' or 'noparallel'
 
 % prep_3c_run_SVMs_on_contrasts_masked options 
 % --------------------------------------------------------------------
+% Improved GM mask (Kragel)
+
 maskdir = fullfile(basedir, 'masks');
-% maskname = fullfile(maskdir, 'HarvardOxford-dACC-maxprob-thr0-2mm.nii');
-
-% dir accessibility issues:
-% maskdir='/Applications/Canlab/CanlabCore/CanlabCore/canlab_canonical_brains/Canonical_brains_surfaces/gray_matter_mask.img'
-
-maskname=fullfile(maskdir, 'gray_matter_mask.img');
+gm_mask = fullfile(maskdir, 'gm_mask.nii');
 
 % Also uses these from above
 % dosavesvmstats = true;      % default true      Save statistics and weight map objects for SVM contrasts

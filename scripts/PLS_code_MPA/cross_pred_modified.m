@@ -47,7 +47,7 @@ dat.removed_voxels=0;
 % make sure mask is on path!! 
 gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
 
-dat=apply_mask(dat,gm_mask);
+dat = apply_mask(dat,gm_mask);
 
 %dat=remove_empty(dat);
 
@@ -74,7 +74,7 @@ dat=apply_mask(dat,gm_mask);
 %%
 kinds=ceil(subjects/11);
 for k=1:5
-    train= kinds~=k;
+    train = kinds~=k;
     test= ~train;
     [xl,yl,xs,ys,b_pls,pctvar] = plsregress(dat.dat(:,train)',avers_mat(train,:),20);
     yhat(test,:)=[ones(length(find(test)),1) dat.dat(:,test)']*b_pls;

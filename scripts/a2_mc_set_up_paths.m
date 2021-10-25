@@ -31,7 +31,6 @@ addpath(genpath('/Applications/Canlab/cocoanCORE'));
 masksdir = fullfile(basedir, 'masks');
 addpath (genpath(masksdir))
 which ('gm_mask.nii');
-which ('AllRegions.nii');
 
 %% add modified scripts
 % 

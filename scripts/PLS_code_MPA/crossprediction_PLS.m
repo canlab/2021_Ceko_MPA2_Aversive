@@ -1,12 +1,11 @@
 
 
-%% load data 
+%% load and GM mask data 
 
 cd(scriptsdir)
 
 load(fullfile(resultsdir, 'data_objects.mat'));
 import_Behav_MPA2
-
 
 % Specify models 
 models = {'General' 'Pressure' 'Thermal' 'Sound' 'Visual'};
@@ -29,7 +28,7 @@ end
 % %% optional L2 norm 
 % dat=rescale(dat, 'l2norm_images')
 
-%%
+%
 avers_mat=condf2indic(modality);
 for i=1:size(avers_mat,1)
     avers_mat(i,find(avers_mat(i,:)))=dat.Y(i);
@@ -41,10 +40,12 @@ avers_mat=[dat.Y avers_mat];
 dat.removed_images=0;
 dat.removed_voxels=0;
 
-% make sure mask is on path!! 
-gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
+% Improved GM mask (Kragel)
+% loaded via a2_mc_set_up_paths and also a2_set_default_options for redundancy: 
 
-dat=apply_mask(dat,gm_mask);
+% gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
+% 
+% dat=apply_mask(dat,gm_mask);
 
 %dat=remove_empty(dat);
 
@@ -94,12 +95,11 @@ for m = 1:length(models)
     
     eval(['cv_bpls_object_' models{m} '.metadata_table = t;'])
     
-    
 end
 
 
 
-% Run the models
+%% Run the models
 % ----------------------------------------------
     
 for k = 1:5
@@ -111,9 +111,9 @@ for k = 1:5
     
     yhat(test,:) = [ones(length(find(test)),1) dat.dat(:,test)'] * b_pls;
     
-    cv_pls_intercepts{k} = b_pls(1, :);
+    %cv_pls_intercepts{k} = b_pls(1, :);
     
-
+ 
     for m = 1:length(models)
         
         cv_bpls = fmri_data;             % Note: this only works if the training data space matches the standard default space exactly! It should be ok here.
@@ -145,7 +145,7 @@ for k = 1:5
     end
 end
 
-% Run full model
+%% Run full model
 % ----------------------------------------------
 
 [xl,yl,xs,ys,b_plsfull,pctvar,mse,stats] = plsregress(dat.dat',avers_mat,20);
