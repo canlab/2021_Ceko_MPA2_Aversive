@@ -32,7 +32,7 @@ end
 % %% optional L2 norm 
 % dat=rescale(dat, 'l2norm_images')
 
-%%
+%
 avers_mat=condf2indic(modality);
 for i=1:size(avers_mat,1)
     avers_mat(i,find(avers_mat(i,:)))=dat.Y(i);
@@ -51,14 +51,12 @@ dat = apply_mask(dat,gm_mask);
 
 %dat=remove_empty(dat);
 
-%%
 
 % % display mean image 
 % m=mean(dat);
 % figure; o2=montage(m);
 
 
-%%
 % kinds=ceil(subjects/11);  
 % 
 % for k=1:5
@@ -71,7 +69,7 @@ dat = apply_mask(dat,gm_mask);
 % 
 % end
 
-%%
+%
 kinds=ceil(subjects/11);
 for k=1:5
     train = kinds~=k;
@@ -95,7 +93,7 @@ for k=1:5
     end
 end
 
-%
+%%
 %[xl,yl,xs,ys,b_pls,pctvar] = plsregress(dat.dat',avers_mat,20);
 
 [xl,yl,xs,ys,b_plsfull,pctvar,mse,stats] = plsregress(dat.dat',avers_mat,20);

@@ -87,16 +87,15 @@ for k = 1:5
         % TOR:
         % organize into a cv_bpls object with each fold as an image (5 images for 5 folds). 
         % save info about subjects and folds in metadata and save intercept
-
-%      
-% THE ONLY THING LEFT TO DEBUG 
+%         
+% TH
 %        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;'])
 
 % Unable to perform assignment because the size of the left side is 576094-by-1 and the size of the right side is 63545-by-1.
 
 % Error in crossprediction_PLS (line 133)
-%         eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;'])
-% 
+        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;'])
+
 %         
         eval(['cv_bpls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);'])
 
@@ -125,8 +124,6 @@ t = splitvars(t, 'fold_indic', 'NewVariableNames', {'fold1' 'fold2' 'fold3' 'fol
 t.Properties.Description = 'MPA2 cross-validated PLS metadata. Aversion ratings included (these are Y in PLS).';
 t.Properties.VariableDescriptions = {'Participant number' 'Cross-val fold number (test fold' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' 'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'};
 
-
-
 % Initialize objects and add metadata:
 % ----------------------------------------------
 
@@ -149,7 +146,6 @@ for m = 1:length(models)
     eval(['cv_bpls_object_' models{m} '.metadata_table = t;'])
     
 end
-
 
 %% Run full model
 % ----------------------------------------------
