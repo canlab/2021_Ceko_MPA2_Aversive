@@ -4,6 +4,7 @@
 
 cd(scriptsdir)
 
+% load images and behavior 
 load(fullfile(resultsdir, 'data_objects.mat'));
 import_Behav_MPA2
 
@@ -12,7 +13,9 @@ models = {'General' 'Pressure' 'Thermal' 'Sound' 'Visual'};
 %
 modality=[];stim_int=[];
 subjects=repmat(1:55,1,16)';      
-ints=rem(1:16,4);ints(ints==0)=4;     
+ints=rem(1:16,4);ints(ints==0)=4;   
+
+% reorganize into a dat 
 for d=1:16
     
     if d==1
@@ -28,7 +31,7 @@ end
 % %% optional L2 norm 
 % dat=rescale(dat, 'l2norm_images')
 
-%
+% reorganize behavior into dat.Y 
 avers_mat=condf2indic(modality);
 for i=1:size(avers_mat,1)
     avers_mat(i,find(avers_mat(i,:)))=dat.Y(i);
@@ -40,11 +43,12 @@ avers_mat=[dat.Y avers_mat];
 dat.removed_images=0;
 dat.removed_voxels=0;
 
-% Improved GM mask (Kragel)
+
+
+% mask with the improved GM mask (Kragel)
 % loaded via a2_mc_set_up_paths and also a2_set_default_options for redundancy: 
 
 gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
-% 
 dat=apply_mask(dat,gm_mask);
 
 %dat=remove_empty(dat);
@@ -56,7 +60,7 @@ dat=apply_mask(dat,gm_mask);
 kinds=ceil(subjects/11);  % Training Fold (number indicates which test fold the participant belongs to
 
 
-%% Run the models
+%% Run the cross-validated models
 % ----------------------------------------------
     
 for k = 1:5
@@ -69,7 +73,7 @@ for k = 1:5
     yhat(test,:) = [ones(length(find(test)),1) dat.dat(:,test)'] * b_pls;
     
     cv_pls_intercepts{k} = b_pls(1, :);
-    
+   
  
     for m = 1:length(models)
         
@@ -113,8 +117,7 @@ end
 
 %% 
 % TOR:
-% organize into a cv_bpls object with each fold as an image.
-% save info about subjects and folds in metadata and save intercept
+% save info about subjects, folds, and ratings in metadata and save intercept
 
 % metadata table:
 t = table(subjects, kinds, avers_mat, 'VariableNames', {'Subject' 'Fold' 'Aversion_ratings'});
@@ -123,15 +126,13 @@ t = splitvars(t, 'Aversion_ratings', 'NewVariableNames', models);
 t = addvars(t, indic, 'NewVariableNames', 'fold_indic');
 t = splitvars(t, 'fold_indic', 'NewVariableNames', {'fold1' 'fold2' 'fold3' 'fold4' 'fold5'});
 t.Properties.Description = 'MPA2 cross-validated PLS metadata. Aversion ratings included (these are Y in PLS).';
-t.Properties.VariableDescriptions = {'Participant number' 'Cross-val fold number (test fold' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' 'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'};
-
+t.Properties.VariableDescriptions = {'Participant number' ...
+    'Cross-val fold number (test fold' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' ...
+    'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'};
 
 
 % Initialize objects and add metadata:
 % ----------------------------------------------
-
-% dat=DATA_OBJ{1};
-
 for m = 1:length(models)
     
     modeltable = addvars(t, pexp_xval_cs(:, m), 'NewVariableNames', 'pexp_xval_cs');
@@ -159,7 +160,7 @@ end
 yhatfull = [ones(length(find(subjects)),1) dat.dat']*b_plsfull; 
 
 
-%% Save stats
+%% Save stats for cv models and for full model
 % --------------------------------------------------------------------
 
 % Cross-validated
@@ -168,11 +169,11 @@ yhatfull = [ones(length(find(subjects)),1) dat.dat']*b_plsfull;
 savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
 %savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm_L2.mat'));
 
-save(savefilename, 'avers_mat', '-v7.3'); % ratings 
-
-save(savefilename, 'yhat','b_pls', 'pexp_xval_cs', 'pexp_xval_dp', '-append'); % cross-val PLS outcomes 
-
-save(savefilename, 'models', '-append');  % save model names 
+save(savefilename, 'cv_bpls_object_General', '-v7.3'); % data + metadata for General 
+save(savefilename, 'cv_bpls_object_Pressure', '-append'): % data + metadata for Pressure
+save(savefilename, 'cv_bpls_object_Thermal', '-append'): % data + metadata for Thermal 
+save(savefilename, 'cv_bpls_object_Sound', '-append'): % data + metadata for Sound 
+save(savefilename, 'cv_bpls_object_Visual', '-append'): % data + metadata for Visual
 
 
 % Full model 
