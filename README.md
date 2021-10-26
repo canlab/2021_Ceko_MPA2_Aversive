@@ -18,7 +18,8 @@ https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0
         
         /patterns/PLS_CV_patterns contains CV image files (5 per model representing the 5 folds) for use within sample
         
-        /patterns/PLS_patterns contains full sample unthresholded pattern maps for use in independent samples 
+        /patterns/PLS_patterns contains full sample unthresholded pattern maps for use in independent samples (these are the same maps as available 
+        in the public repo: Neuroimaging_Pattern_Masks/Multivariate_signature_patterns/2021_Ceko_MPA2_multiaversive)
         
         /patterns/PLS_patterns also contains bootstrapped unthr., unc01, unc001, and fdr-05 thresholded maps
 
