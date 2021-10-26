@@ -16,7 +16,7 @@ https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0
         
         PLS_bootstats10000_N55_gm.mat contains bootstrapped stats 
         
-        /patterns/PLS_CV_patterns contains CV image files (5 per model representing the 5 folds) for use in same sample
+        /patterns/PLS_CV_patterns contains CV image files (5 per model representing the 5 folds) for use within sample
         
         /patterns/PLS_patterns contains full sample unthresholded pattern maps for use in independent samples 
         
