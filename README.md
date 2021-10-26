@@ -7,9 +7,14 @@ This repository contains MATLAB code used to develop, evaluate and test in new i
 
 - code runs ok on MATLAB 2019b
 - code requires CANLAB core tools and a few other tools, all loaded using a2_mc_set_up_paths.m
-- main input data for these analyses are in Dropbox (for access, contact Marta at marta.ceko@gmail.com):
-
-LINK XXXXXX
+- main inputs and outputs of these analyses are in the 'results' dir on Dropbox (for access, contact Marta at marta.ceko@gmail.com):
+https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0
+        data_objects.mat contains 1st-level GLM beta images used for PLS 
+        PLS_crossvalidated_N55_gm.mat contains stats related to cross-validated and full sample PLS model
+        PLS_bootstats10000_N55_gm.mat contains bootstrapped stats 
+        /patterns/PLS_CV_patterns contains CV image files (5 per model representing the 5 folds) for use in the same study sample
+        /patterns/PLS_patterns contains full sample unthresholded pattern maps for use in independent samples 
+        /patterns/PLS_patterns also contains bootstrapped unthr., unc01, unc001, and fdr-05 thresholded maps
 
 ### Overview of code: 
 
