@@ -36,7 +36,6 @@ scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
 datadir = '/Users/marta/Documents/DATA/MPA2/';
 behdatadir = '/Users/marta/Documents/DATA/MPA2/Behavior/data_behavior';
 resultsdir = fullfile(basedir, 'results');
-%resultsdir = fullfile(basedir, 'TESTresults');
 figsavedir = fullfile(resultsdir, 'figures');
 
 addpath(scriptsdir);

@@ -1,14 +1,46 @@
 
+%% This code computes and saves multiaversive General and Stimulus-Specific PLS patterns 
+
+% (1) Loads and reorganizes data 
+% image data (beta images: 55 subjects x 4 stimulus types x 4 intensity levels = 880 files) 
+% aversiveness ratings 
+
+% (2) Runs cross-validated models and saves:
+% fold images (5 folds per model, for 5 models) --> cv pattern maps for application on the same individuals 
+% cv beta weights (coefficients)   
+% cv intercepts 
+% cv dot products 
+% cv cosine similarity
+% ratings 
+% meta data: subject and fold info
+
+% (3) Runs full model and saves:
+% full beta weights
+% full intercept 
+% full sample images = final signature weight maps for application to new datasets 
+
+% (4) Bootstrapping 
+% runs bootstrapping and saves stats 
+% saves boorstrapped images to interpretation and display 
+
+
+% ---------------------------------------------------
+% Phil Kragel, Marta Ceko, and Tor Wager 2021
+% ---------------------------------------------------
+
+
 
 %% load and GM mask data 
 
 cd(scriptsdir)
 
 % load images and behavior 
+% ----------------------------------------------
 load(fullfile(resultsdir, 'data_objects.mat'));
 import_Behav_MPA2
 
 % Specify models 
+% ----------------------------------------------
 models = {'General' 'Pressure' 'Thermal' 'Sound' 'Visual'};
 %
 modality=[];stim_int=[];
@@ -16,6 +48,7 @@ subjects=repmat(1:55,1,16)';
 ints=rem(1:16,4);ints(ints==0)=4;   
 
 % reorganize into a dat 
+% ----------------------------------------------
 for d=1:16
     
     if d==1
@@ -31,7 +64,8 @@ end
 % %% optional L2 norm 
 % dat=rescale(dat, 'l2norm_images')
 
-% reorganize behavior into dat.Y 
+% reorganize behavior into dat.Y
+% ----------------------------------------------
 avers_mat=condf2indic(modality);
 for i=1:size(avers_mat,1)
     avers_mat(i,find(avers_mat(i,:)))=dat.Y(i);
@@ -43,9 +77,8 @@ avers_mat=[dat.Y avers_mat];
 dat.removed_images=0;
 dat.removed_voxels=0;
 
-
-
-% mask with the improved GM mask (Kragel)
+% Mask with the improved GM mask (Kragel)
+% ----------------------------------------------
 % loaded via a2_mc_set_up_paths and also a2_set_default_options for redundancy: 
 
 gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
@@ -54,13 +87,14 @@ dat=apply_mask(dat,gm_mask);
 %dat=remove_empty(dat);
 
 
-%%
- % TOR modified: Document KINDS, add some spaces for readability
- 
+% Specify folds (55/11 = 5)
+% ----------------------------------------------
+
 kinds=ceil(subjects/11);  % Training Fold (number indicates which test fold the participant belongs to
 
+clear cv_bpls % in case you are rerunning the below code, better to have a clean slate
 
-%% Run the cross-validated models
+%% Run cross-validated models
 % ----------------------------------------------
     
 for k = 1:5
@@ -80,7 +114,7 @@ for k = 1:5
         cv_bpls = fmri_data;             % Note: this only works if the training data space matches the standard default space exactly! It should be ok here.
         cv_bpls.volInfo = dat.volInfo;
         
-        % TOR modified: save CV, save intercepts
+        % TOR: save CV, save intercepts
                
         cv_bpls.dat = b_pls(2:end, m);
         cv_bpls.removed_voxels = dat.removed_voxels;
@@ -90,21 +124,12 @@ for k = 1:5
         
         % TOR:
         % organize into a cv_bpls object with each fold as an image (5 images for 5 folds). 
-        % save info about subjects and folds in metadata and save intercept
-
 %      
-% THE ONLY THING LEFT TO DEBUG 
-%        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;'])
+        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;'];
 
-% Unable to perform assignment because the size of the left side is 576094-by-1 and the size of the right side is 63545-by-1.
+        eval(['cv_bpls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);']);
 
-% Error in crossprediction_PLS (line 133)
-%         eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;'])
-% 
-%         
-        eval(['cv_bpls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);'])
-
-        eval(['cv_bpls_object_' models{m} '.additional_info{2} = ''Model intercepts'';'])
+        eval(['cv_bpls_object_' models{m} '.additional_info{2} = ''Model intercepts'';']);
 
         dat.removed_images = 0;
         test_dat=dat;
@@ -170,15 +195,14 @@ savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
 %savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm_L2.mat'));
 
 save(savefilename, 'cv_bpls_object_General', '-v7.3'); % data + metadata for General 
-save(savefilename, 'cv_bpls_object_Pressure', '-append'): % data + metadata for Pressure
-save(savefilename, 'cv_bpls_object_Thermal', '-append'): % data + metadata for Thermal 
-save(savefilename, 'cv_bpls_object_Sound', '-append'): % data + metadata for Sound 
-save(savefilename, 'cv_bpls_object_Visual', '-append'): % data + metadata for Visual
+save(savefilename, 'cv_bpls_object_Pressure', '-append'); % data + metadata for Pressure
+save(savefilename, 'cv_bpls_object_Thermal', '-append'); % data + metadata for Thermal 
+save(savefilename, 'cv_bpls_object_Sound', '-append'); % data + metadata for Sound 
+save(savefilename, 'cv_bpls_object_Visual', '-append'); % data + metadata for Visual
 
 
-% Full model 
+% Add full model stats 
 % -------------------
-
 save(savefilename, 'yhatfull', 'b_plsfull', '-append'); % full PLS outcomes 
 
 int_plsfull = b_plsfull(1,:); % full model intercept 
@@ -386,7 +410,6 @@ save(savefilenamedata, 'results_table');
 %     write(bs_stat, 'overwrite');
 %     %orthviews(bs_stat);pause(5)
 % end
-
 
 
 %%
