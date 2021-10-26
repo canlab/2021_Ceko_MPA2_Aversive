@@ -12,7 +12,7 @@ https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0
 
         data_objects.mat contains 1st-level GLM beta images used for PLS 
         
-        PLS_crossvalidated_N55_gm.mat contains stats related to cross-validated and full sample PLS model
+        PLS_crossvalidated_N55_gm.mat contains stats related to cross-validated and full sample PLS models
         
         PLS_bootstats10000_N55_gm.mat contains bootstrapped stats 
         
