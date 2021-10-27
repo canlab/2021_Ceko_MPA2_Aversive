@@ -3,13 +3,27 @@
 
 ### Summary and requirements 
 
-This repository contains MATLAB code used to develop, evaluate and test in new individuals the common and stimulus-type specifc predictive brain models of negative affect, using 4 types of aversive stimuli (mechanical pain, thermal pain, aversive sound, aversive picture). 
+This repository contains MATLAB code used to develop, evaluate and test in new individuals 
+the common and stimulus-type specifc predictive brain models of negative affect, 
+using 4 types of aversive stimuli (mechanical pain, thermal pain, aversive sound, aversive pictures) 
 
 - code runs ok on MATLAB 2019b
 - code requires CANLAB core tools and a few other tools, all loaded using a2_mc_set_up_paths.m
-- main input data for these analyses are in Dropbox (for access, contact Marta at marta.ceko@gmail.com):
+- main inputs and outputs of these analyses are in the 'results' dir on Dropbox (for access, contact Marta at marta.ceko@gmail.com):
+https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0
 
-LINK XXXXXX
+        data_objects.mat contains 1st-level GLM beta images used for PLS 
+        
+        PLS_crossvalidated_N55_gm.mat contains stats related to cross-validated and full sample PLS models
+        
+        PLS_bootstats10000_N55_gm.mat contains bootstrapped stats 
+        
+        /patterns/PLS_CV_patterns contains CV image files (5 per model representing the 5 folds) for use within sample
+        
+        /patterns/PLS_patterns contains full sample unthresholded pattern maps for use in independent samples 
+        (these are the same maps as available in the public repo: Neuroimaging_Pattern_Masks/Multivariate_signature_patterns/2021_Ceko_MPA2_multiaversive)
+        
+        /patterns/PLS_patterns also contains bootstrapped unthr., unc01, unc001, and fdr-05 thresholded maps
 
 ### Overview of code: 
 
