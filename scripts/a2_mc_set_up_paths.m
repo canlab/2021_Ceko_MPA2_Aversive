@@ -21,11 +21,18 @@ addpath(genpath('/Applications/Canlab/2017_kragel_mfc_generalizability_natneuros
 addpath(genpath('/Applications/Canlab/RobustToolbox/'));
 %addpath(genpath('/Applications/aal')); 
 
+%% also add 
+% add Wani's core repo
+addpath(genpath('/Applications/Canlab/cocoanCORE'));
+% Wani's BIDS and preprocessing pipeline
+addpath(genpath('/Applications/Canlab/humanfmri_preproc_bids'));
+
+addpath(genpath('/Applications/Canlab/CanlabPrivate/'));
+% Lukas 
+addpath(genpath('/Applications/Canlab/proj-emosymp/'));
+
 %% add anne urai's plotting tools
 addpath(genpath('/Applications/Canlab/Tools'));
-
-% add wani's repo
-addpath(genpath('/Applications/Canlab/cocoanCORE'));
 
 %% add gm mask
 masksdir = fullfile(basedir, 'masks');
