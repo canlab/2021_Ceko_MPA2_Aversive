@@ -45,7 +45,7 @@ models = {'General' 'Mechanical' 'Thermal' 'Sound' 'Visual'};
 
 % NOTE: ALSO SAVED FINAL OUTPUTS ONLY IN A SMALLER FILE
 % pls_encoders 
-
+savefilename = fullfile(SR_resultsdir, 'SR_out.mat');
 
 %% Load data 
 cd(scriptsdir);
