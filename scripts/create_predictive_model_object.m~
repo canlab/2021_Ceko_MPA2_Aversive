@@ -1,0 +1,101 @@
+% Create a predictive_model subclass of fmri_data 
+
+% This script collects all relevant prediction outputs and adds them to the
+% existing fmri_data object (DATA_OBJ)
+
+% (1) load the fmri_data object containing fmri images 
+% Note: see prep_1_set_conditions_contrasts_colors.m and
+% prep_2_load_image_data_and_save.m for for how to create fmri_data objects
+
+% (2) load PLS outputs created in crossprediction_PLS.m 
+% --- cross-validated: patterns, intercepts, fold info 
+% --- full-sample: patterns, intercepts
+% --- modeltable with metadata
+
+% (3) load PLS model encoding maps 
+
+
+% (4) Integrate into one object
+
+
+cd (scriptsdir) 
+
+
+% Load fmri_data object with image data
+% -------------------------------------------------------------------------
+load(fullfile(resultsdir, 'data_objects.mat'));
+
+
+% Load prediction outputs
+% -------------------------------------------------------------------------
+
+load(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
+
+% this loads: 
+% cross-validated models: 
+% fold images (5 folds per model, for 5 models); 
+% cv beta weights (coefficients)   
+% cv intercepts 
+% cv dot products 
+% cv cosine similarity
+% ratings 
+% meta data: subject and fold info
+
+% (3) Runs full model and saves:
+% full beta weights
+% full intercept 
+% full sample images = final signature weight maps for application to new datasets 
+
+
+% save(savefilename, 'cv_bpls_object_General', '-v7.3'); % data + metadata for General 
+% save(savefilename, 'cv_bpls_object_Pressure', '-append'); % data + metadata for Pressure
+% save(savefilename, 'cv_bpls_object_Thermal', '-append'); % data + metadata for Thermal 
+% save(savefilename, 'cv_bpls_object_Sound', '-append'); % data + metadata for Sound 
+% save(savefilename, 'cv_bpls_object_Visual', '-append'); % data + metadata for Visual
+% 
+% 
+
+% Specify metadata
+% ----------------------------------------------
+models = {'General' 'Pressure' 'Thermal' 'Sound' 'Visual'};
+%
+modality=[];stim_int=[];
+subjects=repmat(1:55,1,16)';      
+ints=rem(1:16,4);ints(ints==0)=4;  
+
+
+% Create table metadata:
+% ----------------------------------------------
+t = table(subjects, kinds, avers_mat, 'VariableNames', {'Subject' 'Fold' 'Aversion_ratings'});
+t = splitvars(t, 'Aversion_ratings', 'NewVariableNames', models);
+[indic, xlevels] = condf2indic(kinds);
+t = addvars(t, indic, 'NewVariableNames', 'fold_indic');
+t = splitvars(t, 'fold_indic', 'NewVariableNames', {'fold1' 'fold2' 'fold3' 'fold4' 'fold5'});
+t.Properties.Description = 'MPA2 cross-validated PLS metadata. Aversion ratings included (these are Y in PLS).';
+t.Properties.VariableDescriptions = {'Participant number' ...
+    'Cross-val fold number (test fold' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' ...
+    'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'};
+
+
+% Initialize objects and add metadata:
+% ----------------------------------------------
+
+dat = DATA_OBJ{1}
+
+for m = 1:length(models)
+    
+    modeltable = addvars(t, pexp_xval_cs(:, m), 'NewVariableNames', 'pexp_xval_cs');
+    
+    modeltable.Properties.VariableDescriptions{end} = 'Cross-validated pattern expression, cosine sim';
+    
+    modeltable = addvars(modeltable, pexp_xval_dp(:, m), 'NewVariableNames', 'pexp_xval_dp');
+    
+    modeltable.Properties.VariableDescriptions{end} = 'Cross-validated pattern expression, dot product';
+    
+    eval(['cv_bpls_object_' models{m} ' = fmri_data;'])
+    
+    eval(['cv_bpls_object_' models{m} '.volInfo = dat.volInfo;'])
+    
+    eval(['cv_bpls_object_' models{m} '.metadata_table = t;'])
+    
+end

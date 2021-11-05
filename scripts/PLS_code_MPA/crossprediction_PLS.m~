@@ -203,7 +203,7 @@ save(savefilename, 'cv_bpls_object_Thermal', '-append'); % data + metadata for T
 save(savefilename, 'cv_bpls_object_Sound', '-append'); % data + metadata for Sound 
 save(savefilename, 'cv_bpls_object_Visual', '-append'); % data + metadata for Visual
 
-save(savefilename, 'modeltable', '-append'); % table w/ metadata
+save(savefilename, 'cv_bpls_object_Visual', '-append');
 
 % Add full model stats 
 % -------------------
