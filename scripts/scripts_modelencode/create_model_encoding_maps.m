@@ -1,4 +1,4 @@
-%% Source reconstrunction (SR) a.k.a structure coefficient computations 
+%% Computation of model encoding maps a.k.a source reconstruction (SR) aka structure coefficients (SC)
 
 % (1) subject-level SR maps by (ROBUST) regressing univariate brain maps (dat.dat) onto PLS outcomes (yhat)
 
@@ -17,20 +17,21 @@
 
 % a_set_up_paths_always_run_first 
 
-SR_scriptsdir = fullfile(scriptsdir, 'scripts_SC');
-SR_resultsdir = fullfile (resultsdir, 'results_SC/results');
+SR_scriptsdir = fullfile(scriptsdir, 'scripts_modelencode');
+SR_resultsdir = fullfile (resultsdir, 'results_modelencode/results');
 SR_figsavedir = fullfile(SR_resultsdir, 'figures');
 
 
 SR_datadir = fullfile(SR_resultsdir, 'data');
-SR_datarobdir = fullfile(SR_datadir, 'reg_rob');
-SR_datatraddir = fullfile(SR_datadir, 'reg_trad');
-SR_datamaxrobdir = fullfile(SR_datadir, 'max_rob');
+SR_datarobdir = fullfile(SR_datadir, 'reg_rob'); % robust regression
+SR_datatraddir = fullfile(SR_datadir, 'reg_trad'); % non-robust regression
+SR_datamaxrobdir = fullfile(SR_datadir, 'max_rob'); 
 
 
 %% IF RERUNNING PARTS OF THE SCRIPT, LOAD SAVED DATA FIRST:
 
-% Structure coefficient betas per subject (55 subject files for each stim)
+% Structure coefficient (SC, aka SR, aka modelencoders):
+% betas per subject (55 subject files for each stim)
 
 load(fullfile(SR_resultsdir, 'SR_out.mat'));
 % this loads
@@ -40,6 +41,11 @@ load(fullfile(SR_resultsdir, 'SR_out.mat'));
 % It takes a hot minute to load, it is a large file!
 
 models = {'General' 'Mechanical' 'Thermal' 'Sound' 'Visual'};
+
+
+% NOTE: ALSO SAVED FINAL OUTPUTS ONLY IN A SMALLER FILE
+% pls_encoders 
+
 
 %% Load data 
 cd(scriptsdir);

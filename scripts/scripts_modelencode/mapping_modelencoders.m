@@ -20,7 +20,7 @@
 
 % 
 [patt, patt_names] = load_SR_maps_thr; % should be FDR maps, but none of
-% the thresholded maps got written (see notes in bb4b_neurobio...)
+% the thresholded maps got written (see notes in mapping_modelencoders.m)
 patt.image_names = patt_names';
 
 patt = threshold(patt, [3 Inf], 'raw-between');
