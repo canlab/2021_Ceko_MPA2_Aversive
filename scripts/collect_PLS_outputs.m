@@ -33,7 +33,6 @@ cd (scriptsdir)
 load(fullfile(resultsdir, 'data_objects.mat'));
 
 
-
 % Load prediction outputs ---- this loads STATS only for now 
 % -------------------------------------------------------------------------
 load(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
