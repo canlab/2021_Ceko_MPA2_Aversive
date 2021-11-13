@@ -31,6 +31,7 @@ parallelstr = 'parallel';   % parallel proc for boot. 'parallel' or 'noparallel'
 maskdir = fullfile(basedir, 'masks');
 gm_mask = fullfile(maskdir, 'gm_mask.nii');
 
+
 % Also uses these from above
 % dosavesvmstats = true;      % default true      Save statistics and weight map objects for SVM contrasts
 % dobootstrap = false;         % default false     Takes a lot of time
