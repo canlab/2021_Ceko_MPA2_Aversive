@@ -94,10 +94,42 @@ kinds=ceil(subjects/11);  % Training Fold (number indicates which test fold the 
 
 clear cv_bpls % in case you are rerunning the below code, better to have a clean slate
 
+%% save info about subjects, folds, and ratings in metadata and save intercept
+
+% metadata table:
+t = table(subjects, kinds, avers_mat, 'VariableNames', {'Subject' 'Fold' 'Aversion_ratings'});
+t = splitvars(t, 'Aversion_ratings', 'NewVariableNames', models);
+[indic, xlevels] = condf2indic(kinds);
+t = addvars(t, indic, 'NewVariableNames', 'fold_indic');
+
+t = splitvars(t, 'fold_indic', 'NewVariableNames', {'fold1' 'fold2' 'fold3' 'fold4' 'fold5'});
+
+t = addvars(t, indic, 'NewVariableNames', 'fold_indic_matrix');
+
+t.Properties.Description = 'MPA2 cross-validated PLS metadata. Aversion ratings included (these are Y in PLS).';
+
+t.Properties.VariableDescriptions = {'Participant number' ...
+    'Cross-val fold number (test fold' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' ...
+    'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'};
+
+
+
 %% Run cross-validated models
 % ----------------------------------------------
+%
+% Initialize images
+% dat is template object
+% Create an "empty" data object that is a copy of dat
+for m = 1:length(models)
     
-for k = 1:5
+    eval(['cv_bpls_object_' models{m} ' = dat;']);
+    eval(['cv_bpls_object_' models{m} '.dat = zeros(size(dat.removed_voxels));']);
+	eval(['cv_bpls_object_' models{m} '.removed_images = [];']);
+    eval(['cv_bpls_object_' models{m} '.metadata_table = t;']);
+end
+
+
+for k = 1:5  % for each fold
     
     train= kinds~=k;
     test= ~train;
@@ -108,24 +140,34 @@ for k = 1:5
     
     cv_pls_intercepts{k} = b_pls(1, :);
    
- 
+    % Create an object with all models for this fold
+    % -----------------------------------------------
+    cv_bpls = fmri_data;             % Note: this only works if the training data space matches the standard default space exactly! It should be ok here.
+    cv_bpls.volInfo = dat.volInfo;
+    
+    % TOR: save CV, save intercepts
+    % cv_bpls has all the models for all the outcomes.
+    % 5 images for 5 models.  trained on 880*4/5 images
+    cv_bpls.dat = b_pls(2:end, :);                      % All models, this fold
+    cv_bpls.removed_voxels = dat.removed_voxels;
+    cv_bpls.additional_info{1} = cv_pls_intercepts{k};  % Add 5 intercepts for 5 models
+    cv_bpls.additional_info{2} = 'Cell 1: 5 intercepts for 5 models';
+    cv_bpls.additional_info{3} = indic(:, k);
+    cv_bpls.additional_info{4} = 'Indicator for test images in fold; 0 = train, 1 = test';
+    
+    eval(['cv_pls_fold_' k ' = cv_bpls;']);
+    
+    %     % Save .nii files - NOTE: change/update code to run
+    %     cv_bpls.fullpath=[models{m} '_CV' num2str(k)  '.nii'];
+    %     write(cv_bpls,'overwrite');
+        
     for m = 1:length(models)
-        
-        cv_bpls = fmri_data;             % Note: this only works if the training data space matches the standard default space exactly! It should be ok here.
-        cv_bpls.volInfo = dat.volInfo;
-        
-        % TOR: save CV, save intercepts
-               
-        cv_bpls.dat = b_pls(2:end, m);
-        cv_bpls.removed_voxels = dat.removed_voxels;
 
-        cv_bpls.fullpath=[models{m} '_CV' num2str(k)  '.nii'];
-        write(cv_bpls,'overwrite');
-        
         % TOR:
-        % organize into a cv_bpls object with each fold as an image (5 images for 5 folds). 
-%      
-        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat;']);
+        % organize into a cv_pls object with each fold as an image (5 images for 5 folds). 
+        % cv_bpls_object_General, cv_bpls_object_Pressure
+
+        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat(:, m);']);
 
         eval(['cv_bpls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);']);
 
@@ -140,21 +182,12 @@ for k = 1:5
     end
 end
 
+% Save
+save cv_PLS_models_by_fold cv_pls_fold*
+
+save cv_PLS_models cv_bpls_object*
+
 %% 
-% TOR:
-% save info about subjects, folds, and ratings in metadata and save intercept
-
-% metadata table:
-t = table(subjects, kinds, avers_mat, 'VariableNames', {'Subject' 'Fold' 'Aversion_ratings'});
-t = splitvars(t, 'Aversion_ratings', 'NewVariableNames', models);
-[indic, xlevels] = condf2indic(kinds);
-t = addvars(t, indic, 'NewVariableNames', 'fold_indic');
-t = splitvars(t, 'fold_indic', 'NewVariableNames', {'fold1' 'fold2' 'fold3' 'fold4' 'fold5'});
-t.Properties.Description = 'MPA2 cross-validated PLS metadata. Aversion ratings included (these are Y in PLS).';
-t.Properties.VariableDescriptions = {'Participant number' ...
-    'Cross-val fold number (test fold' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' ...
-    'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'};
-
 
 % Initialize objects and add metadata:
 % ----------------------------------------------
@@ -171,7 +204,7 @@ for m = 1:length(models)
     
     modeltable.Properties.VariableDescriptions{end} = 'Cross-validated pattern expression, dot product';
     
-    eval(['cv_bpls_object_' models{m} ' = fmri_data;'])
+    % eval(['cv_bpls_object_' models{m} ' = fmri_data;']) WILL RE-INITIALIZE OBJECT
     
     eval(['cv_bpls_object_' models{m} '.volInfo = dat.volInfo;'])
     
