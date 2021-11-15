@@ -95,6 +95,11 @@ dat.removed_voxels=0;
 % ----------------------------------------------
 % loaded via a2_mc_set_up_paths and also specified in a2_set_default_options 
 
+% re-specify here if needed: 
+maskdir = fullfile(basedir, 'masks');
+gm_mask = fullfile(maskdir, 'gm_mask.nii');
+
+
 gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
 dat=apply_mask(dat,gm_mask);
 
