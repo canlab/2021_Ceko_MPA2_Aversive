@@ -1,4 +1,4 @@
-e    %% Set up conditions 
+%% Set up conditions 
 % ------------------------------------------------------------------------
 
 % conditions = {'C1' 'C2' 'C3' 'etc'};

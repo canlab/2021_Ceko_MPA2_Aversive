@@ -28,17 +28,25 @@
 % Phil Kragel, Marta Ceko, and Tor Wager 2021
 % ---------------------------------------------------
 
+% run a_set_up_paths_always_run_first
+% or specify directory paths here:
+
+basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/';
+resultsdir = fullfile(basedir, 'results');
+behdatadir = fullfile(basedir, 'data/data_behavior'); 
+
+% main scripts dir
+scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
+cd(scriptsdir)
 
 %% load and GM mask data 
 
-cd(scriptsdir)
-
-% load images and behavior (from dirs specified in
-% a_set_up_paths_always_run_first)
+% load images and behavior 
 % ----------------------------------------------
 
-load(fullfile(resultsdir, 'data_objects.mat')); % 
-import_Behav_MPA2
+load(fullfile(resultsdir, 'data_objects.mat')); 
+
+import_Behav_MPA2 % this script lives in (scriptsdir) and imports rating data from behdatadir
 
 % Specify models 
 % ----------------------------------------------

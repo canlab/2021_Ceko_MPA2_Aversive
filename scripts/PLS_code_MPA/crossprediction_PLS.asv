@@ -28,17 +28,24 @@
 % Phil Kragel, Marta Ceko, and Tor Wager 2021
 % ---------------------------------------------------
 
+% run a_set_up_paths_always_run_first
+% or specify directory paths here:
+
+basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/';
+scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
+resultsdir = fullfile(basedir, 'results');
+
 
 %% load and GM mask data 
 
 cd(scriptsdir)
 
-% load images and behavior (from dirs specified in
-% a_set_up_paths_always_run_first)
+% load images and behavior 
 % ----------------------------------------------
 
-load(fullfile(resultsdir, 'data_objects.mat')); % 
-import_Behav_MPA2
+load(fullfile(resultsdir, 'data_objects.mat')); 
+
+import_Behav_MPA2 % this script lives in (scriptsdir) and loads ratings from
 
 % Specify models 
 % ----------------------------------------------
@@ -168,6 +175,14 @@ for k = 1:5  % for each fold
        %eval(['cv_bpls_object_' models{m} '.dat(:, k)cv_ = cv_bpls.dat(:, m);']);
         
        % MC: removed cv_ after .dat(:, k)
+        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat(:, m);']);
+        
+%         Warning: Input should be a string, character array, or cell array of character arrays. 
+% The following error occurred converting from single to fmri_data:
+% fmri_mask_image.resample_to_image_space: illegal sampleto input.
+% 
+% Error in crossprediction_PLS (line 171)
+
         eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat(:, m);']);
 
         eval(['cv_bpls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);']);

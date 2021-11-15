@@ -34,10 +34,10 @@ cd(basedir)
 scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
 
 datadir = '/Users/marta/Documents/DATA/MPA2/';
+behdatadir = '/Users/marta/Documents/DATA/MPA2/Behavior/data_behavior';
 
-% collaborative: 
-% behdatadir = '/Users/marta/Documents/DATA/MPA2/Behavior/data_behavior';
-behdatadir = fullfile(basedir, 'data/data_behavior');
+% for collaboration 
+copybehdatadir = fullfile(basedir, 'data')
 
 resultsdir = fullfile(basedir, 'results');
 figsavedir = fullfile(resultsdir, 'figures');
