@@ -23,6 +23,8 @@
 % runs bootstrapping and saves stats 
 % saves boorstrapped images to interpretation and display 
 
+dosave = true;
+
 
 % ---------------------------------------------------
 % Phil Kragel, Marta Ceko, and Tor Wager 2021
@@ -31,15 +33,18 @@
 % run a_set_up_paths_always_run_first
 % or specify directory paths here:
 
-basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/';
-resultsdir = fullfile(basedir, 'results');
-behdatadir = fullfile(basedir, 'data/data_behavior'); 
-
-% main scripts dir
-scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
-cd(scriptsdir)
+% basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/';
+% resultsdir = fullfile(basedir, 'results');
+% behdatadir = fullfile(basedir, 'data/data_behavior'); 
+% 
+% % main scripts dir
+% scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
+% cd(scriptsdir)
 
 %% load and GM mask data 
+%
+% Create 'dat', which is the full dataset
+% add metadata_table t, which describes outcome self-report data, folds, subject IDs
 
 % load images and behavior 
 % ----------------------------------------------
@@ -103,9 +108,27 @@ kinds=ceil(subjects/11);  % Training Fold (number indicates which test fold the 
 
 %% save info about subjects, folds, and ratings in metadata and save intercept
 
+% Pull subject names out of fullpath and add to table
+pat = 'MPA2s\d+';
+subjid = regexp(cellstr(dat.fullpath), pat, 'match');
+subjid = [subjid{:}]';
+subjid = repmat(subjid, 16, 1);
+
 % metadata table:
-t = table(subjects, kinds, avers_mat, 'VariableNames', {'Subject' 'Fold' 'Aversion_ratings'});
+t = table(subjects, subjid, kinds, avers_mat, 'VariableNames', {'Subject' 'subject_id' 'Fold' 'Aversion_ratings'});
 t = splitvars(t, 'Aversion_ratings', 'NewVariableNames', models);
+
+% Add level and stimulus type
+% lev = ones(55, 1); % stim_int
+% lev = [lev; 2*lev; 3*lev; 4*lev];
+% lev = repmat(lev, 4, 1);
+
+stimtype = ones(220, 1);
+stimtype = [stimtype; 2*stimtype; 3*stimtype; 4*stimtype];
+
+t = addvars(t, stim_int, stimtype, 'NewVariableNames', {'Intensity_level' 'Stimulus_type'});
+
+% Add folds
 [indic, xlevels] = condf2indic(kinds);
 t = addvars(t, indic, 'NewVariableNames', 'fold_indic');
 
@@ -116,11 +139,13 @@ t = addvars(t, indic, 'NewVariableNames', 'fold_indic_matrix');
 t.Properties.Description = 'MPA2 cross-validated PLS metadata. Aversion ratings included (these are Y in PLS).';
 
 % MC: added last variable description to match N of variables 
-t.Properties.VariableDescriptions = {'Participant number' ...
+t.Properties.VariableDescriptions = {'Participant number' 'Participant ID code'...
     'Cross-val fold number (test fold)' 'General aversion ratings' 'Pressure aversion ratings' 'Thermal aversion ratings' 'Sound aversion ratings' 'Visual aversion ratings' ...
-    'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'...
-    'Fold indicator matrix'};
+    'Stimulus intensity level' 'Stim type:1=Pressure, 2=Thermal, 3=Sound, 4=Visual' 'Indicator that image is in test set for Fold 1' 'Indicator that image is in test set for Fold 2' 'Indicator that image is in test set for Fold 3' 'Indicator that image is in test set for Fold 4' 'Indicator that image is in test set for Fold 5'...
+    'Fold indicator matrix (1 = in test fold)'};
 
+
+dat.metadata_table = t;
 
 %% Run cross-validated models
 % ----------------------------------------------
@@ -130,16 +155,25 @@ t.Properties.VariableDescriptions = {'Participant number' ...
 % Create an "empty" data object that is a copy of dat
 for m = 1:length(models)
     
-    eval(['cv_bpls_object_' models{m} ' = dat;']);
-    eval(['cv_bpls_object_' models{m} '.dat = zeros(size(dat.removed_voxels));']);
-	eval(['cv_bpls_object_' models{m} '.removed_images = [];']);
-    eval(['cv_bpls_object_' models{m} '.metadata_table = t;']);
+    eval(['cv_pls_object_' models{m} ' = dat;']);
+    eval(['cv_pls_object_' models{m} '.dat = zeros(size(dat.dat, 1), 1);']); % keep removed voxels the same and match to .dat
+	eval(['cv_pls_object_' models{m} '.removed_images = [];']);
+    eval(['cv_pls_object_' models{m} '.metadata_table = t;']);
     
-    eval(['cv_bpls_object_' models{m} ' .dat = apply_mask(dat,gm_mask);']); % mask with GM mask to match 
+    source_notes = sprintf('MPA2 5 models trained with plsregress, images are folds');
+    eval(['cv_pls_object_' models{m} '.source_notes = source_notes;']);
+    
+    eval(['cv_pls_object_' models{m} '.dat_descrip = ''Trained cv models, one image with model weights per fold'';']);
+    
+    % the data were already masked so this should not be needed
+    %eval(['cv_bpls_object_' models{m} ' = apply_mask(dat,gm_mask);']); % mask with GM mask to match 
 end
 
+%%
 
 for k = 1:5  % for each fold
+    
+    fprintf('FOLD %d\n----------------------\n', k);
     
     train= kinds~=k; % 4/5
     test= ~train; %  1/5
@@ -156,74 +190,95 @@ for k = 1:5  % for each fold
     cv_bpls.volInfo = dat.volInfo;
     
     % TOR: save CV, save intercepts
-    % cv_bpls has all the models for all the outcomes.
+    % cv_bpls is organized by fold.  One object per fold, with all models.
     % 5 images for 5 models.  trained on 880*4/5 images
+    % -----------------------------------------------
     cv_bpls.dat = b_pls(2:end, :);                      % All models, this fold
     cv_bpls.removed_voxels = dat.removed_voxels;
     cv_bpls.additional_info{1} = cv_pls_intercepts{k};  % Add 5 intercepts for 5 models
     cv_bpls.additional_info{2} = 'Cell 1: 5 intercepts for 5 models';
     cv_bpls.additional_info{3} = indic(:, k);
     cv_bpls.additional_info{4} = 'Indicator for test images in fold; 0 = train, 1 = test';
+    cv_bpls.source_notes = sprintf('MPA2 5 models trained with plsregress, fold %d', k);
     
+    % Apply to test images. This has advantages over doing it manually -
+    % e.g., selects metadata_table rows too, better bookkeeping
+    test_dat = get_wh_image(dat, find(test));
+    
+    % Add test metadata table
+    cv_bpls.metadata_table = test_dat.metadata_table;
+    
+    % Apply to test data - add intercepts to dot product
+    pexp_xval_cs_test = apply_mask(test_dat, cv_bpls, 'pattern_expression', 'cosine_similarity');
+    pexp_xval_dp_test = apply_mask(test_dat, cv_bpls, 'pattern_expression') + cv_pls_intercepts{k};
+    
+    % Add cross-val pattern expression to metadata table
+    cv_bpls.metadata_table = addvars(cv_bpls.metadata_table, pexp_xval_cs_test, pexp_xval_dp_test, 'NewVariableNames', {'test_pexp_cs' 'test_pexp_dp'});
+    
+    cv_bpls.metadata_table.Properties.VariableDescriptions{end - 1} = 'Test participants pattern expression - cosine sim';
+    cv_bpls.metadata_table.Properties.VariableDescriptions{end} = 'Test participants pattern expression - dot product';
+    
+    % aggregate into overall
+    pexp_xval_cs(test, :) = pexp_xval_cs_test;
+    pexp_xval_dp(test, :) = pexp_xval_dp_test;
+    
+    % save the object organized by fold.  One object per fold, with all models.
     eval(['cv_pls_fold_' num2str(k) ' = cv_bpls;']); % MC: doesn't like num input, has to be str (or char vector)
+    
+    % Organized by model, with one object per model and each fold as an image (5 images for 5 folds). 
+    % -----------------------------------------------
     
     for m = 1:length(models)
 
-        % TOR:
         % organize into a cv_pls object with each fold as an image (5 images for 5 folds). 
         % cv_bpls_object_General, cv_bpls_object_Pressure, cv_bpls_object_Thermal,cv_bpls_object_Sound cv_bpls_object_Visual
 
-       %eval(['cv_bpls_object_' models{m} '.dat(:, k)cv_ = cv_bpls.dat(:, m);']);
-        
-       % MC: removed cv_ after .dat(:, k)
-        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat(:, m);']);
-        
-%         Warning: Input should be a string, character array, or cell array of character arrays. 
-% The following error occurred converting from single to fmri_data:
-% fmri_mask_image.resample_to_image_space: illegal sampleto input.
-% 
-% Error in crossprediction_PLS (line 171)
+        eval(['cv_pls_object_' models{m} '.dat(:, k) = cv_bpls.dat(:, m);']);
 
-        eval(['cv_bpls_object_' models{m} '.dat(:, k) = cv_bpls.dat(:, m);']);
+        eval(['cv_pls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);']);
 
-        eval(['cv_bpls_object_' models{m} '.additional_info{1}(k) = cv_pls_intercepts{k}(m);']);
-
-        eval(['cv_bpls_object_' models{m} '.additional_info{2} = ''Model intercepts'';']);
-
-        dat.removed_images = 0;
-        test_dat=dat;
-        test_dat.dat=test_dat.dat(:,test);
-        pexp_xval_cs(test,m) = apply_mask(test_dat,cv_bpls,'pattern_expression', 'cosine_similarity');
-        pexp_xval_dp(test,m) = apply_mask(test_dat,cv_bpls,'pattern_expression');
-        
+        eval(['cv_pls_object_' models{m} '.additional_info{2} = ''Model intercepts for each fold'';']);
+       
     end
+    
 end
 
-% Save
-save cv_PLS_models_by_fold cv_pls_fold*
+%% Save
 
-save cv_PLS_models cv_bpls_object*
+% To apply models in cv_PLS_models_by_fold to new data:
+% 1 - identify test observations
+% fold = 1, test = obj.metadata_table.fold_indic_matrix(:, fold);
+%
+% 2 - select test dataset, test_dat = get_wh_image(obj, find(test));
+%
+% 3 - apply models and add intercepts:  
+% pexp_xval_dp_test = apply_mask(test_dat, obj, 'pattern_expression') + obj.additional_info{1};
+
+% now done below
+if dosave
+    
+    save(fullfile(resultsdir, 'patterns', 'PLS_CV_patterns', 'cv_PLS_models_by_fold'), 'cv_pls_fold*');
+    
+    save(fullfile(resultsdir, 'patterns', 'PLS_CV_patterns', 'cv_PLS_models'), 'cv_pls_object*');
+    
+end
 
 %% 
 
-% Initialize objects and add metadata:
+% Add modeltable to save)
 % ----------------------------------------------
-
-dat = DATA_OBJ{1}
+%
+% dat = DATA_OBJ{1};
 
 for m = 1:length(models)
     
-    modeltable = addvars(t, pexp_xval_cs(:, m), 'NewVariableNames', 'pexp_xval_cs');
+    modeltable = addvars(t, pexp_xval_cs(:, m), 'NewVariableNames', ['pexp_xval_cs_' models{m}]);
     
-    modeltable.Properties.VariableDescriptions{end} = 'Cross-validated pattern expression, cosine sim';
+    modeltable.Properties.VariableDescriptions{end} = ['Cross-validated pattern expression for ' models{m} ', cosine sim'];
     
-    modeltable = addvars(modeltable, pexp_xval_dp(:, m), 'NewVariableNames', 'pexp_xval_dp');
+    modeltable = addvars(modeltable, pexp_xval_dp(:, m), 'NewVariableNames', ['pexp_xval_dp_' models{m}]);
     
-    modeltable.Properties.VariableDescriptions{end} = 'Cross-validated pattern expression, dot product';
-    
-    eval(['cv_bpls_object_' models{m} '.volInfo = dat.volInfo;'])
-    
-    eval(['cv_bpls_object_' models{m} '.metadata_table = t;'])
+    modeltable.Properties.VariableDescriptions{end} = ['Cross-validated pattern expression for ' models{m} ', dot product'];
     
 end
 
@@ -235,32 +290,31 @@ end
 
 yhatfull = [ones(length(find(subjects)),1) dat.dat']*b_plsfull; 
 
+int_plsfull = b_plsfull(1, :); % full model intercept 
 
 %% Save stats for cv models and for full model
 % --------------------------------------------------------------------
 
 % Cross-validated
 % --------------------
-
-savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
-%savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm_L2.mat'));
-
-save(savefilename, 'cv_bpls_object_General', '-v7.3'); % data + metadata for General 
-save(savefilename, 'cv_bpls_object_Pressure', '-append'); % data + metadata for Pressure
-save(savefilename, 'cv_bpls_object_Thermal', '-append'); % data + metadata for Thermal 
-save(savefilename, 'cv_bpls_object_Sound', '-append'); % data + metadata for Sound 
-save(savefilename, 'cv_bpls_object_Visual', '-append'); % data + metadata for Visual
-
-save(savefilename, 'modeltable', '-append'); % table w/ metadata
-
-% Add full model stats 
-% -------------------
-save(savefilename, 'yhatfull', 'b_plsfull', '-append'); % full PLS outcomes 
-
-int_plsfull = b_plsfull(1,:); % full model intercept 
-
-save(savefilename, 'int_plsfull', '-append'); % full model intercept in separate variable
-
+if dosave
+    
+    savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
+    %savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm_L2.mat'));
+    
+    save(savefilename, 'cv_pls_fold*', '-v7.3'); % data + metadata for all models by fold
+    save(savefilename, 'cv_pls_object*', '-append'); % data + metadata by object
+    
+    save(savefilename, 'modeltable', '-append'); % table w/ metadata
+    
+    % Add full model stats
+    % -------------------
+    save(savefilename, 'yhatfull', 'b_plsfull', '-append'); % full PLS outcomes
+    
+    
+    save(savefilename, 'int_plsfull', '-append'); % full model intercept in separate variable
+    
+end
 
 %% Write files w/ b_pls weights on full sample --> final signature weight maps for application to new datasets  
 % -----------------------------------------------------------------------------------------------------------
