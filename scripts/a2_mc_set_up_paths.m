@@ -24,12 +24,16 @@ addpath(genpath('/Applications/Canlab/RobustToolbox/'));
 %% also add 
 % add Wani's core repo
 addpath(genpath('/Applications/Canlab/cocoanCORE'));
+
 % Wani's BIDS and preprocessing pipeline
 addpath(genpath('/Applications/Canlab/humanfmri_preproc_bids'));
 
 addpath(genpath('/Applications/Canlab/CanlabPrivate/'));
 % Lukas 
 addpath(genpath('/Applications/Canlab/proj-emosymp/'));
+
+%%  Add ML workshop
+addpath(genpath('/Applications/interpret_ml_neuroimaging'));
 
 %% add anne urai's plotting tools
 addpath(genpath('/Applications/Canlab/Tools'));
@@ -41,16 +45,16 @@ which ('gm_mask.nii');
 
 %% add modified scripts
 % 
-modcanlabdir = fullfile(scriptsdir, 'modified_canlabcore_scripts');
-addpath (genpath(modcanlabdir))
-
-which load_image_set
-fprintf ('FOR NOW USE OWN VERSION - THIS ONE LOADS PLS SIGS! %/n');
-
-which plugin_save_figure
-fprintf ('IT PROBABLY DOES NOT SAVE PNG SO ENFORCE BELOW %/n');
-%edit plugin_save_figure.m
-f_ext='.png';
+% modcanlabdir = fullfile(scriptsdir, 'modified_canlabcore_scripts');
+% addpath (genpath(modcanlabdir))
+% 
+% which load_image_set
+% fprintf ('FOR NOW USE OWN VERSION - THIS ONE LOADS PLS SIGS! %/n');
+% 
+% which plugin_save_figure
+% fprintf ('IT PROBABLY DOES NOT SAVE PNG SO ENFORCE BELOW %/n');
+% %edit plugin_save_figure.m
+% f_ext='.png';
 
 %% for masked contrasts 
 %% add ROI masks 

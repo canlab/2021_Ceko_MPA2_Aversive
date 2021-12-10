@@ -27,11 +27,12 @@
 % --------------------------------------------------------
 
 % Base directory for whole study/analysis
-%basedir = '/Users/marta/Google Drive/A_Multi_lab_world_map/Ceko_MPA2';
+% %basedir = '/Users/marta/Google Drive/A_Multi_lab_world_map/Ceko_MPA2';
 basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/';
-cd(basedir)
 
 scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
+
+scriptsrevdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts/scripts_revision';
 
 datadir = '/Users/marta/Documents/DATA/MPA2/';
 
@@ -40,10 +41,11 @@ datadir = '/Users/marta/Documents/DATA/MPA2/';
 behdatadir = fullfile(basedir, 'data/data_behavior');
 
 resultsdir = fullfile(basedir, 'results');
+resultsrevdir = fullfile(basedir, 'results_revision');
+
 figsavedir = fullfile(resultsdir, 'figures');
 
-addpath(scriptsdir);
-
+cd(scriptsdir)
 
 % Display helper functions: Called by later scripts
 

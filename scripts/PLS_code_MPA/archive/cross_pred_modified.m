@@ -102,7 +102,7 @@ yhatfull = [ones(length(find(subjects)),1) dat.dat']*b_plsfull;
 
 %% Save stats
 % --------------------------------------------------------------------
-savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
+savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm_TEST.mat'));
 %savefilename=(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm_L2.mat'));
 
 save(savefilename, 'avers_mat', '-v7.3');
