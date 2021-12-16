@@ -60,11 +60,14 @@ DAT.functional_wildcard =  {'beta_0013.img' 'beta_0014.img' 'beta_0015.img' 'bet
 DAT.contrasts = [ 1 1 1 1 0 0 0 0;  % main effects per mod
                   0 0 0 0 1 1 1 1; 
                   -3 -1 1 3 0 0 0 0; % linear increase per stim level
-                  0 0 0 0 -3 -1 1 3];
+                  0 0 0 0 -3 -1 1 3;
+                  1 1 1 1 -1 -1 -1 -1;
+                  -3 -1 1 3 3 1 -1 -3]; % interaction
                      
                   
 DAT.contrastnames = {'NegVis' 'PosVis' ...
-                     'NegVisLin' 'PosVisLin'}
+                     'NegVisLin' 'PosVisLin' ...
+                     'Neg_Pos' 'NegLin_PosLin'};
 
 DAT.contrastnames = format_strings_for_legend(DAT.contrastnames);
 

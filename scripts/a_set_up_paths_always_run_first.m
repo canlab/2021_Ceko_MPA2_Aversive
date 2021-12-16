@@ -41,7 +41,7 @@ datadir = '/Users/marta/Documents/DATA/MPA2/';
 behdatadir = fullfile(basedir, 'data/data_behavior');
 
 resultsdir = fullfile(basedir, 'results');
-resultsrevdir = fullfile(basedir, 'results_revision');
+resultsrevdir = fullfile(resultsdir, 'results_revision');
 
 figsavedir = fullfile(resultsdir, 'figures');
 
