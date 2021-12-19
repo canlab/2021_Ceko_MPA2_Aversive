@@ -11,7 +11,7 @@
 % (4) DISJUNCTION 
 
 %% Define dirs for these analyses 
-encode_scriptsdir = scriptsrevdir
+encode_scriptsdir = scriptsrevdir;
 encode_resultsdir = fullfile (resultsrevdir, 'results_encode');
 
 encode_datadir = fullfile(encode_resultsdir, 'data');

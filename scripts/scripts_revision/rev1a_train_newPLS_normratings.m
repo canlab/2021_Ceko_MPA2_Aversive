@@ -7,7 +7,7 @@ prep_1_posneg_set_conditions
 
 resultsdir = resultsrevdir;
 
-% run from highest dir
+% run from highest dir (cd .)
 prep_2_load_image_data_and_save % ... has gone psycho
 % all of a sudden it looks for data in current dir + datadir, instead of
 % datadir - not sure if the issue is with the script or on my (matlab) side

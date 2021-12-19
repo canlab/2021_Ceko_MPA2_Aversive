@@ -22,10 +22,16 @@ load(fullfile(resultsrevdir,'NORMPLS_bootstats10000_N55_gm.mat'));
 load(fullfile(resultsrevdir, 'results_encode/encode_out.mat')); 
 
 % This loads the pls model encoding statistical images for each model:
-% pls_encode_statimg(1) - dat size: 1043888 = the correct size for un
+% pls_encode_statimg(1) - dat size: 1043888 = the correct size for 
 % unmasked image = OK bc the fdr-corr is masked 
+
 % pls_encode_statimg_fdr05(1) - datp,ste,sig size: 63545, sig voxels 28171
- 
+
+% size(pls_encode_statimg(1).dat) = 72017 now
+% size(pls_encode_statimg_fdr05(1).dat)= 63391  
+% size(pls_bs_statimg_fdr05(1).dat) = 63545           
+% 
+
 % 
 %% Create core systems via conjunction of model weight + model encoding statistical images for each model
 % ------------------------------------------------------------------------%
@@ -34,8 +40,20 @@ for m=1:length(models)
     
 %     Use larger image first here (conj probably takes info from the first image and that one seems more fitting here (for the montage below) -
 %     If I use bs_statimg_fdr05 as the first image for conj instead, it throws an error: "illegal size for mask.dat, because it does not match ins volInfo structure"
-    pls_core_statimg(m) = conjunction (pls_encode_statimg_fdr05(m),pls_bs_statimg_fdr05(m),pls_encode_statimg_fdr05(m)1);
+    pls_core_statimg(m) = conjunction (pls_encode_statimg_fdr05(m),pls_bs_statimg_fdr05(m),1);
 end
+
+% 
+pls_encode_resampled(m) = resample_space(pls_encode_statimg_fdr05(m),pls_bs_statimg_fdr05(m));
+
+for m=1:length(models)
+    % conjunction model weights and model encoders 
+    
+%     Use larger image first here (conj probably takes info from the first image and that one seems more fitting here (for the montage below) -
+%     If I use bs_statimg_fdr05 as the first image for conj instead, it throws an error: "illegal size for mask.dat, because it does not match ins volInfo structure"
+    pls_core_statimg(m) = conjunction (pls_encode_resampled(m),pls_bs_statimg_fdr05(m),1);
+end
+
 
 %% Visualization
 % ------------------------------------------------------------------------%
