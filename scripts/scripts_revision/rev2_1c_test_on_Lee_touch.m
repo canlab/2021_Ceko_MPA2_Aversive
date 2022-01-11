@@ -26,11 +26,8 @@ load('/Users/marta/Documents/DATA/MPA2/34bin_beta/betadat_34bin_58subjs.mat');
 
 % analysis 
 % -------------------------------------------------------------------------
-
 %% touch
 % ----------------------------------------------
-% expecting no response to NPS, SIIPS, GENS, THERMS 
-
 clear data_test
 
 data_test = fmri_data(which('gray_matter_mask.nii'), which('gray_matter_mask.nii')); 
@@ -69,7 +66,20 @@ toplot(:,:,7) = reshape(pexp_siips, 58, 34);
 toplot(:,:,8) = reshape(data_test.Y, 58,34);
 toplot(:,:,8) = - toplot(:,:,8); 
 
-% plot full run
+clear touch_pexpstim rouch_pexpbase
+touch_pexpstim = mean(toplot(:,[4:10,17:22],:),2);
+touch_pexpbase = mean(toplot(:,[1:3,11:16,23:34],:),2);
+touch_pexpbasetrim = mean(toplot(:,[1:3,12:16],:),2);
+
+
+% SAVE FOR PLOT ACROSS CONDITIONS in 1d_plot_all_Lee
+% ------------------------------------------------------------------------
+savefilenamedata =(fullfile(resultsrevdir,'Pattexps_Lee.mat'));
+save(savefilenamedata, 'touch_pexpstim', '-append'); 
+save(savefilenamedata, 'touch_pexpbase', '-append'); 
+save(savefilenamedata, 'touch_pexpbasetrim', '-append'); 
+
+%% plot full run
 totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
 create_figure; nplots = size(toplot,3); 
 
@@ -129,43 +139,43 @@ figtitle = 'rev2_1c_touch_plot_BL_STIM.png'
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
 
-%% plot 3 stimuli together: 
-
-% plot
-totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
-create_figure; nplots = size(toplot,3); 
-binnames = {'caps b1' 'caps b2' 'caps s1' 'caps s2' ...
-    'sweet b1' 'sweet b2' 'sweet s1' 'sweet s2' ...
-    'touch b1' 'touch b2' 'touch s1' 'touch s2'};
-
-for n = 1:nplots
-    axh(n) = subplot(4,4,n);
-    barplot_columns([toplot_blstim_cap(:,:,n) toplot_blstim_sweet(:,:,n) toplot_blstim_touch(:,:,n)] ,'nofig','noind', 'noviolin', 'title', totitle{n}, 'colors', seaborn_colors(16), 'names', binnames);
-    set(gca,'LineWidth', 1, 'FontSize', 8, 'box', 'off'); 
-    xlabel(''), ylabel(''); drawnow
-end
-figtitle = 'rev2_1_cap_sweet_touch_plot_BL_STIM.png'
-savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
-
-
-% plot
-totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
-create_figure; nplots = size(toplot,3); 
-binnames = {'caps b1' 'caps b2' 'caps s1' 'caps s2' ...
-    'sweet b1' 'sweet b2' 'sweet s1' 'sweet s2' ...
-    'touch b1' 'touch b2' 'touch s1' 'touch s2'};
-
-for n = 1:nplots
-    axh(n) = subplot(4,4,n);
-    barplot_columns([toplot_blstim_cap(:,:,n) toplot_blstim_sweet(:,:,n) toplot_blstim_touch(:,:,n)] ,'nofig','noind', 'title', totitle{n}, 'colors', seaborn_colors(16), 'names', binnames);
-    set(gca,'LineWidth', 1, 'FontSize', 8, 'box', 'off'); 
-    xlabel(''), ylabel(''); drawnow
-end
-figtitle = 'rev2_1_violin_cap_sweet_touch_plot_BL_STIM.png'
-savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
-
-
-
-
-
-
+% %% plot 3 stimuli together: 
+% 
+% % plot
+% totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
+% create_figure; nplots = size(toplot,3); 
+% binnames = {'caps b1' 'caps b2' 'caps s1' 'caps s2' ...
+%     'sweet b1' 'sweet b2' 'sweet s1' 'sweet s2' ...
+%     'touch b1' 'touch b2' 'touch s1' 'touch s2'};
+% 
+% for n = 1:nplots
+%     axh(n) = subplot(4,4,n);
+%     barplot_columns([toplot_blstim_cap(:,:,n) toplot_blstim_sweet(:,:,n) toplot_blstim_touch(:,:,n)] ,'nofig','noind', 'noviolin', 'title', totitle{n}, 'colors', seaborn_colors(16), 'names', binnames);
+%     set(gca,'LineWidth', 1, 'FontSize', 8, 'box', 'off'); 
+%     xlabel(''), ylabel(''); drawnow
+% end
+% figtitle = 'rev2_1_cap_sweet_touch_plot_BL_STIM.png'
+% savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
+% 
+% 
+% % plot
+% totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
+% create_figure; nplots = size(toplot,3); 
+% binnames = {'caps b1' 'caps b2' 'caps s1' 'caps s2' ...
+%     'sweet b1' 'sweet b2' 'sweet s1' 'sweet s2' ...
+%     'touch b1' 'touch b2' 'touch s1' 'touch s2'};
+% 
+% for n = 1:nplots
+%     axh(n) = subplot(4,4,n);
+%     barplot_columns([toplot_blstim_cap(:,:,n) toplot_blstim_sweet(:,:,n) toplot_blstim_touch(:,:,n)] ,'nofig','noind', 'title', totitle{n}, 'colors', seaborn_colors(16), 'names', binnames);
+%     set(gca,'LineWidth', 1, 'FontSize', 8, 'box', 'off'); 
+%     xlabel(''), ylabel(''); drawnow
+% end
+% figtitle = 'rev2_1_violin_cap_sweet_touch_plot_BL_STIM.png'
+% savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
+% 
+% 
+% 
+% 
+% 
+% 

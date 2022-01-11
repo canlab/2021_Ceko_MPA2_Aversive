@@ -26,11 +26,8 @@ load('/Users/marta/Documents/DATA/MPA2/34bin_beta/betadat_34bin_58subjs.mat');
 
 % analysis 
 % -------------------------------------------------------------------------
-
-%% sweet
+% sweet
 % ----------------------------------------------
-% expecting no response to NPS, SIIPS, GENS, THERMS 
-
 clear data_test
 
 data_test = fmri_data(which('gray_matter_mask.nii'), which('gray_matter_mask.nii')); 
@@ -69,7 +66,20 @@ toplot(:,:,7) = reshape(pexp_siips, 58, 34);
 toplot(:,:,8) = reshape(data_test.Y, 58,34);
 toplot(:,:,8) = - toplot(:,:,8); 
 
+clear sweet_pexpstim sweet_pexpbase
+sweet_pexpstim = mean(toplot(:,[4:10,17:22],:),2);
+sweet_pexpbase = mean(toplot(:,[1:3,11:16,23:34],:),2);
+sweet_pexpbasetrim = mean(toplot(:,[1:3,12:16],:),2);
+
+% SAVE FOR PLOT ACROSS CONDITIONS in 1d_plot_all_Lee
+% ------------------------------------------------------------------------
+savefilenamedata =(fullfile(resultsrevdir,'Pattexps_Lee.mat'));
+save(savefilenamedata, 'sweet_pexpstim', '-append'); 
+save(savefilenamedata, 'sweet_pexpbase', '-append'); 
+save(savefilenamedata, 'sweet_pexpbasetrim', '-append'); 
+
 %% plot full run
+% -------------------------------------------------------------------------
 totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
 create_figure; nplots = size(toplot,3); 
 
@@ -83,14 +93,12 @@ figtitle = 'rev2_1b_sweet_plot_fullrun.png'
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
 
-% plot stimulus period
+%% plot stimulus period
 % -------------------------------------------------------------------------
-
 % extract relevant bins
 clear toplot_stim
 toplot_stim = toplot(:,[4:10,17:23],:);
 
-totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
 create_figure; nplots = size(toplot,3); 
 binnames = {'stim 1' 'stim 1' 'stim 1' 'stim 1' 'stim 1' 'stim 1' 'stim 1' ...
     'stim2' 'stim2' 'stim2' 'stim2' 'stim2' 'stim2' 'stim2'};
@@ -104,18 +112,13 @@ end
 figtitle = 'rev2_1b_sweet_plot_stim.png'
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
-
 % plot bl before + 1st bin of stim 
 % -------------------------------------------------------------------------
 % extract relevant bins
 clear toplot_blstim
 toplot_blstim = toplot(:,[3 16 4 17],:);
 
-% save for later
-toplot_blstim_sweet = toplot_blstim;
-
-% plot
-totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
+% 
 create_figure; nplots = size(toplot,3); 
 binnames = {'base 1' 'base 2' 'stim 1' 'stim 2'};
 
@@ -130,10 +133,9 @@ savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
 
 % Save
-
 printhdr('Save results');
 
-savefilename = fullfile(resultsdir, 'Lee_34bins_pexp.mat');
+savefilename = fullfile(resultsrevdir, 'Lee_34bins_pexp.mat');
 save(savefilename, 'toplot_blstim_cap');
 save(savefilename, 'toplot_blstim_sweet', '-append');
 save(savefilename, 'toplot_blstim_touch', '-append');

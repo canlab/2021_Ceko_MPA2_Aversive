@@ -26,11 +26,8 @@ load('/Users/marta/Documents/DATA/MPA2/34bin_beta/betadat_34bin_58subjs.mat');
 
 % analysis 
 % -------------------------------------------------------------------------
-
 %% caps 
 % ----------------------------------------------
-% expecting some response to NPS, SIIPS, GENS, THERMS 
-
 clear data_test
 
 data_test = fmri_data(which('gray_matter_mask.nii'), which('gray_matter_mask.nii')); 
@@ -69,12 +66,25 @@ toplot(:,:,7) = reshape(pexp_siips, 58, 34);
 toplot(:,:,8) = reshape(data_test.Y, 58,34);
 toplot(:,:,8) = - toplot(:,:,8);
 
-% plot full run
-totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
+clear caps_pexpstim caps_pexpbase
+caps_pexpstim = mean(toplot(:,[4:7,17:20],:),2);
+caps_pexpbase = mean(toplot(:,[1:3,8:16,21:34],:),2);
+caps_pexpbasetrim = mean(toplot(:,[1:3,12:16],:),2);
+
+% SAVE FOR PLOT ACROSS CONDITIONS in 1d_plot_all_Lee
+% ------------------------------------------------------------------------
+savefilenamedata =(fullfile(resultsrevdir,'Pattexps_Lee.mat'));
+save(savefilenamedata, 'caps_pexpstim'); 
+save(savefilenamedata, 'caps_pexpbase', '-append'); 
+save(savefilenamedata, 'caps_pexpbasetrim', '-append'); 
+
+
+%% plot full run
+% -------------------------------------------------------------------------
 create_figure; nplots = size(toplot,3); 
 
 for n = 1:nplots
-    axh(n) = subplot(8,1,n);
+    axh(n) = subplot(3,8,n);
     barplot_columns(toplot(:,:,n),'nofig','noind', 'noviolin', 'title', totitle{n});
     set(gca,'LineWidth', 1, 'FontSize', 8, 'box', 'off'); 
     xlabel(''), ylabel(''); drawnow
@@ -85,12 +95,10 @@ savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
 %% plot stimulus period
 % -------------------------------------------------------------------------
-
 % extract relevant bins
 clear toplot_stim
 toplot_stim = toplot(:,[4:7,17:20],:);
 
-totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
 create_figure; nplots = size(toplot,3); 
 binnames = {'stim 1' 'stim 1' 'stim 1' 'stim 1'  'stim2' 'stim2' 'stim2' 'stim2'};
 
@@ -104,27 +112,27 @@ figtitle = 'rev2_1a_caps_plot_stim.png'
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
 
-% plot bl before + 1st bin of stim 
-% -------------------------------------------------------------------------
-% extract relevant bins
-clear toplot_blstim
-toplot_blstim = toplot(:,[3 16 4 17],:);
-
-% save for later
-toplot_blstim_cap = toplot_blstim 
-
-% plot
-totitle = {'gens' 'mechs' 'therms' 'audis' 'viss' 'nps' 'siips' 'rating'};
-create_figure; nplots = size(toplot,3); 
-binnames = {'base 1' 'base 2' 'stim 1' 'stim 2'};
-
-for n = 1:nplots
-    axh(n) = subplot(4,5,n);
-    barplot_columns(toplot_blstim(:,:,n),'nofig','noind', 'noviolin', 'title', totitle{n}, 'colors', seaborn_colors(8), 'names', binnames);
-    set(gca,'LineWidth', 1, 'FontSize', 8, 'box', 'off'); 
-    xlabel(''), ylabel(''); drawnow
-end
-figtitle = 'rev2_1a_caps_plot_BL_STIM.png'
-savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
-
+% % plot bl before + 1st bin of stim 
+% % -------------------------------------------------------------------------
+% % extract relevant bins
+% clear toplot_blstim
+% toplot_blstim = toplot(:,[3 16 4 17],:);
+% 
+% % save for later
+% toplot_blstim_cap = toplot_blstim 
+% 
+% 
+% % plot
+% create_figure; nplots = size(toplot,3); 
+% binnames = {'base 1' 'base 2' 'stim 1' 'stim 2'};
+% 
+% for n = 1:nplots
+%     axh(n) = subplot(4,5,n);
+%     barplot_columns(toplot_blstim(:,:,n),'nofig','noind', 'noviolin', 'title', totitle{n}, 'colors', seaborn_colors(8), 'names', binnames);
+%     set(gca,'LineWidth', 1, 'FontSize', 8, 'box', 'off'); 
+%     xlabel(''), ylabel(''); drawnow
+% end
+% figtitle = 'rev2_1a_caps_plot_BL_STIM.png'
+% savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
+% 
 

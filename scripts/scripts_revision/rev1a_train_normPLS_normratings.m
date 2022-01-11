@@ -3,15 +3,13 @@
 
 % Prep
 cd(scriptsrevdir);
-prep_1_posneg_set_conditions 
+prep_1_posneg_set_conditions_contrasts 
 
 resultsdir = resultsrevdir;
 
+cd /
 % run from highest dir (cd .)
-prep_2_load_image_data_and_save % ... has gone psycho
-% all of a sudden it looks for data in current dir + datadir, instead of
-% datadir - not sure if the issue is with the script or on my (matlab) side
-
+prep_2_load_image_data_and_save % looks for resultsdir nested under scripts
 
 % %% Univariate contrasts to neg / pos, neg lin / pos lin, and between conditions
 % cd(scriptsrevdir)
@@ -63,8 +61,17 @@ norm_mat=[dat.Y norm_mat];
 dat.removed_images=0;
 dat.removed_voxels=0;
 
+% dat 104388 x 440 single
+% nvox = 271633
+% n_inmask / wh_inmask = 104388
+
 gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
 dat=apply_mask(dat,gm_mask);
+
+% dat 63545 x 440 single
+% nvox = still 271633  
+% n_inmask / wh_inmask = still 104388
+
 
 kinds=ceil(subjects/11);  % 5 folds 
 [indic, xlevels] = condf2indic(kinds);
@@ -124,16 +131,16 @@ end
 % append these to DAT
 
 % General Model
-DAT.NORMPLSXVAL_GEN_conditions.raw.dotproduct = [dp_E(:,:,1)];
-DAT.NORMPLSXVAL_GEN_conditions.raw.cosine_sim = [cs_E(:,:,1)];
+DAT.rawNORMPLSXVAL_GEN_conditions.raw.dotproduct = [dp_E(:,:,1)];
+DAT.rawNORMPLSXVAL_GEN_conditions.raw.cosine_sim = [cs_E(:,:,1)];
 
 % NEG Norm Vis Specific 
-DAT.NORMPLSXVAL_NNV_conditions.raw.dotproduct = [dp_E(:,:,2)];
-DAT.NORMPLSXVAL_NNV_conditions.raw.cosine_sim = [cs_E(:,:,2)];
+DAT.rawNORMPLSXVAL_NNV_conditions.raw.dotproduct = [dp_E(:,:,2)];
+DAT.rawNORMPLSXVAL_NNV_conditions.raw.cosine_sim = [cs_E(:,:,2)];
 
 % POS Norm Vis Specific 
-DAT.NORMPLSXVAL_PNV_conditions.raw.dotproduct = [dp_E(:,:,3)];
-DAT.NORMPLSXVAL_PNV_conditions.raw.cosine_sim = [cs_E(:,:,3)];
+DAT.rawNORMPLSXVAL_PNV_conditions.raw.dotproduct = [dp_E(:,:,3)];
+DAT.rawNORMPLSXVAL_PNV_conditions.raw.cosine_sim = [cs_E(:,:,3)];
 
 
 printhdr('Save results');
@@ -170,6 +177,8 @@ save(savefilename, 'int_plsfull', '-append'); % full PLS outcomes
 
 save(savefilename, 'models', '-append'); % full PLS outcomes
 
+%load(fullfile(resultsrevdir, 'NORMPLS_crossvalidated_N55_gm.mat'));
+
 
 %% Write files w/ b_pls weights on full sample --> final signature weight maps for application to new datasets  
 % -----------------------------------------------------------------------------------------------------------
@@ -179,8 +188,8 @@ save(savefilename, 'models', '-append'); % full PLS outcomes
 
 for m=1:length(models)
     bs_stat=statistic_image;
-    bs_stat.volInfo=dat.volInfo;
-    bs_stat.dat=b_plsfull(2:end,m);
+    bs_stat.volInfo=dat.volInfo;   
+    bs_stat.dat=b_plsfull(2:end,m);  % dat = 63545 x 1 single
     bs_stat.removed_voxels=dat.removed_voxels;
     %orthviews(bs_stat)
 
@@ -218,28 +227,29 @@ save(savefilenamedata, 'models', '-append');
 
 %load(fullfile(resultsrevdir,'NORMPLS_bootstats10000_N55_gm.mat'));
 
-% Save bootstrapped stat images 
+%% Save bootstrapped stat images 
 for m=1:length(models)
     
     % create stat img
-    bs_stat=statistic_image;
+    bsb_stat=statistic_image;
     
     % populate stat img
     % ------------------------------
     % data
-    bs_stat.dat=b_Z_coeff(:,m);
-    bs_stat.p=b_P_coeff(:,m);
+    bsb_stat.dat=b_Z_coeff(:,m);
+    bsb_stat.p=b_P_coeff(:,m);
     
     % meta-info
-    bs_stat.volInfo=datvol; % pulled from the original dat.volInfo
-    bs_stat.removed_voxels=0; % pulled from the original dat.removed_voxels 
+    bsb_stat.volInfo = dat.volInfo;
+    %bs_stat.volInfo=datvol; % pulled from the original dat.volInfo
+    bsb_stat.removed_voxels=0; % pulled from the original dat.removed_voxels 
    
     % save statistical images for further calculations (e.g., conjunctions) 
-    pls_bs_statimg(m) = bs_stat; 
+    pls_bs_statimg(m) = bsb_stat; 
     
        
-    bs_stat = threshold (bs_stat, .05, 'fdr');
-    pls_bs_statimg_fdr05(m) = bs_stat;
+    bsb_stat = threshold (bsb_stat, .05, 'fdr');
+    pls_bs_statimg_fdr05(m) = bsb_stat;
     
 end
 

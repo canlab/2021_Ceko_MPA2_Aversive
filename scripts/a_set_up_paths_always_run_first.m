@@ -36,8 +36,6 @@ scriptsrevdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts/scripts_re
 
 datadir = '/Users/marta/Documents/DATA/MPA2/';
 
-% collaborative: 
-% behdatadir = '/Users/marta/Documents/DATA/MPA2/Behavior/data_behavior';
 behdatadir = fullfile(basedir, 'data/data_behavior');
 
 resultsdir = fullfile(basedir, 'results');

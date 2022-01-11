@@ -22,9 +22,8 @@ SR_resultsdir = fullfile (resultsdir, 'results_modelencode/results');
 SR_figsavedir = fullfile(SR_resultsdir, 'figures');
 
 
-SR_datadir = fullfile(SR_resultsdir, 'data');
+SR_datadir = fullfile(resultsdir, 'results_modelencode/data');
 SR_datarobdir = fullfile(SR_datadir, 'reg_rob'); % robust regression
-SR_datatraddir = fullfile(SR_datadir, 'reg_trad'); % non-robust regression
 SR_datamaxrobdir = fullfile(SR_datadir, 'max_rob'); 
 
 
@@ -43,13 +42,8 @@ load(fullfile(SR_resultsdir, 'SR_out.mat'));
 models = {'General' 'Mechanical' 'Thermal' 'Sound' 'Visual'};
 
 
-% NOTE: ALSO SAVED FINAL OUTPUTS ONLY IN A SMALLER FILE
-% pls_encoders 
-savefilename = fullfile(SR_resultsdir, 'SR_out.mat');
-
 %% Load data 
 cd(scriptsdir);
-
 
 load(fullfile(resultsdir, 'data_objects.mat'));
 import_Behav_MPA2
@@ -75,14 +69,16 @@ dat.additional_info = subjects
 dat.Y_descrip = 'Avoidance ratings'
 models = {'General' 'Mechanical' 'Thermal' 'Sound' 'Visual'};
 
-% mask GM
 dat.removed_images=0;
 dat.removed_voxels=0;
+% dat: [104388×880 single],  nvox: 271633, n_inmask: 104388
 
-% is the maskdir on path? 
-masksdir
+% mask GM
+masksdir % is the maskdir on path? 
 gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
+% /Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/masks/gm_mask.nii
 dat=apply_mask(dat,gm_mask);
+% dat: [63545×880 single],  nvox: 271633, n_inmask: 104388
 
 %% Load yhat 
 load(fullfile(resultsdir, 'PLS_crossvalidated_N55_gm.mat'));
@@ -182,7 +178,7 @@ save(savefilename, 'subj_dat', '-append'); % full PLS outcomes
 % maps from a standard univariate analysis) 
 
 % Make all subject identifiers are equally long 
-strus =  string(uniq_subj)
+strus =  string(uniq_subj);
 struspad = pad(strus,2,'left','0');
 subjcell = cellstr(struspad)';
 
@@ -190,8 +186,8 @@ models = {'General' 'Mechanical' 'Thermal' 'Sound' 'Visual'};
 
 % MODEL ENCODING MAPS:
 % Save ROBUST betas from above into image files 
-for m=1:length(models)
-    for s=1:n_subj
+for m=1 %:length(models)
+    for s=1 %:n_subj
         beta_img = statistic_image;
         beta_img.volInfo = subj_dat{1}.volInfo; % same for all
         beta_img.dat = mod_out_rob{m}{s}.b.dat(:,1); % 1st output = slope, % 2nd = intercept
@@ -210,6 +206,7 @@ end
 
 % Load beta image files into one fmri_object per model
 % ---------------------------------%
+cd /
 Gnames = filenames(fullfile(SR_datarobdir,'General*rob.nii'),'absolute');  
 Mnames = filenames(fullfile(SR_datarobdir,'Mechanical*rob.nii'),'absolute');
 Tnames = filenames(fullfile(SR_datarobdir,'Thermal*rob.nii'),'absolute');
@@ -218,7 +215,7 @@ Vnames = filenames(fullfile(SR_datarobdir,'Visual*rob.nii'),'absolute');
 
 % 
 cd(scriptsdir);
-SR_obj(1) = fmri_data(Gnames,);  % size(SR_obj(1).dat)
+SR_obj(1) = fmri_data(Gnames, );  % size(SR_obj(1).dat)
 SR_obj(2) = fmri_data(Mnames); 
 SR_obj(3) = fmri_data(Tnames);  
 SR_obj(4) = fmri_data(Anames);  

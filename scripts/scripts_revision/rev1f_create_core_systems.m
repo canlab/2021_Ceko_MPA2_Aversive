@@ -12,26 +12,21 @@ models = {'NGeneral' 'NVisneg' 'Vispos'};
 
 load(fullfile(resultsrevdir,'NORMPLS_bootstats10000_N55_gm.mat'));
 
+% check size & space 21/26/21 
 % This loads the pls model weight statistical images for each model:
-% pls_bs_statimg(1) - dat size: 63545 = the correct size for a GM masked image = OK 
-% pls_bs_statimg_fdr05(1) - datp,ste,sig size: 63545, sig voxels 6445 
-% 
+% pls_bsb_statimg(1) - dat size: 63545 x 1;          nvox: 271633 n_inmmask: 104388 
+% pls_bsb_statimg_fdr05(1) - - dat size: 63545 x 1;  nvox: 271633 n_inmmask: 104388 
 %
 % Model encoding maps  
 % ----------------------------------------------------------------- % 
 load(fullfile(resultsrevdir, 'results_encode/encode_out.mat')); 
 
 % This loads the pls model encoding statistical images for each model:
-% pls_encode_statimg(1) - dat size: 1043888 = the correct size for 
-% unmasked image = OK bc the fdr-corr is masked 
+% Npls_encode_statimg(1) - dat size:  72017 x 1;    nvox: 271633 n_inmask: 72017
+% Npls_encode_statimg_fdr05(1) - dat size: 63391×1; nvox: 271633 n_inmask: 72017
 
-% pls_encode_statimg_fdr05(1) - datp,ste,sig size: 63545, sig voxels 28171
-
-% size(pls_encode_statimg(1).dat) = 72017 now
-% size(pls_encode_statimg_fdr05(1).dat)= 63391  
-% size(pls_bs_statimg_fdr05(1).dat) = 63545           
-% 
-
+% n_inmask is reduced during .... because the fmri_obj ...
+ 
 % 
 %% Create core systems via conjunction of model weight + model encoding statistical images for each model
 % ------------------------------------------------------------------------%
@@ -40,20 +35,26 @@ for m=1:length(models)
     
 %     Use larger image first here (conj probably takes info from the first image and that one seems more fitting here (for the montage below) -
 %     If I use bs_statimg_fdr05 as the first image for conj instead, it throws an error: "illegal size for mask.dat, because it does not match ins volInfo structure"
-    pls_core_statimg(m) = conjunction (pls_encode_statimg_fdr05(m),pls_bs_statimg_fdr05(m),1);
+    Npls_core_statimg(m) = conjunction (Npls_encode_statimg_fdr05(m),pls_bsb_statimg_fdr05(m),1);
 end
+% did not work
+% Error using statistic_image/conjunction (line 24)
+% Objects are not in same space --- compare_space option 3 
 
-% 
-pls_encode_resampled(m) = resample_space(pls_encode_statimg_fdr05(m),pls_bs_statimg_fdr05(m));
+gm_mask=fmri_data(which('gm_mask.nii')); % Improved mask 
+dat=apply_mask(dat,gm_mask);
+
+Npls_encode_resampled(m) = resample_space(pls_encode_statimg_fdr05(m),gm_mask);
+Npls_bs_resampled(m) = resample_space(pls_bs_statimg_fdr05(m),gm_mask);
 
 for m=1:length(models)
     % conjunction model weights and model encoders 
     
 %     Use larger image first here (conj probably takes info from the first image and that one seems more fitting here (for the montage below) -
 %     If I use bs_statimg_fdr05 as the first image for conj instead, it throws an error: "illegal size for mask.dat, because it does not match ins volInfo structure"
-    pls_core_statimg(m) = conjunction (pls_encode_resampled(m),pls_bs_statimg_fdr05(m),1);
+    Npls_core_statimg(m) = conjunction (Npls_encode_resampled(m),Npls_bs_statimg_fdr05(m),1);
 end
-
+% still not working 
 
 %% Visualization
 % ------------------------------------------------------------------------%

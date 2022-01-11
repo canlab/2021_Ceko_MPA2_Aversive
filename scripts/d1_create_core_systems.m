@@ -23,14 +23,15 @@ load(fullfile(resultsdir,'PLS_bootstats10000_N55_gm.mat'));
 
 % This loads the pls model weight statistical images for each model:
 % pls_bs_statimg(1) - dat size: 63545 = the correct size for a GM masked image = OK 
+% double-check: 12/20/21: 
 % pls_bs_statimg_fdr05(1) - datp,ste,sig size: 63545, sig voxels 6445 
-% 
+% double-check: 12/20/21: 
 %
 % Model encoding maps  
 % ----------------------------------------------------------------- % 
 % ----------------------------------------------------------------- % 
 SR_analysisdir = fullfile(basedir, 'SR_analysis');
-SR_resultsdir = fullfile(SR_analysisdir, 'results');
+SR_resultsdir = fullfile(resultsdir, 'results_modelencode/results');
 
 % Load output of /SR_analysis/scripts/bb4b_neurobio_interpretation_via_SR
 % ----------------------------------------------------------------- % 
@@ -38,10 +39,10 @@ SR_resultsdir = fullfile(SR_analysisdir, 'results');
 load(fullfile(SR_resultsdir, 'SR_out.mat')); 
 
 % This loads the pls model encoding statistical images for each model:
-% pls_encode_statimg(1) - dat size: 1043888 = the correct size for un
-% unmasked image = OK bc the fdr-corr is masked 
+% pls_encode_statimg(1) - dat size: 1043888 = the correct size unmasked image = OK bc the fdr-corr is masked 
+% double-check: 12/20/21: 
 % pls_encode_statimg_fdr05(1) - datp,ste,sig size: 63545, sig voxels 28171
- 
+ % double-check: 12/20/21: 
 % 
 %% Create core systems via conjunction of model weight + model encoding statistical images for each model
 % ------------------------------------------------------------------------%

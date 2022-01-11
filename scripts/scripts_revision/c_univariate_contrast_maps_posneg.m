@@ -77,13 +77,14 @@ for i = 1:k
         disp('Cannot find figure - Tag field was not set or figure was closed. Skipping save operation.');
     end
     
-%     % Table of results (3 vox or greater)
-%     fprintf('Table of results for clusters >= 3 contiguous voxels.');
-%     r(cat(1, r.numVox) < 3) = [];                   % r = extent_threshold(r);
-%     
-%     [rpos, rneg] = table(r);       % add labels
-%     r = [rpos rneg];               % re-concatenate labeled regions
-%     
+    % Table of results (3 vox or greater)
+    %  Table of results (10 vox or greater)
+    fprintf('Table of results for clusters >=10 contiguous voxels.');
+    r(cat(1, r.numVox) < 10) = [];                   % r = extent_threshold(r);
+    
+    [rpos, rneg] = table(r);       % add labels
+    r = [rpos rneg];               % re-concatenate labeled regions
+    
 %     % Montage of regions in table (plot and save)
 %     if ~isempty(r)
 %         o3 = montage(r, 'colormap', 'regioncenters');
@@ -132,13 +133,13 @@ for i = 1:k
         disp('Cannot find figure - Tag field was not set or figure was closed. Skipping save operation.');
     end
     
-%     % Table of results (10 vox or greater)
-%     
-%     fprintf('Table of results for clusters >= 10 contiguous voxels.');
-%     r(cat(1, r.numVox) < 10) = [];    
-%     [rpos, rneg] = table(r);       % add labels
-%     r = [rpos rneg];               % re-concatenate labeled regions
-%     
+    % Table of results (10 vox or greater)
+    
+    fprintf('Table of results for clusters >= 10 contiguous voxels.');
+    r(cat(1, r.numVox) < 10) = [];    
+    [rpos, rneg] = table(r);       % add labels
+    r = [rpos rneg];               % re-concatenate labeled regions
+    
 %     
 %     % Montage of regions in table (plot and save)
 %     if ~isempty(r)
