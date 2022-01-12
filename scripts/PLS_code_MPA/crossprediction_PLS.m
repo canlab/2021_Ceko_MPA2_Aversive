@@ -170,7 +170,7 @@ for m = 1:length(models)
     eval(['cv_pls_object_' models{m} '.dat_descrip = ''Trained cv models, one image with model weights per fold'';']);
 end
 
-%%
+%
 
 for k = 1:5  % for each fold
     
@@ -307,6 +307,12 @@ if dosave
     
     save(savefilename, 'cv_pls_fold*', '-v7.3'); % data + metadata for all models by fold
     save(savefilename, 'cv_pls_object*', '-append'); % data + metadata by object
+        
+    save(savefilename, 'modeltable', '-append'); % table w/ metadata
+    
+    % save aggregated dp (with intercept), cv
+    save(savefilename,'pexp_xval_cs', 'pexp_xval_dp', '-append'); % cross-val PLS outcomes 
+
     
     save(savefilename, 'modeltable', '-append'); % table w/ metadata
     

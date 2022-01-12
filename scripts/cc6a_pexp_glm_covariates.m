@@ -1,15 +1,4 @@
 
-%% PLS brain patterns (as included in the load_image_set)
-% For now, make sure you use this load_image_set version: 
-% /Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/Analysis/MPA2_EXP/scripts/modified_canlabcore_scripts/load_image_set.m
-% (will commit to common repo when results are final) 
-
-GenS   = which('General_b10000_unthr.nii')
-MechS  = which('Mechanical_b10000_unthr.nii')
-ThermS = which('Thermal_b10000_unthr.nii')
-AudiS  = which('Sound_b10000_unthr.nii')
-VisS   = which('Visual_b10000_unthr.nii')
-
 %% Load data 
 
 % Import 
