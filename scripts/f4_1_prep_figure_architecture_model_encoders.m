@@ -60,7 +60,7 @@ figtitle = ['ROI_bs.png'];
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename); drawnow, snapnow; %close;
 
 
-%% MIDLINE 
+%% MIDLINE, limbic
 % -------------------------------------------------------------------------
 % Cingulate - Kragel masks - followed Vogt's cingulate parcellation (Vogt 2003, 2009) 
 Cing_atlas = load_atlas(fullfile(roiscriptsdir, 'MFC_atlas_object.mat'));
@@ -204,7 +204,7 @@ sense_obj = [S1 S2 A1 A_23 V1 V_234];
 sense_obj_LR = [S1_LR S2_LR A1_LR A_23_LR V1_LR V_234_LR];
 
 % Save all into one object 
-savefilename = fullfile(resultsdir, 'FENIX_ROIs_obj.mat');
+savefilename = fullfile(resultsdir, 'ROI_obj_to_plot.mat');
 save(savefilename, 'thal_obj', '-v7.3');
 save(savefilename,  'bs_obj', '-append');
 save(savefilename, 'affect_obj', 'affect_compact', 'cc', '-append');

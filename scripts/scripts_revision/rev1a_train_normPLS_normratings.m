@@ -22,6 +22,11 @@ prep_2_load_image_data_and_save % looks for resultsdir nested under scripts
 % ----------------------------------------------
 load(fullfile(resultsrevdir, 'data_objects.mat')); 
 
+load(fullfile(resultsdir, 'image_names_and_setup.mat'));
+
+% For publish output
+
+cd(scriptsrevdir)
 import_Behav_NEGPOS %
 
 % Specify models 
@@ -99,13 +104,13 @@ for k = 1:5  % for each fold
     % -----------------------------------------------
     cv_bpls.dat = b_pls(2:end, :);                      % All models, this fold
     cv_bpls.removed_voxels = dat.removed_voxels;
-    cv_bpls.additional_info{1} = cv_pls_intercepts{k};  % Add 5 intercepts for 5 models
+    cv_bpls.additional_info{1} = cv_pls_intercepts{k};  % Add 5 intercepts for 3 models
     cv_bpls.additional_info{2} = 'Cell 1: 3 intercepts for 3 models';
     cv_bpls.additional_info{3} = indic(:, k);
     cv_bpls.additional_info{4} = 'Indicator for test images in fold; 0 = train, 1 = test';
     cv_bpls.source_notes = sprintf('MPA2 3 models trained with plsregress, fold %d', k);
     
-    % Experience session: Apply to test images 
+    %  Apply to test images 
     % -----------------------------------------------
     test_dat = get_wh_image(dat, find(test));
 
@@ -123,7 +128,6 @@ end
 % Xval patterns for each model are in the 440/1 format
 % reshape into 55 x 8
 for m = 1:3
-    % Experience Session
     cs_E(:,:,m) = reshape(pexp_xval_cs(:,m), 55, 8);
     dp_E(:,:,m) = reshape(pexp_xval_dp(:,m), 55, 8);
 end
@@ -145,7 +149,7 @@ DAT.rawNORMPLSXVAL_PNV_conditions.raw.cosine_sim = [cs_E(:,:,3)];
 
 printhdr('Save results');
 
-savefilename = fullfile(resultsdir, 'image_names_and_setup.mat');
+savefilename = fullfile(resultsrevdir, 'image_names_and_setup.mat');
 save(savefilename, 'DAT', '-append');
 % 
 

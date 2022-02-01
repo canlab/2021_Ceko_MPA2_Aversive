@@ -9,7 +9,7 @@ import_Behav_MPA2;
 
 % Import covariates 
 import_Covars_MPA2;
-% Gender 1/-1
+% Sex 1/-1
 % Age (demeaned) 
 % Hand 1/-1
 % Race 1/-1 (white /non-white)
@@ -18,10 +18,10 @@ import_Covars_MPA2;
 %% Test effect of covariates on GenS response 
 
 % Prep GenS
-pexpm_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,1:4));
-pexpt_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,5:8));
-pexpa_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,9:12));
-pexpv_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,13:16));
+pexpm_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,1:4));
+pexpt_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,5:8));
+pexpa_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,9:12));
+pexpv_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,13:16));
 % Prep ratings 
 mechrat=Pain_Avoid(:,1:4);
 thermrat=Pain_Avoid(:,5:8);
@@ -44,7 +44,7 @@ for i = 1:N
     Y3{i} = audrat(i, :)';
     Y4{i} = visrat(i, :)';
 end
-X2 = Covars_Avoid;
+X2 = Covars;
 
 % Sig response pure, no covariates (just double-checking) 
 stats = glmfit_multilevel(Y1, X1_1, [], 'names', {'Sig Resp Intercept' 'Sig Resp Slope'},'weighted');
@@ -66,7 +66,7 @@ stats = glmfit_multilevel(Y4, X1_4, [], 'names', {'Sig Resp Intercept' 'Sig Resp
 fprintf ('GenS on MECH \n');
 stats = glmfit_multilevel(Y1, X1_1, X2, ...
   'names', {'X1 Intercept' 'Sig Resp Slope'}, ...
-  'beta_names', {'X2 Intercept' 'Gender' 'Age' 'Hand' 'Race' 'SessOrder'}, 'weighted');
+  'beta_names', {'X2 Intercept' 'SessOrder' 'Sex' 'Age' 'Hand' 'Race'}, 'weighted');
 
 % Effect of each covariate separately (all Sig Resp significant) 
 stats = glmfit_multilevel(Y1, X1_1, X2(:,1), ...
@@ -81,7 +81,7 @@ stats = glmfit_multilevel(Y1, X1_1, X2(:,3), ...
 stats = glmfit_multilevel(Y1, X1_1, X2(:,4), ...
   'names', {'X1 Intercept' 'Sig Resp Slope'},'beta_names', {'X2 Intercept' 'Race'}, 'weighted');
  
-stats = glmfit_multilevel(Y1, X1_1, X2(:,5), ...
+stats = glmfit_multilevel(Y1, X1_1, X2(:,1), ...
   'names', {'X1 Intercept' 'Sig Resp Slope'},'beta_names', {'X2 Intercept' 'SessOrder'}, 'weighted');
 
 

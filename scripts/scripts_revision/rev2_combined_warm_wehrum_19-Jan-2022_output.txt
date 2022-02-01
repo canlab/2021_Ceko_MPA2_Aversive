@@ -1,0 +1,232 @@
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'      1198.7       141.01       8.5012    2.4442e-13     0.86317
+    'Pos'      75.861       118.35      0.64098       0.52306    0.065082
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'     -966.88       96.802      -9.9882    2.2204e-15     -1.0141
+    'Pos'     -351.85       82.515       -4.264    4.6996e-05    -0.43295
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'     -563.83       108.44      -5.1996    1.1262e-06    -0.52794
+    'Pos'     -172.52       92.753        -1.86      0.065943    -0.18886
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'      541.87       83.878       6.4603    4.3065e-09     0.65594
+    'Pos'       14.12       66.948      0.21091       0.83341    0.021414
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'      1868.4       125.89       14.841    2.2204e-15      1.5069
+    'Pos'      67.033        113.6      0.59006       0.55654    0.059911
+
+
+figtitle =
+
+    'rev2_study5_Wehrum.png'
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'      1198.7       141.01       8.5012    2.4442e-13     0.86317
+    'Pos'      75.861       118.35      0.64098       0.52306    0.065082
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'     -966.88       96.802      -9.9882    2.2204e-15     -1.0141
+    'Pos'     -351.85       82.515       -4.264    4.6996e-05    -0.43295
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'     -563.83       108.44      -5.1996    1.1262e-06    -0.52794
+    'Pos'     -172.52       92.753        -1.86      0.065943    -0.18886
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'      541.87       83.878       6.4603    4.3065e-09     0.65594
+    'Pos'       14.12       66.948      0.21091       0.83341    0.021414
+
+Col   1: Neg	Col   2: Pos	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+    <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Neg'      1868.4       125.89       14.841    2.2204e-15      1.5069
+    'Pos'      67.033        113.6      0.59006       0.55654    0.059911
+
+
+figtitle =
+
+    'rev2_study5_Wehrum_violin.png'
+
+
+sampleto =
+
+    '/Applications/interpret_ml_neuroimaging/data/derivatives/contrast_images/heat_sub_01.nii'
+
+loading mask. mapping volumes. 
+checking that dimensions and voxel sizes of volumes are the same. 
+Pre-allocating data array. Needed: 97610072 bytes
+Loading image number:     0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32   33   34   35   36   37   38   39   40   41   42   43   44   45   46   47   48   49   50   51   52   53   54   55   56   57   58   59   60   61   62   63   64   65   66   67   68   69   70   71   72   73   74   75   76   77   78   79   80   81   82   83   84   85   86   87   88   89   90   91   92   93   94   95   96   97   98   99  100  101  102  103  104  105  106  107  108  109  110  111  112  113  114  115  116  117  118
+Elapsed time is 2.753212 seconds.
+Image names entered, but fullpath attribute is empty. Getting path info.
+Number of unique values in dataset: 20968256  Bit rate: 24.32 bits
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'heat'      3510.8       443.32       7.9195    8.3573e-11      1.031 
+    'warm'     -726.02       502.24      -1.4456       0.15368    -0.1882 
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>        <strong>T</strong>           <strong>P</strong>        <strong>Cohens_d</strong> 
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_________</strong>    <strong>________</strong>    <strong>_________</strong>
+
+    'heat'     -762.22       343.05        -2.2219    0.030204     -0.28927
+    'warm'     -29.437       332.14      -0.088627     0.92968    -0.011538
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>        <strong>Cohens_d</strong>
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>_________</strong>    <strong>________</strong>
+
+    'heat'      4111.9       503.55       8.1658    3.232e-11     1.0631 
+    'warm'      396.69       445.61      0.89021      0.37703     0.1159 
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'heat'     -1208.7       327.98      -3.6854    0.00050415    -0.47979
+    'warm'       -1098       330.56      -3.3216     0.0015529    -0.43244
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>        <strong>Cohens_d</strong> 
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>
+
+    'heat'     -113.14       446.73      -0.25326     0.80096    -0.032972
+    'warm'     -1005.7       387.53       -2.5952    0.011955     -0.33786
+
+
+figtitle =
+
+    'rev2_study6_violin_test_on_warm.png'
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'heat'      3510.8       443.32       7.9195    8.3573e-11      1.031 
+    'warm'     -726.02       502.24      -1.4456       0.15368    -0.1882 
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>        <strong>T</strong>           <strong>P</strong>        <strong>Cohens_d</strong> 
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_________</strong>    <strong>________</strong>    <strong>_________</strong>
+
+    'heat'     -762.22       343.05        -2.2219    0.030204     -0.28927
+    'warm'     -29.437       332.14      -0.088627     0.92968    -0.011538
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>        <strong>Cohens_d</strong>
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>_________</strong>    <strong>________</strong>
+
+    'heat'      4111.9       503.55       8.1658    3.232e-11     1.0631 
+    'warm'      396.69       445.61      0.89021      0.37703     0.1159 
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'heat'     -1208.7       327.98      -3.6854    0.00050415    -0.47979
+    'warm'       -1098       330.56      -3.3216     0.0015529    -0.43244
+
+Col   1: heat	Col   2: warm	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+     <strong>Name</strong>     <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>        <strong>Cohens_d</strong> 
+    <strong>______</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>
+
+    'heat'     -113.14       446.73      -0.25326     0.80096    -0.032972
+    'warm'     -1005.7       387.53       -2.5952    0.011955     -0.33786
+
+
+figtitle =
+
+    'rev2_study6_violin_test_on_warm_FIGURE.png'
+

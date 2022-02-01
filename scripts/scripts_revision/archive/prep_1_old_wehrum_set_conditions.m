@@ -17,10 +17,14 @@ DAT.functional_wildcard =  {'con_0001.img*' 'con_0002.img*' 'con_0003.img*' 'con
 
 %% Set Contrasts
 % ------------------------------------------------------------------------
-DAT.contrasts = [0 1 -1 0; % Neg min Neutral
-                 1 0 -1 0]; % Pos min Neutral
-          
-DAT.contrastnames = {'NegMinNeut' 'PosMinNeut'};
+DAT.contrasts = [-1 1 0 0; % Neg min Pos
+                 0 1 -1 0; % Neg min Neutral
+                 0 1 0 -1; % Neg min Sexual
+                 -1 0 0 1; % Sexual min Pos 
+                 0 0 -1 1]; % Sexual min Neut -- according to the BASIC paper, this should be similar to Neg > Neut, but weaker
+             
+DAT.contrastnames = {'NegMinPos' 'NegMinNeut' 'NegMinSex' ...
+                     'SexMinPos' 'SexMinNeut'};
 
 DAT.contrastnames = format_strings_for_legend(DAT.contrastnames);
 

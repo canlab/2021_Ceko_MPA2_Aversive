@@ -10,16 +10,16 @@ import_Behav_MPA2;
 
 
 %% GenS signature 
-pexpm_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,1:4));
+pexpm_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,1:4));
 pexpm_GenS = reshape (pexpm_GenS, 220,1);
 
-pexpt_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,5:8));
+pexpt_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,5:8));
 pexpt_GenS = reshape (pexpt_GenS, 220,1);
 
-pexpa_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,9:12));
+pexpa_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,9:12));
 pexpa_GenS = reshape (pexpa_GenS, 220,1);
 
-pexpv_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.GenS(:,13:16));
+pexpv_GenS = table2array(DAT.SIG_conditions.raw.cosine_sim.General_aversive(:,13:16));
 pexpv_GenS = reshape (pexpv_GenS, 220,1);
 
 clear x y 

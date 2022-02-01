@@ -19,8 +19,9 @@ colors_to_plot = {[0.6 0 0.8] [1 0.2 0.4] [1 0.6 0.2] [0 0.6 0.4] [0 0.4 1]};
 %% load data and ROIs 
 % ------------------------------------------------------------------------
 
-% load model encoding values from saved
+% load model encoding values from saved --- update path!
 load(fullfile(resultsdir, 'model_encode_obj.mat'));
+
 
 %load ROIs from saved 
 load (fullfile(resultsdir, 'ROI_obj_to_plot.mat'));
@@ -226,7 +227,7 @@ figtitle = 'ROI_encoders_COMPACT.png'
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
 
-% DISTRIBUTION PLOTS 
+%% DISTRIBUTION PLOTS 
 % ------------------------------------------------------------------------
 create_figure; nplots = size(compact_obj.labels,2); labels = compact_obj.labels
 
@@ -247,8 +248,6 @@ end
 
 figtitle = 'ROI_encoders_COMPACT_dots.png'
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
-
-
 
 
 % Mechanical is not showing up in these a priori (large) S1s,
@@ -392,5 +391,114 @@ for n = 1:nplots
 end
 figtitle = 'ROI_encoders_YEO17.png'
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
+
+%% Sanity checks - after plotting for paper revisions 
+for m = 1:5
+    extracted_roi{m} = extract_roi_averages(encode_obj(m), amy);
+end
+
+create_figure
+nplots = size(amy.labels,2); % 
+labels = amy.labels;
+
+% REPLICATED AMY PLOT = GOOD
+for n = 1:nplots
+    axh(n) = subplot(1,2,n);
+    toplot = [extracted_roi{1}(n).dat extracted_roi{2}(n).dat extracted_roi{3}(n).dat extracted_roi{4}(n).dat extracted_roi{5}(n).dat];
+    h = barplot_columns(toplot,'nofig','title', labels(n),'doind', 'noviolin');
+    set(gca,'LineWidth', .75,'YTick', 0:0.1:0.1, 'YLim', [-0.3 0.3],'XTick', 0:0:0, 'FontSize', 7);
+    for i = 1:5
+        h.errorbar_han{i}.LineWidth = 1;
+        h.errorbar_han{i}.CapSize = 0;
+    end
+    xlabel(''), ylabel(''); drawnow
+end
+%close
+
+for m = 1:5
+    extracted_roi{m} = extract_roi_averages(encode_obj(m), vStr);
+end
+
+create_figure
+nplots = size(vStr.labels,2); % 
+labels = vStr.labels;
+
+% % REPLICATED VSTR PLOT = GOOD
+for n = 1:nplots
+    axh(n) = subplot(1,2,n);
+    toplot = [extracted_roi{1}(n).dat extracted_roi{2}(n).dat extracted_roi{3}(n).dat extracted_roi{4}(n).dat extracted_roi{5}(n).dat];
+    h = barplot_columns(toplot,'nofig','title', labels(n),'doind', 'noviolin');
+    set(gca,'LineWidth', .75,'YTick', 0:0.1:0.1, 'YLim', [-0.3 0.3],'XTick', 0:0:0, 'FontSize', 7);
+    for i = 1:5
+        h.errorbar_han{i}.LineWidth = 1;
+        h.errorbar_han{i}.CapSize = 0;
+    end
+    xlabel(''), ylabel(''); drawnow
+end
+
+% Let's split by hemi - revision plots were showing significance for L and
+% R separately
+
+amyLR = split_atlas_by_hemisphere(amy)
+amy_L = select_atlas_subset(amyLR, {'Amy_L'}, 'flatten');
+amy_R = select_atlas_subset(amyLR, {'Amy_R'}, 'flatten');
+
+
+vstrLR = split_atlas_by_hemisphere(vStr)
+vstr_L = select_atlas_subset(vstrLR, {'vStr_L'}, 'flatten');
+vstr_R = select_atlas_subset(vstrLR, {'vStr_R'}, 'flatten');
+
+
+for m = 1:5
+    extracted_roi{m} = extract_roi_averages(encode_obj(m), vstr_L);
+end
+
+create_figure
+nplots = size(vstr_L.labels,2); % 
+labels = vstr_L.labels;
+
+for n = 1:nplots
+    axh(n) = subplot(1,2,n);
+    toplot = [extracted_roi{1}(n).dat extracted_roi{2}(n).dat extracted_roi{3}(n).dat extracted_roi{4}(n).dat extracted_roi{5}(n).dat];
+    h = barplot_columns(toplot,'nofig','title', labels(n),'doind', 'noviolin');
+    set(gca,'LineWidth', .75,'YTick', 0:0.1:0.1, 'YLim', [-0.3 0.3],'XTick', 0:0:0, 'FontSize', 7);
+    for i = 1:5
+        h.errorbar_han{i}.LineWidth = 1;
+        h.errorbar_han{i}.CapSize = 0;
+    end
+    xlabel(''), ylabel(''); drawnow
+end
+
+
+for m = 1:5
+    extracted_roi{m} = extract_roi_averages(encode_obj(m), vstr_R);
+end
+
+create_figure
+nplots = size(vstr_R.labels,2); % 
+labels = vstr_R.labels;
+
+for n = 1:nplots
+    axh(n) = subplot(1,2,n);
+    toplot = [extracted_roi{1}(n).dat extracted_roi{2}(n).dat extracted_roi{3}(n).dat extracted_roi{4}(n).dat extracted_roi{5}(n).dat];
+    h = barplot_columns(toplot,'nofig','title', labels(n),'doind', 'noviolin');
+    set(gca,'LineWidth', .75,'YTick', 0:0.1:0.1, 'YLim', [-0.3 0.3],'XTick', 0:0:0, 'FontSize', 7);
+    for i = 1:5
+        h.errorbar_han{i}.LineWidth = 1;
+        h.errorbar_han{i}.CapSize = 0;
+    end
+    xlabel(''), ylabel(''); drawnow
+end
+
+
+
+
+
+
+
+
+
+
+
 
 

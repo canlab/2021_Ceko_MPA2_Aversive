@@ -6,7 +6,10 @@ pexp_color = [0.2 0.8 1;  % light blue
 
 
 import_Behav_NEGPOS_scatter
-b_reload_saved_matfiles
+
+load(fullfile(resultsrevdir, 'data_objects.mat')); 
+
+load(fullfile(resultsdir, 'image_names_and_setup.mat'));
 
 % ----------------------------------------------
 % Plot behavior - scatter w. valence / arousal 
@@ -69,9 +72,9 @@ set(gca,'box', 'off', 'XLim',[0.5 4.5],'YLim', [.5 3.5], 'XTick', 1:1:4,'YTick',
 set(gca,'LineWidth', 1,'FontSize', 10);
 
 % ----------------------------------------------
-% Plot pattern responses 
+%% Plot pattern responses 
 % ----------------------------------------------
-%%
+
 % GenS signature 
 pexpnv_GenS = DAT.rawNORMPLSXVAL_GEN_conditions.raw.dotproduct(:,1:4);
 pexppv_GenS = DAT.rawNORMPLSXVAL_GEN_conditions.raw.dotproduct(:,5:8);
@@ -235,9 +238,9 @@ set(gca,'box', 'off', 'XLim',[0.8 3.5],'YLim', [-0.1 2.4], 'XTick', 1:1:4,'YTick
 set(gca,'LineWidth', 1,'FontSize', 10);
 % 
 
-plugin_save_figure
+%plugin_save_figure
 
-% stats: 
+% stats - updated and dc 01/17/22 
 
 % Avg_rG
 %     {[0.5803]}    {[0.6846]}
@@ -249,12 +252,12 @@ plugin_save_figure
 %  {[-0.1077]}    {[0.7514]}
 
 % p 
-%    0.0011    0.0014
-%    0.0013    0.0000
-%    0.1178    0.0019
+%     0.0013    0.0014
+%     0.0010    0.0000
+%     0.1216    0.0019
 % 
 % z
-%   3.2754    3.1856
-%   3.2123   -4.1195
-%   -1.5642   3.1058
-%
+%     3.2104    3.2024
+%     3.2829   -4.1620
+%    -1.5482    3.1045
+

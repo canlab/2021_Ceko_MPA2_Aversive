@@ -1,0 +1,2563 @@
+% Prep ratings 
+mechrat=Pain_Avoid(:,1:4);
+thermrat=Pain_Avoid(:,5:8);
+audrat=Pain_Avoid(:,9:12);
+visrat=Pain_Avoid(:,13:16);
+
+X2 =
+
+   -1.0000   -1.0000   -4.9000    1.0000    1.0000
+    1.0000    1.0000    0.1000    1.0000   -1.0000
+   -1.0000    1.0000   -6.9000    1.0000    1.0000
+    1.0000    1.0000    2.1000    1.0000    1.0000
+    1.0000   -1.0000   -2.9000    1.0000    1.0000
+    1.0000    1.0000    5.1000   -1.0000    1.0000
+   -1.0000   -1.0000    1.1000    1.0000    1.0000
+    1.0000   -1.0000   -5.9000    1.0000    1.0000
+   -1.0000   -1.0000   -3.9000   -1.0000    1.0000
+   -1.0000    1.0000   -1.9000    1.0000    1.0000
+    1.0000    1.0000   -2.9000    1.0000    1.0000
+   -1.0000   -1.0000    1.1000    1.0000   -1.0000
+    1.0000   -1.0000   28.1000    1.0000    1.0000
+    1.0000    1.0000   -2.9000   -1.0000    1.0000
+   -1.0000    1.0000    2.1000    1.0000    1.0000
+   -1.0000    1.0000    2.1000    1.0000    1.0000
+   -1.0000   -1.0000   -4.9000    1.0000    1.0000
+    1.0000    1.0000    1.1000    1.0000    1.0000
+   -1.0000   -1.0000   -5.9000    1.0000    1.0000
+    1.0000    1.0000    4.1000   -1.0000    1.0000
+   -1.0000    1.0000   -5.9000    1.0000    1.0000
+    1.0000    1.0000   -6.9000    1.0000    1.0000
+    1.0000    1.0000   -1.9000    1.0000    1.0000
+    1.0000   -1.0000    1.1000   -1.0000    1.0000
+   -1.0000   -1.0000    2.1000    1.0000    1.0000
+    1.0000   -1.0000   -1.9000    1.0000    1.0000
+    1.0000    1.0000   -4.9000    1.0000    1.0000
+   -1.0000   -1.0000    5.1000   -1.0000    1.0000
+   -1.0000    1.0000   -5.9000    1.0000    1.0000
+    1.0000   -1.0000    0.1000    1.0000    1.0000
+    1.0000   -1.0000   -4.9000    1.0000    1.0000
+    1.0000    1.0000   -4.9000    1.0000   -1.0000
+   -1.0000    1.0000   -0.9000    1.0000    1.0000
+   -1.0000   -1.0000    4.1000    1.0000    1.0000
+    1.0000    1.0000   10.1000   -1.0000    1.0000
+   -1.0000    1.0000   -2.9000    1.0000    1.0000
+    1.0000    1.0000   -2.9000    1.0000    1.0000
+    1.0000   -1.0000   -3.9000    1.0000    1.0000
+    1.0000    1.0000   -3.9000    1.0000    1.0000
+   -1.0000    1.0000    0.1000   -1.0000    1.0000
+    1.0000   -1.0000   -5.9000    1.0000    1.0000
+    1.0000   -1.0000   -0.9000    1.0000    1.0000
+    1.0000    1.0000    9.1000   -1.0000    1.0000
+    1.0000    1.0000    3.1000    1.0000    1.0000
+   -1.0000    1.0000    2.1000    1.0000   -1.0000
+   -1.0000    1.0000   -2.9000    1.0000    1.0000
+   -1.0000   -1.0000   -2.9000    1.0000    1.0000
+   -1.0000    1.0000   -4.9000    1.0000    1.0000
+   -1.0000   -1.0000   28.1000    1.0000    1.0000
+   -1.0000    1.0000    3.1000    1.0000   -1.0000
+    1.0000   -1.0000   -0.9000    1.0000   -1.0000
+   -1.0000    1.0000   -2.9000    1.0000    1.0000
+   -1.0000   -1.0000   -2.9000    1.0000   -1.0000
+    1.0000   -1.0000    0.1000    1.0000    1.0000
+    1.0000    1.0000    4.1000    1.0000   -1.0000
+
+NoCovs Gen on MECH 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	0.10	0.50	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	0.10	0.50	
+STE	0.03	0.10	
+t	3.74	4.82	
+Z	3.50	4.36	
+p	0.00047	0.00001	
+
+________________________________________
+NoCovs Gen on THERM 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	-0.02	1.13	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	-0.02	1.13	
+STE	0.04	0.15	
+t	-0.44	7.52	
+Z	-0.44	5.84	
+p	0.66270	0.00000	
+
+________________________________________
+NoCovs Gen on AUDI 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	0.23	0.18	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	0.23	0.18	
+STE	0.04	0.08	
+t	6.35	2.33	
+Z	5.27	2.21	
+p	0.00000	0.02695	
+
+________________________________________
+NoCovs Gen on VIS 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.79	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	0.06	0.79	
+STE	0.07	0.20	
+t	0.91	3.91	
+Z	0.90	3.63	
+p	0.36966	0.00028	
+
+________________________________________
+GenS on MECH 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.10	0.49	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.10	0.49	
+STE	0.02	0.10	
+t	4.26	4.76	
+Z	3.90	4.28	
+p	0.00010	0.00002	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.11	
+STE	0.02	0.10	
+t	-2.21	1.09	
+Z	-2.14	1.08	
+p	0.03228	0.28059	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.13	
+STE	0.02	0.10	
+t	-2.36	1.23	
+Z	-2.28	1.21	
+p	0.02265	0.22607	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.00	0.01	
+STE	0.00	0.02	
+t	-0.53	0.68	
+Z	-0.53	0.67	
+p	0.59717	0.49985	
+
+________________________________________
+GenS on THERM 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.01	1.13	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.01	1.13	
+STE	0.04	0.16	
+t	-0.18	7.27	
+Z	-0.18	5.66	
+p	0.85636	0.00000	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.03	-0.14	
+STE	0.04	0.15	
+t	0.76	-0.96	
+Z	0.75	-0.94	
+p	0.45193	0.34514	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.20	
+STE	0.04	0.15	
+t	-1.33	1.33	
+Z	-1.30	1.31	
+p	0.19402	0.19033	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	-0.02	
+STE	0.01	0.04	
+t	1.72	-0.62	
+Z	1.67	-0.61	
+p	0.09440	0.54135	
+
+________________________________________
+GenS on AUDI 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.23	0.17	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.23	0.17	
+STE	0.03	0.08	
+t	6.90	2.14	
+Z	5.54	2.04	
+p	0.00000	0.04104	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.07	
+STE	0.03	0.08	
+t	-1.45	0.93	
+Z	-1.42	0.91	
+p	0.15621	0.36025	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.04	0.04	
+STE	0.03	0.08	
+t	-1.10	0.57	
+Z	-1.08	0.56	
+p	0.28010	0.57451	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	0.00	
+STE	0.01	0.02	
+t	1.76	0.12	
+Z	1.72	0.12	
+p	0.08617	0.90579	
+
+________________________________________
+GenS on VIS 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.81	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.06	0.81	
+STE	0.07	0.20	
+t	0.92	4.05	
+Z	0.91	3.72	
+p	0.36174	0.00020	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.05	-0.32	
+STE	0.07	0.20	
+t	0.78	-1.61	
+Z	0.78	-1.58	
+p	0.43747	0.11432	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.13	
+STE	0.07	0.20	
+t	-0.94	0.62	
+Z	-0.94	0.62	
+p	0.34947	0.53526	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	-0.04	
+STE	0.01	0.03	
+t	2.03	-1.18	
+Z	1.97	-1.17	
+p	0.04827	0.24386	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.10	0.50	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.10	0.50	
+STE	0.02	0.10	
+t	4.02	4.80	
+Z	3.72	4.33	
+p	0.00020	0.00002	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.12	
+STE	0.02	0.10	
+t	-2.29	1.18	
+Z	-2.22	1.17	
+p	0.02630	0.24326	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.02	1.15	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.02	1.15	
+STE	0.04	0.15	
+t	-0.54	7.57	
+Z	-0.54	5.84	
+p	0.59169	0.00000	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.03	-0.13	
+STE	0.04	0.15	
+t	0.76	-0.87	
+Z	0.75	-0.86	
+p	0.45422	0.38969	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.23	0.17	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.23	0.17	
+STE	0.03	0.08	
+t	6.54	2.28	
+Z	5.36	2.17	
+p	0.00000	0.02968	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.07	
+STE	0.03	0.08	
+t	-1.54	0.92	
+Z	-1.51	0.91	
+p	0.13044	0.36467	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.82	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.06	0.82	
+STE	0.07	0.20	
+t	0.84	4.10	
+Z	0.84	3.78	
+p	0.40229	0.00016	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.05	-0.31	
+STE	0.07	0.20	
+t	0.74	-1.54	
+Z	0.74	-1.52	
+p	0.46056	0.12942	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.10	0.49	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.10	0.49	
+STE	0.02	0.10	
+t	4.03	4.77	
+Z	3.73	4.31	
+p	0.00019	0.00002	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.13	
+STE	0.02	0.10	
+t	-2.40	1.25	
+Z	-2.32	1.24	
+p	0.02021	0.21641	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.02	1.14	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.02	1.14	
+STE	0.04	0.15	
+t	-0.49	7.63	
+Z	-0.49	5.87	
+p	0.62637	0.00000	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.04	0.18	
+STE	0.04	0.15	
+t	-0.98	1.18	
+Z	-0.96	1.16	
+p	0.33466	0.24462	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.23	0.17	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.23	0.17	
+STE	0.04	0.08	
+t	6.44	2.20	
+Z	5.31	2.10	
+p	0.00000	0.03575	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.04	0.04	
+STE	0.04	0.08	
+t	-1.00	0.56	
+Z	-0.99	0.55	
+p	0.32158	0.58092	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.07	0.78	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.07	0.78	
+STE	0.07	0.20	
+t	1.00	3.82	
+Z	0.99	3.55	
+p	0.31975	0.00038	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.08	0.13	
+STE	0.07	0.20	
+t	-1.11	0.65	
+Z	-1.10	0.65	
+p	0.27036	0.51624	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.10	0.51	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.10	0.51	
+STE	0.03	0.10	
+t	3.70	4.83	
+Z	3.46	4.35	
+p	0.00054	0.00001	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.00	0.01	
+STE	0.00	0.02	
+t	-0.34	0.66	
+Z	-0.34	0.65	
+p	0.73421	0.51399	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.00	1.11	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.00	1.11	
+STE	0.04	0.16	
+t	-0.04	7.09	
+Z	-0.04	5.60	
+p	0.96558	0.00000	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	-0.02	
+STE	0.01	0.04	
+t	1.60	-0.48	
+Z	1.56	-0.48	
+p	0.11911	0.63072	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.23	0.18	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.23	0.18	
+STE	0.03	0.08	
+t	6.63	2.31	
+Z	5.41	2.20	
+p	0.00000	0.02801	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	0.00	
+STE	0.01	0.02	
+t	1.81	0.13	
+Z	1.77	0.13	
+p	0.07701	0.89555	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.79	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.06	0.79	
+STE	0.07	0.20	
+t	0.90	3.93	
+Z	0.89	3.64	
+p	0.37234	0.00027	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	-0.04	
+STE	0.01	0.03	
+t	2.16	-1.19	
+Z	2.10	-1.17	
+p	0.03553	0.24098	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.08	0.36	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.08	0.36	
+STE	0.03	0.14	
+t	2.33	2.61	
+Z	2.25	2.51	
+p	0.02419	0.01196	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.03	0.22	
+STE	0.03	0.14	
+t	0.74	1.62	
+Z	0.74	1.59	
+p	0.46144	0.11185	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.02	1.08	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.02	1.08	
+STE	0.06	0.20	
+t	-0.26	5.39	
+Z	-0.26	4.60	
+p	0.79799	0.00000	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.01	0.08	
+STE	0.06	0.20	
+t	-0.10	0.38	
+Z	-0.10	0.38	
+p	0.91770	0.70368	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.21	0.24	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.21	0.24	
+STE	0.05	0.10	
+t	4.27	2.37	
+Z	3.85	2.25	
+p	0.00012	0.02469	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.03	-0.09	
+STE	0.05	0.10	
+t	0.58	-0.93	
+Z	0.57	-0.91	
+p	0.56747	0.36175	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.05	0.77	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.05	0.77	
+STE	0.09	0.26	
+t	0.56	2.95	
+Z	0.55	2.82	
+p	0.58013	0.00484	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	0.04	
+STE	0.09	0.26	
+t	0.22	0.16	
+Z	0.21	0.16	
+p	0.82999	0.87524	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.09	0.71	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.09	0.71	
+STE	0.04	0.14	
+t	2.53	5.13	
+Z	2.44	4.57	
+p	0.01465	0.00000	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	-0.30	
+STE	0.04	0.14	
+t	0.25	-2.19	
+Z	0.24	-2.13	
+p	0.80720	0.03305	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.02	1.14	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	1.14	
+STE	0.08	0.27	
+t	0.23	4.19	
+Z	0.23	3.77	
+p	0.81834	0.00017	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	-0.01	
+STE	0.08	0.27	
+t	-0.59	-0.04	
+Z	-0.59	-0.04	
+p	0.55712	0.97091	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.30	0.15	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.30	0.15	
+STE	0.05	0.11	
+t	6.34	1.43	
+Z	5.25	1.40	
+p	0.00000	0.16223	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.11	0.04	
+STE	0.05	0.11	
+t	-2.26	0.33	
+Z	-2.18	0.33	
+p	0.02917	0.74099	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.11	0.82	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.11	0.82	
+STE	0.10	0.28	
+t	1.08	2.92	
+Z	1.07	2.79	
+p	0.28411	0.00533	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	-0.04	
+STE	0.10	0.28	
+t	-0.63	-0.16	
+Z	-0.62	-0.16	
+p	0.53338	0.87649	
+
+________________________________________
+
+X2 =
+
+   -1.0000   -1.0000   -4.9000    1.0000    1.0000
+    1.0000    1.0000    0.1000    1.0000   -1.0000
+   -1.0000    1.0000   -6.9000    1.0000    1.0000
+    1.0000    1.0000    2.1000    1.0000    1.0000
+    1.0000   -1.0000   -2.9000    1.0000    1.0000
+    1.0000    1.0000    5.1000   -1.0000    1.0000
+   -1.0000   -1.0000    1.1000    1.0000    1.0000
+    1.0000   -1.0000   -5.9000    1.0000    1.0000
+   -1.0000   -1.0000   -3.9000   -1.0000    1.0000
+   -1.0000    1.0000   -1.9000    1.0000    1.0000
+    1.0000    1.0000   -2.9000    1.0000    1.0000
+   -1.0000   -1.0000    1.1000    1.0000   -1.0000
+    1.0000   -1.0000   28.1000    1.0000    1.0000
+    1.0000    1.0000   -2.9000   -1.0000    1.0000
+   -1.0000    1.0000    2.1000    1.0000    1.0000
+   -1.0000    1.0000    2.1000    1.0000    1.0000
+   -1.0000   -1.0000   -4.9000    1.0000    1.0000
+    1.0000    1.0000    1.1000    1.0000    1.0000
+   -1.0000   -1.0000   -5.9000    1.0000    1.0000
+    1.0000    1.0000    4.1000   -1.0000    1.0000
+   -1.0000    1.0000   -5.9000    1.0000    1.0000
+    1.0000    1.0000   -6.9000    1.0000    1.0000
+    1.0000    1.0000   -1.9000    1.0000    1.0000
+    1.0000   -1.0000    1.1000   -1.0000    1.0000
+   -1.0000   -1.0000    2.1000    1.0000    1.0000
+    1.0000   -1.0000   -1.9000    1.0000    1.0000
+    1.0000    1.0000   -4.9000    1.0000    1.0000
+   -1.0000   -1.0000    5.1000   -1.0000    1.0000
+   -1.0000    1.0000   -5.9000    1.0000    1.0000
+    1.0000   -1.0000    0.1000    1.0000    1.0000
+    1.0000   -1.0000   -4.9000    1.0000    1.0000
+    1.0000    1.0000   -4.9000    1.0000   -1.0000
+   -1.0000    1.0000   -0.9000    1.0000    1.0000
+   -1.0000   -1.0000    4.1000    1.0000    1.0000
+    1.0000    1.0000   10.1000   -1.0000    1.0000
+   -1.0000    1.0000   -2.9000    1.0000    1.0000
+    1.0000    1.0000   -2.9000    1.0000    1.0000
+    1.0000   -1.0000   -3.9000    1.0000    1.0000
+    1.0000    1.0000   -3.9000    1.0000    1.0000
+   -1.0000    1.0000    0.1000   -1.0000    1.0000
+    1.0000   -1.0000   -5.9000    1.0000    1.0000
+    1.0000   -1.0000   -0.9000    1.0000    1.0000
+    1.0000    1.0000    9.1000   -1.0000    1.0000
+    1.0000    1.0000    3.1000    1.0000    1.0000
+   -1.0000    1.0000    2.1000    1.0000   -1.0000
+   -1.0000    1.0000   -2.9000    1.0000    1.0000
+   -1.0000   -1.0000   -2.9000    1.0000    1.0000
+   -1.0000    1.0000   -4.9000    1.0000    1.0000
+   -1.0000   -1.0000   28.1000    1.0000    1.0000
+   -1.0000    1.0000    3.1000    1.0000   -1.0000
+    1.0000   -1.0000   -0.9000    1.0000   -1.0000
+   -1.0000    1.0000   -2.9000    1.0000    1.0000
+   -1.0000   -1.0000   -2.9000    1.0000   -1.0000
+    1.0000   -1.0000    0.1000    1.0000    1.0000
+    1.0000    1.0000    4.1000    1.0000   -1.0000
+
+NoCovs Mech on MECH 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	0.15	0.34	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	0.15	0.34	
+STE	0.03	0.13	
+t	4.77	2.56	
+Z	4.28	2.45	
+p	0.00002	0.01443	
+
+________________________________________
+NoCovs Therm on THERM 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	0.03	1.14	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	0.03	1.14	
+STE	0.05	0.19	
+t	0.48	6.11	
+Z	0.47	5.02	
+p	0.63691	0.00000	
+
+________________________________________
+NoCovs Audi on AUDI 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.81	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	0.06	0.81	
+STE	0.07	0.27	
+t	0.89	3.01	
+Z	0.88	2.83	
+p	0.37632	0.00470	
+
+________________________________________
+NoCovs Visual on VIS 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   1
+Outcome names: Sig Resp Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	Sig Resp Intercept	Sig Resp Slope	
+Adj. mean	-0.12	1.35	
+
+2nd-level B01
+	Sig Resp Intercept	Sig Resp Slope	
+Coeff	-0.12	1.35	
+STE	0.05	0.20	
+t	-2.17	6.63	
+Z	-2.08	5.27	
+p	0.03732	0.00000	
+
+________________________________________
+Mech on MECH 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.15	0.32	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.15	0.32	
+STE	0.03	0.13	
+t	5.18	2.46	
+Z	4.54	2.35	
+p	0.00001	0.01893	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.14	
+STE	0.03	0.13	
+t	-1.63	1.05	
+Z	-1.60	1.04	
+p	0.10984	0.29913	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.16	
+STE	0.03	0.13	
+t	-1.69	1.21	
+Z	-1.65	1.19	
+p	0.09874	0.23385	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	-0.03	
+STE	0.00	0.02	
+t	1.43	-1.59	
+Z	1.40	-1.55	
+p	0.16074	0.12102	
+
+________________________________________
+Therm on THERM 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.05	1.11	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.05	1.11	
+STE	0.06	0.20	
+t	0.79	5.54	
+Z	0.78	4.65	
+p	0.43295	0.00000	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	-0.17	
+STE	0.05	0.19	
+t	0.24	-0.90	
+Z	0.24	-0.89	
+p	0.81029	0.37415	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.04	0.07	
+STE	0.05	0.19	
+t	-0.82	0.37	
+Z	-0.81	0.36	
+p	0.41752	0.71530	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	-0.04	
+STE	0.01	0.05	
+t	1.13	-0.74	
+Z	1.11	-0.73	
+p	0.26696	0.46466	
+
+________________________________________
+Audi on AUDI 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.84	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.06	0.84	
+STE	0.07	0.26	
+t	0.91	3.21	
+Z	0.90	2.99	
+p	0.36862	0.00280	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.19	
+STE	0.07	0.26	
+t	-0.82	0.73	
+Z	-0.81	0.72	
+p	0.41660	0.46948	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.01	0.02	
+STE	0.07	0.26	
+t	-0.09	0.07	
+Z	-0.09	0.06	
+p	0.93171	0.94818	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.02	0.11	
+STE	0.01	0.05	
+t	-1.67	2.31	
+Z	-1.63	2.21	
+p	0.10253	0.02694	
+
+________________________________________
+Visual on VIS 
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   4
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.11	1.34	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.11	1.34	
+STE	0.05	0.21	
+t	-2.08	6.38	
+Z	-1.99	5.08	
+p	0.04673	0.00000	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.02	-0.06	
+STE	0.05	0.21	
+t	-0.30	-0.29	
+Z	-0.29	-0.29	
+p	0.76927	0.77124	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.08	
+STE	0.05	0.21	
+t	-0.95	0.37	
+Z	-0.94	0.36	
+p	0.34975	0.71642	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	0.00	
+STE	0.01	0.03	
+t	1.46	0.14	
+Z	1.43	0.14	
+p	0.15380	0.88695	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.15	0.34	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.15	0.34	
+STE	0.03	0.13	
+t	4.90	2.55	
+Z	4.36	2.44	
+p	0.00001	0.01477	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.12	
+STE	0.03	0.13	
+t	-1.61	0.94	
+Z	-1.58	0.93	
+p	0.11405	0.35487	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.02	1.16	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	1.16	
+STE	0.05	0.19	
+t	0.45	6.17	
+Z	0.45	5.05	
+p	0.65349	0.00000	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	-0.16	
+STE	0.05	0.19	
+t	0.24	-0.87	
+Z	0.24	-0.86	
+p	0.81346	0.39151	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.07	0.79	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.07	0.79	
+STE	0.07	0.27	
+t	0.96	2.93	
+Z	0.95	2.76	
+p	0.34065	0.00572	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.07	0.27	
+STE	0.07	0.27	
+t	-1.02	1.00	
+Z	-1.01	0.99	
+p	0.31420	0.32232	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.12	1.35	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.12	1.35	
+STE	0.05	0.21	
+t	-2.16	6.58	
+Z	-2.07	5.22	
+p	0.03863	0.00000	
+
+
+Order
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.01	-0.06	
+STE	0.05	0.21	
+t	-0.26	-0.29	
+Z	-0.26	-0.29	
+p	0.79652	0.77037	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.15	0.33	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.15	0.33	
+STE	0.03	0.13	
+t	4.99	2.52	
+Z	4.42	2.40	
+p	0.00001	0.01618	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.05	0.15	
+STE	0.03	0.13	
+t	-1.77	1.15	
+Z	-1.73	1.13	
+p	0.08374	0.25775	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.03	1.14	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.03	1.14	
+STE	0.05	0.19	
+t	0.48	6.07	
+Z	0.48	4.99	
+p	0.63198	0.00000	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.04	0.06	
+STE	0.05	0.19	
+t	-0.77	0.32	
+Z	-0.76	0.32	
+p	0.44614	0.75214	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.81	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.06	0.81	
+STE	0.07	0.28	
+t	0.89	2.93	
+Z	0.88	2.76	
+p	0.37953	0.00580	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.01	0.03	
+STE	0.07	0.28	
+t	-0.08	0.12	
+Z	-0.08	0.12	
+p	0.93430	0.90178	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.11	1.34	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.11	1.34	
+STE	0.05	0.21	
+t	-2.04	6.50	
+Z	-1.96	5.18	
+p	0.05056	0.00000	
+
+
+Sex
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.07	
+STE	0.05	0.21	
+t	-1.07	0.36	
+Z	-1.05	0.36	
+p	0.29474	0.71992	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.15	0.33	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.15	0.33	
+STE	0.03	0.13	
+t	4.84	2.51	
+Z	4.32	2.39	
+p	0.00002	0.01666	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	-0.03	
+STE	0.00	0.02	
+t	1.43	-1.54	
+Z	1.41	-1.51	
+p	0.15892	0.13107	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.04	1.10	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.04	1.10	
+STE	0.06	0.20	
+t	0.80	5.52	
+Z	0.79	4.66	
+p	0.42976	0.00000	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.02	-0.03	
+STE	0.01	0.05	
+t	1.10	-0.67	
+Z	1.08	-0.66	
+p	0.28019	0.50684	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.06	0.86	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.06	0.86	
+STE	0.07	0.25	
+t	0.86	3.37	
+Z	0.85	3.13	
+p	0.39515	0.00175	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.02	0.12	
+STE	0.01	0.05	
+t	-1.82	2.47	
+Z	-1.77	2.36	
+p	0.07640	0.01815	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.12	1.35	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.12	1.35	
+STE	0.05	0.21	
+t	-2.22	6.55	
+Z	-2.12	5.21	
+p	0.03389	0.00000	
+
+
+Age
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	0.00	
+STE	0.01	0.03	
+t	1.55	0.11	
+Z	1.51	0.11	
+p	0.13139	0.90937	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.12	0.29	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.12	0.29	
+STE	0.04	0.18	
+t	2.90	1.60	
+Z	2.76	1.56	
+p	0.00578	0.11805	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.05	0.08	
+STE	0.04	0.18	
+t	1.35	0.47	
+Z	1.33	0.47	
+p	0.18344	0.64005	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.01	1.06	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.01	1.06	
+STE	0.08	0.25	
+t	0.09	4.22	
+Z	0.09	3.77	
+p	0.93010	0.00016	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.03	0.12	
+STE	0.08	0.25	
+t	0.36	0.48	
+Z	0.35	0.48	
+p	0.72303	0.63444	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.00 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.09	0.65	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.09	0.65	
+STE	0.09	0.36	
+t	0.99	1.81	
+Z	0.98	1.76	
+p	0.32941	0.07877	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.04	0.24	
+STE	0.09	0.36	
+t	-0.48	0.67	
+Z	-0.48	0.67	
+p	0.63199	0.50526	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.02 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.06	1.06	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	1.06	
+STE	0.07	0.28	
+t	-0.88	3.82	
+Z	-0.87	3.45	
+p	0.38437	0.00056	
+
+
+Hand
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.08	0.41	
+STE	0.07	0.28	
+t	-1.03	1.49	
+Z	-1.01	1.45	
+p	0.31137	0.14627	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.19	0.31	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.19	0.31	
+STE	0.04	0.21	
+t	4.32	1.47	
+Z	3.93	1.44	
+p	0.00009	0.14960	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.06	0.04	
+STE	0.04	0.21	
+t	-1.36	0.17	
+Z	-1.34	0.17	
+p	0.17932	0.86437	
+
+________________________________________
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  55, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.04	1.26	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.04	1.26	
+STE	0.09	0.31	
+t	0.51	4.10	
+Z	0.51	3.68	
+p	0.61173	0.00023	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.02	-0.15	
+STE	0.09	0.31	
+t	-0.28	-0.47	
+Z	-0.28	-0.47	
+p	0.78236	0.63818	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:6 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	0.19	0.73	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.19	0.73	
+STE	0.10	0.42	
+t	1.87	1.76	
+Z	1.82	1.71	
+p	0.06912	0.08671	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.17	0.11	
+STE	0.10	0.42	
+t	-1.68	0.25	
+Z	-1.64	0.25	
+p	0.09998	0.80203	
+
+________________________________________
+Warning! Some participants have no variance in Y and will be excluded
+Participant numbers:16 
+Analysis description: Second Level of Multilevel Model  
+GLS analysis
+
+Observations:  54, Predictors:   2
+Outcome names: X1 Intercept	Sig Resp Slope	
+Weighting option: weighted
+Inference option: t-test
+
+Other Options:
+	Plots: No
+	Robust: no
+	Save: No
+	Output file: glmfit_general_output.txt
+	R & B - type Empirical Bayes reweighting.
+Total time: 0.01 s
+
+________________________________________
+
+Second Level of Multilevel Model 
+	Outcome variables:
+	X1 Intercept	Sig Resp Slope	
+Adj. mean	-0.15	1.58	
+
+X2 Intercept
+	X1 Intercept	Sig Resp Slope	
+Coeff	-0.15	1.58	
+STE	0.09	0.31	
+t	-1.79	5.09	
+Z	-1.73	4.34	
+p	0.08318	0.00001	
+
+
+Race
+	X1 Intercept	Sig Resp Slope	
+Coeff	0.05	-0.30	
+STE	0.09	0.31	
+t	0.55	-0.98	
+Z	0.55	-0.96	
+p	0.58573	0.33525	
+
+________________________________________
