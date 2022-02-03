@@ -25,14 +25,14 @@ prep_3_calc_univariate_contrast_maps_and_save
 printhdr('Save results');
 
 savefilename = fullfile(resultsrevdir,'wehrum','image_names_and_setup.mat');
-save(savefilename, 'DAT');
-%load(savefilename, 'DAT');
+%save(savefilename, 'DAT');
+load(savefilename, 'DAT');
 
 savefilenamedata = fullfile(resultsrevdir,'wehrum', 'data_objects.mat');
 save(savefilenamedata, 'DATA_OBJ', '-v7.3');  
 save(savefilenamedata, 'DATA_OBJ_CON', '-v7.3');  
 
-%load(fullfile(resultsrevdir,'wehrum', 'data_objects.mat'));
+load(fullfile(resultsrevdir,'wehrum', 'data_objects.mat'));
 
 
 diary on

@@ -18,9 +18,10 @@ DAT.functional_wildcard =  {'con_0001.img*' 'con_0002.img*' 'con_0003.img*' 'con
 %% Set Contrasts
 % ------------------------------------------------------------------------
 DAT.contrasts = [0 1 -1 0; % Neg min Neutral
-                 1 0 -1 0]; % Pos min Neutral
+                 1 0 -1 0; % Pos min Neutral
+                 0 0 -1 1]; % Sex min Neutral
           
-DAT.contrastnames = {'NegMinNeut' 'PosMinNeut'};
+DAT.contrastnames = {'NegMinNeut' 'PosMinNeut' 'SexMinNeut'};
 
 DAT.contrastnames = format_strings_for_legend(DAT.contrastnames);
 

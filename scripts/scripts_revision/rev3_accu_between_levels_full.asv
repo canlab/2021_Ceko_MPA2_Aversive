@@ -39,60 +39,67 @@ disp('Confusion matrix (frequency). Rows are true class, column is estimated cla
 disp(c_table1)
 
 c_table2 = table(100 .* (1-C ./ sum(C, 2))); % greater missclassification with greater distance in levels 
-c_table2 = splitvars(c_table2, "Var1", 'NewVariableNames', {'lvl1' 'lvl2' 'lvl3' 'lvl4'});
-c_table2.Properties.RowNames = {'lvl1' 'lvl2' 'lvl3' 'lvl4'}';
+%c_table2 = splitvars(c_table2, "Var1", 'NewVariableNames', {'lvl1' 'lvl2' 'lvl3' 'lvl4'});
+%c_table2.Properties.RowNames = {'lvl1' 'lvl2' 'lvl3' 'lvl4'}';
 
 disp('Confusion matrix (frequency). Rows are true class, column is estimated class.')
 disp(c_table2)
 
-toplot = table2array(c_table2)
+
 
 
 % Plot Confusion
-figtitle=sprintf('Confusionmatrix');
+figtitle=sprintf('Accumatrix');
 create_figure(figtitle);
 hold off
-%colormap parula(5)
+colormap parula(5)
 subplot(2,2,1)
-h = heatmap (c_table2.Properties.VariableNames, c_table2.Properties.VariableNames, toplot)
-h.XLabel = 'True'
-h.YLabel = 'Estimated Missclassified '
-h.Title = 'General Model on Mech Pain'
-
-plugin_save_figure
+h = heatmap (c_table2,
 
 
-
-c_table2 = table(100 .* (1-C ./ sum(C, 2))); % greater missclassification with greater distance in levels 
-c_table2 = splitvars(c_table2, "Var1", 'NewVariableNames', {'lvl1' 'lvl2' 'lvl3' 'lvl4'});
-c_table2.Properties.RowNames = {'lvl1' 'lvl2' 'lvl3' 'lvl4'}';
-
-disp('Confusion matrix (frequency). Rows are true class, column is estimated class.')
-disp(c_table2)
-
-toplot = table2array(c_table2)
-
-
-c_table2 = table(100 .* C ./ sum(C, 2)); % greater missclassification with greater distance in levels 
-c_table2 = splitvars(c_table2, "Var1", 'NewVariableNames', {'lvl1' 'lvl2' 'lvl3' 'lvl4'});
-c_table2.Properties.RowNames = {'lvl1' 'lvl2' 'lvl3' 'lvl4'}';
-
-disp('Confusion matrix (frequency). Rows are true class, column is estimated class.')
-disp(c_table2)
-
-toplot = table2array(c_table2)
-% Plot Confusion
-figtitle=sprintf('Confusionmatrix2');
-create_figure(figtitle);
-hold off
-%colormap parula(5)
 subplot(2,2,1)
-h = heatmap (c_table2.Properties.VariableNames, c_table2.Properties.VariableNames, toplot)
-h.XLabel = 'True'
-h.YLabel = 'Estimated'
-h.Title = 'General Model on Mech Pain'
+xvalues = {'1 vs. 2','2 vs. 3','3 vs. 4','1 vs. 3','2 vs. 4','1 vs. 4'};
+yvalues = {'Mech', 'Therm', 'Audi' , 'Vis'}
+h = heatmap (xvalues, yvalues, GM)
+h.XLabel = 'Stim level pairs'
+h.YLabel = 'Modality'
+h.Title = 'Accuracy between levels '
 
-plugin_save_figure
+
+
+
+%% 
+
+for n = 1:4   
+y_rat(:,:,n) = reshape(rat_all(1+((n-1)*220):220+((n-1)*220),1),55,4);
+end
+
+% predicted ratings
+
+for n = 1:4
+yhat_rat(:,:,n) = reshape(pexp_xval_dp(1+((n-1)*220):220+((n-1)*220),1),55,4);
+end
+
+% General on mech
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
