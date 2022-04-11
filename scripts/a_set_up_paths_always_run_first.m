@@ -30,9 +30,9 @@
 % %basedir = '/Users/marta/Google Drive/A_Multi_lab_world_map/Ceko_MPA2';
 basedir = '/Users/marta/Dropbox (Cognitive and Affective Neuroscience Laboratory)/B_AVERSIVE/';
 
-scriptsdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts';
+scriptsdir = '/Applications/Canlab/2022_MPA2A/scripts';
 
-scriptsrevdir = '/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts/scripts_revision';
+scriptsrevdir = '/Applications/Canlab/2022_MPA2A/scripts/scripts_revision';
 
 datadir = '/Users/marta/Documents/DATA/MPA2/';
 

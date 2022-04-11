@@ -1,4 +1,0 @@
-diaryname = fullfile(['rev9_effect_of_covariates_' date '_output.txt']);
-diary(diaryname);
-diaryname = fullfile(['rev2_combined_warm_wehrum_' date '_output.txt']);
-diary(diaryname);
