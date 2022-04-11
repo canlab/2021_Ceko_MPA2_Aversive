@@ -1,5 +1,5 @@
-## 2021_Ceko_MPA2_Aversive
-## Neural architecture of negative affect: common and stimulus type-specific representations
+## MPA2A: Common and stimulus type-specific brain representations of negative affect
+[[ ADD LINK TO PAPER WHEN ONLINE ]]
 
 ### Summary and requirements 
 
@@ -7,10 +7,11 @@ This repository contains MATLAB code used to develop, evaluate and test in new i
 the common and stimulus-type specifc predictive brain models of negative affect, 
 using 4 types of aversive stimuli (mechanical pain, thermal pain, aversive sound, aversive pictures) 
 
-- code runs ok on MATLAB 2019b
+- code tested on MATLAB 2019b
 - code requires CANLAB core tools and a few other tools, all loaded using a2_mc_set_up_paths.m
+(for access to private repos, please contact Marta at marta.ceko@gmail.com)
 
-- input data for these analyses are on Dropbox (for access, contact Marta at marta.ceko@gmail.com):
+- input data for these analyses are on Dropbox (for access, contact Marta):
 https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0
 
         data/data_behavior/ -> excel spreadsheet containing ratings, loaded with import_Behav_MPA2.m
