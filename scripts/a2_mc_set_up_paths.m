@@ -12,7 +12,7 @@
 %% add repositories + help_examples
 addpath(genpath('/Applications/Canlab/CanlabCore/'));
 addpath(genpath('/Applications/Canlab/CANlab_help_examples/'));
-addpath(genpath('/Applications/Canlab/MasksPrivate/Masks_private'));
+%addpath(genpath('/Applications/Canlab/MasksPrivate/Masks_private'));
 addpath(genpath('/Applications/Canlab/Neuroimaging_Pattern_Masks'));
 addpath(genpath('/Applications/Canlab/MediationToolbox')); % for RB_empirical_bayes_params ...
 %addpath(genpath('/Applications/Canlab/Canlab_MKDA_MetaAnalysis'));

@@ -1,5 +1,11 @@
-% Valence tests on independent datasets 
+%% Figure 6b
+
+% This script runs valence tests on independent datasets 
+% & plots the results
  
+
+% SUMMARY OF DATASETS
+% ----------------------------------------------
 % WEHRUM
 % Neg vs. Neut images
 % Pos vs. Neut images 

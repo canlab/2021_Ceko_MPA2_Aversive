@@ -1,3 +1,9 @@
+%% ED Figure 1b
+
+% This script plots behavior and PLS models trained in: 
+% prep_2_train_normPLS_mormratings.m
+
+
 
 % Prep 
 % ----------------------------------------------

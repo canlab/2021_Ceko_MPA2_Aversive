@@ -1,3 +1,8 @@
+%% Fig 6c
+
+% this script creates the summmary matrix in Fig 6c
+
+
 % Studies 
 
 % Study 1   mech 

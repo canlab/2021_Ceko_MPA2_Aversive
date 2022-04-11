@@ -1,7 +1,7 @@
-%%
+%% ED Figure 1c
 
-% This script creates images for Supplementary Figure XX 
-
+% This script plots model weights and encoders created in: 
+% prep_3_create_model_encoding_maps.m
 
 %% set working dir and model names 
 

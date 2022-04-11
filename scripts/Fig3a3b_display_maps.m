@@ -1,6 +1,6 @@
-%% Display in more detail for figs: Core multimodal / selective specific systems 
+%% Fig 3
 
- % This script displays detailed views of interest and saves pngs for figures
+ % This script displays detailed views of interest for core multimodal / selective specific systems and saves pngs for figures
 
 %% Prep 
 
@@ -326,22 +326,22 @@ savename = fullfile(figsavedir,figtitle);saveas(gcf,savename); drawnow, snapnow;
 
 
 
-%% Map Common to Yeo -- both hemispheres - 
-
-% Setup
-yeo17 = load_atlas ('yeo17networks') 
-yeo17.image_names = strrep (yeo17.labels, '_', '  ');
-
-pattcolors_comm = {[0.6 0 0.8]}'
-pattcolors_spec = {[1 0.2 0.4] [1 0.6 0.2] [0 0.6 0.4] [0 0.4 1]}'
-
-% MAP COMMON 
-image_similarity_plot(pls_core_statimg_nok(1),'mapset',yeo17,'networknames',yeo17.image_names, 'plotstyle', 'polar', 'colors', pattcolors_comm);
-
-figtitle = sprintf(['Common_Yeo17polar.png'])
-savename = fullfile(figsavedir,figtitle);saveas(gcf,savename); drawnow, snapnow; % close;
-
-hh = findobj(gca, 'Type', 'Text');  delete(hh);
-figtitle = sprintf(['Common_Yeo17polar_nolabels.png'])
-savename = fullfile(figsavedir,figtitle);saveas(gcf,savename); drawnow, snapnow; % close;
+% %% Map Common to Yeo -- both hemispheres - 
+% 
+% % Setup
+% yeo17 = load_atlas ('yeo17networks') 
+% yeo17.image_names = strrep (yeo17.labels, '_', '  ');
+% 
+% pattcolors_comm = {[0.6 0 0.8]}'
+% pattcolors_spec = {[1 0.2 0.4] [1 0.6 0.2] [0 0.6 0.4] [0 0.4 1]}'
+% 
+% % MAP COMMON 
+% image_similarity_plot(pls_core_statimg_nok(1),'mapset',yeo17,'networknames',yeo17.image_names, 'plotstyle', 'polar', 'colors', pattcolors_comm);
+% 
+% figtitle = sprintf(['Common_Yeo17polar.png'])
+% savename = fullfile(figsavedir,figtitle);saveas(gcf,savename); drawnow, snapnow; % close;
+% 
+% hh = findobj(gca, 'Type', 'Text');  delete(hh);
+% figtitle = sprintf(['Common_Yeo17polar_nolabels.png'])
+% savename = fullfile(figsavedir,figtitle);saveas(gcf,savename); drawnow, snapnow; % close;
 

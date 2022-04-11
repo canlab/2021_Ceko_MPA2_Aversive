@@ -4,7 +4,6 @@
 
 %%
 % caution> SEM! not STE 
-% reorganize data in a better way 
 
 % Summarize in one variable 
 % ---------------------------------------------- % 

@@ -1,7 +1,7 @@
+%% EDFig1d - left 
 
-
-% This script examines univ responses to negative and positive visual
-% stimuli 
+% This script plots univariate responses to negative and positive visuali stimuli 
+% in vStr and Amy
 
 
 clear all

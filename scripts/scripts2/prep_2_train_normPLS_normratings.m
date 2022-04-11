@@ -1,5 +1,5 @@
 % Train PLS to predict norm ratings of positive and negative images 
-% & plot response 
+
 
 % Prep
 cd(scriptsrevdir);
@@ -16,7 +16,7 @@ prep_2_load_image_data_and_save % looks for resultsdir nested under scripts
 % prep_3_calc_univariate_contrast_maps_and_save
 % c_univariate_contrast_maps_posneg
 
-%% Now, lets train and test PLS 
+%% Train and test PLS 
 
 % load images and behavior 
 % ----------------------------------------------
@@ -267,8 +267,6 @@ save(savefilenamedata, 'pls_bs_statimg_fdr05', '-append');
 
 
 %%  Write bootstrapped nii files for interpretation and display 
-
-%%%% TODO: REWRITE WITHOUT NANING __ TEST FIRST -- -
 
 for m=1:length(models) 
     

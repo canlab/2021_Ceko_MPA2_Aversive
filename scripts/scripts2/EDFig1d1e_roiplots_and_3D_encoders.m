@@ -1,6 +1,8 @@
+%% EDFig1d, e
 
-%% Plots and 3D visualizations of model encoding maps in ROIS
 
+% (d) Plots of model encoding maps in ROIS
+% (e) 3D visualizations of model encoding maps in ROIS
 
 clear all
 a_set_up_paths_always_run_first
@@ -17,8 +19,9 @@ load(savefilename, 'Nencode_obj');
 
 cd(scriptsrevdir)
 
+% ---------------------------------------------------------------------
 %% plot model encoders
-% ----------------------------------------------
+% ---------------------------------------------------------------------
 % copy-pasted from f4_1_prep_figure....  
 % use same atlas as in main paper
 
@@ -204,23 +207,9 @@ plugin_save_figure
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+% ---------------------------------------------------------------------
 %% Plot encoders on 3D surface amy, Nac
+% ---------------------------------------------------------------------
 
 for m=1:3
     Nencode_statimg(m) = ttest (Nencode_obj(m));

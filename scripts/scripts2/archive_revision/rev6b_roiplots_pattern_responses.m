@@ -1,7 +1,7 @@
+%% EDFig1d - RIGHT 
 
-
-% This script examines univ responses to negative and positive visual
-% stimuli 
+% This script plots pattern responses to negative and positive visuali stimuli 
+% in vStr and Amy
 
 
 clear all
@@ -111,7 +111,7 @@ plugin_save_figure
 montage([NAc_L NAc_R Amy_L Amy_R])
 
 
-%% Same plot for PLS weights
+
 
 
 
