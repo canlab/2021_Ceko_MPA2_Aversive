@@ -1,5 +1,5 @@
-## 2021_Ceko_MPA2_Aversive
-## Neural architecture of negative affect: common and stimulus type-specific representations
+## MPA2A: Common and stimulus type-specific brain representations of negative affect
+[[ ADD LINK TO PAPER WHEN ONLINE ]]
 
 ### Summary and requirements 
 
