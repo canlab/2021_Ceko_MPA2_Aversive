@@ -1,4 +1,4 @@
-## MPA2A: Common and stimulus type-specific brain representations of negative affect
+## Common and stimulus type-specific brain representations of negative affect
 [[ ADD LINK TO PAPER WHEN ONLINE ]]
 
 ### Summary and requirements 
