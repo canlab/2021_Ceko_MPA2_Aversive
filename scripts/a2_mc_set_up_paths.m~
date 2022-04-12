@@ -6,8 +6,8 @@
 % git pull each repo
 
 
-%% Set as default
-addpath(genpath('/Applications/Canlab/2021_Ceko_MPA2_Aversive/scripts/');
+%% Make my own a_
+
 
 %% add repositories + help_examples
 addpath(genpath('/Applications/Canlab/CanlabCore/'));

@@ -3,7 +3,7 @@
 % This script plots behavior and PLS models trained in: 
 % prep_2_train_normPLS_mormratings.m
 
-
+a_set_up_paths_always_run_first
 
 % Prep 
 % ----------------------------------------------

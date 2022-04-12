@@ -207,7 +207,7 @@ sense_obj_full = [S1_LR S2_LR A1_LR A_23_LR V1_LR V_234_LR];
 % Save all into one object 
 % savefilename = fullfile(resultsdir, 'FENIX_ROIs_obj.mat'); == ADD NAME 
 save(savefilename, 'thal_obj', '-v7.3');
-save(savefilename,  'collic_obj', 'bs_obj', '-append');
+save(savefilename, 'collic_obj', 'bs_obj', '-append');
 save(savefilename, 'affect_obj', 'affect_compact', 'cc', '-append');
 save(savefilename, 'ins_obj', 'ins_obj_full', 'ins_audi', '-append');
 save(savefilename, 'sense_obj', 'sense_obj_full', '-append');

@@ -1,0 +1,358 @@
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (Plot_univariate_ROI_per_condition) with properties:
+
+      Number: 1
+        Name: 'Plot_univariate_ROI_per_condition'
+       Color: [1 1 1]
+    Position: [124 215 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+r =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {[1]}    {[8]}
+
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+Column   1:	Column   2:	Column   3:	Column   4:	Column   5:	Column   6:	Column   7:	Column   8:	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+      <strong>Name</strong>       <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>            <strong>P</strong>        <strong>Cohens_d</strong> 
+    <strong>_________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>_________</strong>
+
+    'Col   1'    -0.013692     0.036259     -0.37762      0.70719    -0.050918
+    'Col   2'     0.072834     0.040822       1.7842     0.080011      0.24058
+    'Col   3'     0.031703     0.039239      0.80794      0.42267      0.10894
+    'Col   4'      0.08452     0.044211       1.9117     0.061225      0.25778
+    'Col   5'     0.094572     0.041905       2.2568      0.02809      0.30431
+    'Col   6'      0.13239     0.036513       3.6257    0.0006388       0.4889
+    'Col   7'     0.027339     0.042248      0.64709      0.52031     0.087254
+    'Col   8'     0.057602     0.044763       1.2868      0.20365      0.17351
+
+
+r =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {[1]}    {[8]}
+
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+Column   1:	Column   2:	Column   3:	Column   4:	Column   5:	Column   6:	Column   7:	Column   8:	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+      <strong>Name</strong>       <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>          <strong>P</strong>        <strong>Cohens_d</strong>
+    <strong>_________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>________</strong>
+
+    'Col   1'    -0.068236     0.036787     -1.8549    0.069073    -0.25012
+    'Col   2'     0.027996     0.041745     0.67064     0.50531    0.090429
+    'Col   3'    0.0073336     0.040709     0.18014     0.85771    0.024291
+    'Col   4'     0.047942      0.04495      1.0666     0.29092     0.14381
+    'Col   5'     0.069145      0.04258      1.6239     0.11022     0.21897
+    'Col   6'     0.085777      0.03606      2.3787    0.020939     0.32075
+    'Col   7'      0.02809      0.03956     0.71006     0.48072    0.095745
+    'Col   8'     0.025908     0.038946     0.66524     0.50873    0.089701
+
+
+r =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {[1]}    {[8]}
+
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+Column   1:	Column   2:	Column   3:	Column   4:	Column   5:	Column   6:	Column   7:	Column   8:	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+      <strong>Name</strong>       <strong>Mean_Value</strong>    <strong>Std_Error</strong>      <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Col   1'     0.40855      0.051363      7.954    1.1702e-10     1.0725 
+    'Col   2'     0.67436      0.052916     12.744    2.2204e-15     1.7184 
+    'Col   3'     0.83639      0.061206     13.665    2.2204e-15     1.8426 
+    'Col   4'     0.84173      0.077565     10.852    3.4958e-15     1.4633 
+    'Col   5'     0.48877      0.048554     10.067    5.4028e-14     1.3574 
+    'Col   6'     0.56679      0.055747     10.167    3.7885e-14      1.371 
+    'Col   7'     0.39813      0.047085     8.4556    1.8273e-11     1.1401 
+    'Col   8'     0.51851      0.049697     10.433    1.4904e-14     1.4068 
+
+
+r =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {[1]}    {[8]}
+
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+Column   1:	Column   2:	Column   3:	Column   4:	Column   5:	Column   6:	Column   7:	Column   8:	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+      <strong>Name</strong>       <strong>Mean_Value</strong>    <strong>Std_Error</strong>      <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Col   1'     0.40312      0.044414     9.0763    1.8822e-12     1.2238 
+    'Col   2'     0.65723      0.061021      10.77    4.6292e-15     1.4523 
+    'Col   3'     0.75818      0.059131     12.822    2.2204e-15     1.7289 
+    'Col   4'     0.83553       0.08204     10.184     3.567e-14     1.3733 
+    'Col   5'     0.51913      0.047489     10.931    2.6607e-15      1.474 
+    'Col   6'     0.53909      0.051983     10.371    1.8567e-14     1.3984 
+    'Col   7'     0.45032      0.046834     9.6151     2.693e-13     1.2965 
+    'Col   8'     0.50486      0.052961     9.5327    3.6183e-13     1.2854 
+
+
+ans = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (Plot_univariate_acrosshemi_ROI_per_condition) with properties:
+
+      Number: 2
+        Name: 'Plot_univariate_acrosshemi_ROI_per_condition'
+       Color: [1 1 1]
+    Position: [440 378 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('ans', 'var'), matlab.graphics.internal.getForDisplay('ans', ans, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('ans'), end">all properties</a>
+
+
+r =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {[1]}    {[8]}
+
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+Column   1:	Column   2:	Column   3:	Column   4:	Column   5:	Column   6:	Column   7:	Column   8:	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+      <strong>Name</strong>       <strong>Mean_Value</strong>    <strong>Std_Error</strong>       <strong>T</strong>           <strong>P</strong>        <strong>Cohens_d</strong>
+    <strong>_________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>_________</strong>    <strong>________</strong>
+
+    'Col   1'    -0.037507     0.034571     -1.0849      0.28277    -0.14629
+    'Col   2'     0.053257     0.039878      1.3355      0.18732     0.18008
+    'Col   3'     0.021063     0.038379     0.54881       0.5854    0.074001
+    'Col   4'     0.068549     0.043302       1.583      0.11925     0.21346
+    'Col   5'      0.08347     0.041207      2.0256      0.04776     0.27313
+    'Col   6'      0.11204     0.034663      3.2322    0.0020959     0.43582
+    'Col   7'     0.027667     0.039917      0.6931      0.49122    0.093457
+    'Col   8'     0.043764     0.040946      1.0688       0.2899     0.14412
+
+
+r =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {[1]}    {[8]}
+
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+fmri_data.extract_roi_averages: Defining mask object. Resampling mask. 
+Grouping voxels with unique mask values, assuming integer-valued mask:   1 regions
+Averaging data. Averaging over unique mask values, assuming integer-valued mask:   1 regions
+Done.
+Column   1:	Column   2:	Column   3:	Column   4:	Column   5:	Column   6:	Column   7:	Column   8:	
+---------------------------------------------
+Tests of column means against zero
+---------------------------------------------
+      <strong>Name</strong>       <strong>Mean_Value</strong>    <strong>Std_Error</strong>      <strong>T</strong>           <strong>P</strong>         <strong>Cohens_d</strong>
+    <strong>_________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>______</strong>    <strong>__________</strong>    <strong>________</strong>
+
+    'Col   1'      0.4056      0.045271     8.9592    2.8826e-12     1.2081 
+    'Col   2'     0.66505      0.055103     12.069    2.2204e-15     1.6274 
+    'Col   3'     0.79389      0.057599     13.783    2.2204e-15     1.8585 
+    'Col   4'     0.83836      0.077635     10.799    4.1986e-15     1.4561 
+    'Col   5'     0.50527      0.045494     11.106    2.2204e-15     1.4975 
+    'Col   6'     0.55174      0.051695     10.673    6.4839e-15     1.4391 
+    'Col   7'     0.42648      0.045037     9.4696     4.539e-13     1.2769 
+    'Col   8'     0.51109      0.048876     10.457    1.3733e-14       1.41 
+
+diaryname = fullfile(['Architecture_barplots_significance_' date '_output.txt']);
+diary(diaryname);

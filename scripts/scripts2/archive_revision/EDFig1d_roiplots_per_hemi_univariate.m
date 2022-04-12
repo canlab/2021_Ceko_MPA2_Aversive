@@ -85,6 +85,78 @@ diary on
 diaryname = fullfile(['Plot_univ_vstr_amy_' date '_output.txt']);
 diary(diaryname);
 
+
+figtitle=sprintf('Plot_univariate_ROI_per_condition');
+create_figure(figtitle)
+
+
+subplot(2,2,1);
+
+clear r
+r = {1,8}
+for i =1:size(DATA_OBJ,2)
+r{i} = extract_roi_averages(DATA_OBJ{i}, vstr_L);
+end
+
+clear toplot
+toplot = [r{1}.dat r{2}.dat r{3}.dat r{4}.dat r{5}.dat r{6}.dat r{7}.dat r{8}.dat];
+h = barplot_columns(toplot, 'nofig','noind', 'colors', colors_to_plot, 'title', 'vStr left');
+set(gca,'LineWidth', 1, 'FontSize', 10, 'box', 'off'); 
+xlabel(''); ylabel(''); drawnow
+
+subplot(2,2,2);
+
+clear r
+r = {1,8}
+for i =1:size(DATA_OBJ,2)
+r{i} = extract_roi_averages(DATA_OBJ{i}, vstr_R);
+end
+
+clear toplot
+toplot = [r{1}.dat r{2}.dat r{3}.dat r{4}.dat r{5}.dat r{6}.dat r{7}.dat r{8}.dat];
+h = barplot_columns(toplot, 'nofig','noind', 'colors', colors_to_plot,'title', 'vStr right');
+set(gca,'LineWidth', 1, 'FontSize', 10, 'box', 'off'); 
+xlabel(''), ylabel(''); drawnow
+
+
+subplot(2,2,3);
+
+clear r
+r = {1,8}
+for i =1:size(DATA_OBJ,2)
+r{i} = extract_roi_averages(DATA_OBJ{i}, amy_L);
+end
+
+clear toplot
+toplot = [r{1}.dat r{2}.dat r{3}.dat r{4}.dat r{5}.dat r{6}.dat r{7}.dat r{8}.dat];
+h = barplot_columns(toplot, 'nofig','noind', 'colors', colors_to_plot,'title', 'amygdala left');
+set(gca,'LineWidth', 1, 'FontSize', 10, 'box', 'off'); 
+xlabel(''), ylabel(''); drawnow
+
+
+subplot(2,2,4);
+
+clear r
+r = {1,8}
+for i =1:size(DATA_OBJ,2)
+r{i} = extract_roi_averages(DATA_OBJ{i}, amy_R);
+end
+
+clear toplot
+toplot = [r{1}.dat r{2}.dat r{3}.dat r{4}.dat r{5}.dat r{6}.dat r{7}.dat r{8}.dat];
+h = barplot_columns(toplot, 'nofig','noind', 'colors', colors_to_plot,'title', 'amygdala right');
+set(gca,'LineWidth', 1, 'FontSize', 10, 'box', 'off'); 
+xlabel(''), ylabel(''); drawnow
+
+% 
+%plugin_save_figure
+
+
+%% Collapsed across hemis
+          
+colors_to_plot = {[0.4 0.8 1] [0.4 0.8 1] [0.4 0.8 1] [0.4 0.8 1] ... % light blue
+    [0.9 0.6 1] [0.9 0.6 1] [0.9 0.6 1] [0.9 0.6 1]};   
+
 figtitle=sprintf('Plot_univariate_acrosshemi_ROI_per_condition');
 create_figure(figtitle)
 
@@ -98,7 +170,7 @@ end
 
 clear toplot
 toplot = [r{1}.dat r{2}.dat r{3}.dat r{4}.dat r{5}.dat r{6}.dat r{7}.dat r{8}.dat];
-h = barplot_columns(toplot, 'nofig', 'noind', 'nostars', 'colors', colors_to_plot);
+h = barplot_columns(toplot, 'nofig', 'noind', 'colors', colors_to_plot);
 set(gca,'LineWidth', 1, 'FontSize', 6, 'box', 'off'); 
 xlabel(''); ylabel(''); drawnow
 
@@ -112,12 +184,12 @@ end
 
 clear toplot
 toplot = [r{1}.dat r{2}.dat r{3}.dat r{4}.dat r{5}.dat r{6}.dat r{7}.dat r{8}.dat];
-h = barplot_columns(toplot, 'nofig','noind', 'nostars', 'colors',colors_to_plot);
+h = barplot_columns(toplot, 'nofig','noind','colors', colors_to_plot);
 set(gca,'LineWidth', 1, 'FontSize',6, 'box', 'off'); 
 xlabel(''), ylabel(''); drawnow
 
 % 
-plugin_save_figure
+%plugin_save_figure
 
 
 diary off

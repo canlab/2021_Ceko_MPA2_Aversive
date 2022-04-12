@@ -5,6 +5,8 @@
 
 %% set working dir and model names 
 
+a_set_up_paths_always_run_first
+
 % brain model names 
 models = {'NGeneral' 'NVisneg' 'Vispos'}; 
 
