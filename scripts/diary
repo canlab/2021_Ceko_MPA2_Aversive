@@ -1,2 +1,0 @@
-diaryname = fullfile(['Architecture_barplots_significance_' date '_output.txt']);
-diary(diaryname);
