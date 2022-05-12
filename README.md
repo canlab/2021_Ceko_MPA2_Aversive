@@ -64,7 +64,7 @@ common and stimulus-type specifc predictive brain models of negative affect, usi
 - scripts2/EDFig1b_plot_normPLS_signatures.m
 - scripts2/EDFig1c_display_maps.m
 - scripts2/EDFig1d_roiplots_univariate.m
-- scripts3/EDFig1d1e_roiplots_and_3D_encoders.m
+- scripts2/EDFig1d1e_roiplots_and_3D_encoders.m
 
 
 
