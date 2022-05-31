@@ -1,8 +1,8 @@
-## Common and stimulus type-specific brain representations of negative affect
+## Common and stimulus-type-specific brain representations of negative affect
 
 ### Summary and requirements 
 
-This repository contains code and data related to Ceko et al. 2022 (add proper link when available) to develop, evaluate and validate in new individuals 
+This repository contains code and data related to [Ceko et al. 2022](https://www.nature.com/articles/s41593-022-01082-w) to develop, evaluate and validate in new individuals 
 common and stimulus-type specifc predictive brain models of negative affect, using 4 types of aversive stimuli (mechanical pain, thermal pain, aversive sound, aversive pictures) 
 
 - code tested on MATLAB 2019b
