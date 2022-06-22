@@ -25,7 +25,7 @@ common and stimulus-type specifc predictive brain models of negative affect, usi
         
         results/patterns/PLS_CV_patterns -> CV image files (5 per model representing the 5 folds) for use within sample
         
-        results/patterns/PLS_patterns -> Full sample PLS pattern maps (bootstrapped unthr., unc01, unc001, and fdr-05 thresholded maps)
+        results/patterns/PLS_patterns -> Full sample bootstr. PLS pattern maps - like the link above but with more options: unthr, unc01, unc001,fdr-05)
 
 ### Overview of main code to create Figures (/scripts): 
 
