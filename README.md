@@ -13,11 +13,11 @@ common and stimulus-type specifc predictive brain models of negative affect, usi
 - [Full sample unthresholded PLS pattern maps for use in independent samples](https://github.com/canlab/Neuroimaging_Pattern_Masks/tree/master/Multivariate_signature_patterns/2021_Ceko_MPA2_multiaversive)
 
 - input data for some analyses(to discuss access, contact Marta at marta.ceko@gmail.com):
-
-- - data/data_behavior/ -> excel spreadsheet containing ratings, loaded with import_Behav_MPA2.m
+ - data/data_behavior/ -> excel spreadsheet containing ratings, loaded with import_Behav_MPA2.m
         [Dropbox Link](https://www.dropbox.com/s/ddwxxm5tmjqbqsk/MPA2_Masterlist_Final_N55.xlsx?dl=0)
         
-- - [Dropbox Link](https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0)
+- results/ 
+ - [Dropbox Link](https://www.dropbox.com/sh/r0k5bj4zt5f2aeb/AAD3gZ0uQExQqU4037OWaYC3a?dl=0)
         results/data_objects.mat -> 1st-level GLM beta images used for PLS 
         
         results/PLS_crossvalidated_N55_gm.mat -> stats related to cross-validated and full sample PLS models
