@@ -24,38 +24,21 @@ common and stimulus-type specifc predictive brain models of negative affect, usi
     - results/patterns/PLS_CV_patterns -> CV image files (5 per model representing the 5 folds) for use within sample
     - results/patterns/PLS_patterns -> Full sample bootstr. PLS pattern maps - like the link above but with more options: unthr, unc01, unc001,fdr-05)
 
-### Overview of main code to create Figures (/scripts): 
+### Overview of code to create main Figures (/scripts): 
 
 #### Figure 2
-
 - Fig2a_behavior_plots.m
 - Fig2b .... Model evaluation
-  - cleaning up ...
 - Fig2c .... Crosspred matrix
-  - cleaning up ...
 - Fig2d .... Variance decomposition
-  - cleaning up ...
 
 #### Figure 3
-
 - Fig3a3b_display_maps.m
 - Fig3c3d_riverplots_roi.m
+- Fig3e_plot_common_specific_importance.m
 
 #### Figure 4
-
 - Fig4_plot_figure_architecture.m
-
-#### Figure 5 
-
-- Fig5 ..... Validation in independent samples
-  - cleaning up ....
-
-#### Figure 6
-
-- Fig6a .. positive stimuli Study1
-  - cleaning up ....
-- scripts2/Fig6b_plot_ind_datasets_Warm_Wehrum.m
-- scripts2/Fig6c_summary_performance.m
 
 #### Extended Data Figure 1  
 - scripts2/EDFig1b_plot_normPLS_signatures.m
