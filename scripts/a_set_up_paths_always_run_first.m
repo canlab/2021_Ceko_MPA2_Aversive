@@ -20,6 +20,7 @@ figsavedir = fullfile(resultsdir, 'figures');
 
 % other
 qcdir = fullfile(resultsdir, 'qc');
+qcfigsavedir = fullfile (qcdir,'figures');
 dataobjdir = fullfile(resultsdir, 'results_GLM');
 
 cd(scriptsdir)
