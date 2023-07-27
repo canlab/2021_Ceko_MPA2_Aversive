@@ -8,7 +8,7 @@ cd(working_dir);
 %% define ROI
 
 % ----------------------------------------------------------------------------------
-% MIGHT USE SOME OF THESE FOR FINAL SELECTION, FOR NOW SKIP TO NEXT STEP
+% OTHER POTENTIALLY USEFUL COLLECTIONS 
 % ----------------------------------------------------------------------------------
 % % My own collections (modified canlab, pain_pathways, Yeo) used defines ROIs displayed in riverplots in the Aversive paper
 % roiscriptsdir = fullfile(basedir, 'roi_scripts');
@@ -19,6 +19,11 @@ cd(working_dir);
 
 %% THALAMUS, BRAINSTEM
 % ------------------------ 
+
+% -------------------------------------------------------------------------------------
+% THALAMUS 
+% -------------------------------------------------------------------------------------
+
 % atlas_obj1 = load_atlas('thalamus_detail'); % Morel atlas - too detailed (77 regions) 
 atlas_obj= load_atlas('thalamus'); % 17 labels: {'Pulv'  'LGN'  'MGN'  'VPL'  'VPM'  'Intralam'  'Midline'  'LD'  'VL'  'LP'  'VA'  'VM'  'MD'  'AM'  'AV'  'Hb'  'Hythal'}tha
 % trim and keep only relevant sensory/association regions:
@@ -39,8 +44,10 @@ thal_obj_full = split_atlas_into_contiguous_regions(thal_obj);
 thal_obj_full.labels = {'VPLM L' 'VPLM R' 'IL' 'MD'  'MGN L'  'MGN R' 'Pulv L' 'Pulv R'  'LGN L'  'LGN R'};
 
 
-%  BRAINSTEM 
-% -------------------------
+% -------------------------------------------------------------------------------------
+% BRAINSTEM
+% -------------------------------------------------------------------------------------
+
 atlas_obj = load_atlas('canlab2018_2mm');
 rvm = select_atlas_subset(atlas_obj, {'rvm'},'flatten'); % Shen = unimodal 
 pag = select_atlas_subset(atlas_obj, {'PAG'},'flatten');
@@ -60,8 +67,13 @@ figtitle = ['ROI_bs.png'];
 savename = fullfile(figsavedir,figtitle);saveas(gcf,savename); drawnow, snapnow; %close;
 
 
-%% MIDLINE, limbic
-% -------------------------------------------------------------------------
+%% MIDLINE, FRONTO-ORBITAL, LIMBIC
+% ---------------------------------
+
+% -------------------------------------------------------------------------------------
+% CINGULATE 
+% -------------------------------------------------------------------------------------
+
 % Cingulate - Kragel masks - followed Vogt's cingulate parcellation (Vogt 2003, 2009) 
 Cing_atlas = load_atlas(fullfile(roiscriptsdir, 'MFC_atlas_object.mat'));
 aMCC = select_atlas_subset(Cing_atlas, {'aMCC'});
@@ -75,6 +87,11 @@ pgACC.labels = {'pgACC'};
 % Did not include sgACC, does not contribute anything interpretable + no hypothesis 
 Cing = select_atlas_subset(Cing_atlas, {'pgACC' 'aMCC' 'pMCC'}, 'flatten');
 Cing.labels = {'Cingulate'};
+
+
+% -------------------------------------------------------------------------------------
+% MPFC, OFC, VLPFC
+% -------------------------------------------------------------------------------------
 
 atlas_obj = load_atlas('canlab2018_2mm');
 vMPFC=select_atlas_subset(atlas_obj, {'10r' '10v' '10d' '10pp' 'Ctx_OFC'}, 'flatten'); 
@@ -97,9 +114,18 @@ vLPFC.labels = {'vLPFC'};
 OFC = select_atlas_subset(atlas_obj, {'Ctx_44_L' 'Ctx_44_R' 'Ctx_45_L' 'Ctx_45_R' '11' '47'}, 'flatten');
 OFC.labels = {'OFC'};
 
+
+% merge into OCMPFC
+% ---------------------------------------
+
 OFCMPFC = select_atlas_subset(atlas_obj, {'Ctx_44_L' 'Ctx_44_R' 'Ctx_45_L' 'Ctx_45_R' '11' '47' ...
     '10r' '10v' '10d' '10pp' 'Ctx_OFC' '8BM' '8BL' '9m'}, 'flatten');
 OFCMPFC.labels = {'OFCMPFC'};
+
+
+% -------------------------------------------------------------------------------------
+% AMY & HIPPO
+% -------------------------------------------------------------------------------------
 
 % CM, SF, LC, AStr (technically a transitional area but included here (and tiny)  
 amy = select_atlas_subset(atlas_obj, {'Amy'}, 'flatten');
@@ -108,7 +134,11 @@ amy.labels = {'Amy'}
 hippo = select_atlas_subset(atlas_obj, {'Hippocampus'}, 'flatten');
 hippo.labels = {'Hipp'}
 
-% bg
+
+% -------------------------------------------------------------------------------------
+% BASAL GANGLIA 
+% -------------------------------------------------------------------------------------
+
 atlas_obj = load_atlas('pauli_bg');
 Put = select_atlas_subset(atlas_obj, {'Putamen_Pa'}, 'flatten');
 Put.labels = {'Put'};
@@ -119,8 +149,16 @@ Caud.labels = {'Caud'};
 vStr = select_atlas_subset(atlas_obj, {'V_Striatum'}, 'flatten');  
 vStr.labels = {'vStr'};
 
-% INSULA
-% ------------------------
+
+
+%% INSULA & FRIENDS
+% ---------------------------------
+
+
+% -------------------------------------------------------------------------------------
+% INSULA 
+% -------------------------------------------------------------------------------------
+
 % atlas_obj2 = load_atlas('insula'); % Faillenot insula: too finegrained .. 
 atlas_obj = load_atlas('canlab2018_2mm');
 aINS = select_atlas_subset (atlas_obj, {'Ctx_FOP4' 'Ctx_AVI'  'Ctx_FOP5' 'Ctx_AAIC'}, 'flatten'); % with or without FOP3 same results 
@@ -144,6 +182,11 @@ dpINS_LR = split_atlas_into_contiguous_regions(dpINS);
 % dpINS = select_atlas_subset(dpINS, 1:2);% clean up - remove small 3rd region in R angular gyrus
 dpINS_LR.labels = {'dpINS L' 'dpINS R'};
 
+
+% -------------------------------------------------------------------------------------
+% AUDI INS
+% -------------------------------------------------------------------------------------
+
 % RI and Area 52-- auditory 
 % PI - ignore, adds nothing
 rINS= select_atlas_subset(atlas_obj, {'Ctx_RI'}, 'flatten');
@@ -156,10 +199,16 @@ ins_audi.labels = {'Audi INS'}
 ins_obj_LR = [aINS_L aINS_R mINS_LR dpINS_LR];
 ins_obj = [aINS mINS dpINS];
 
+
 %% Early sensory cortices
-% --------------------------------------------------------------------------
+% --------------------------
+
 % extract all from main atlas (it fails to extract if S2 is from painpathways)
-% somatosensory
+
+% -------------------------------------------------------------------------------------
+% SOMATOSENSORY
+% -------------------------------------------------------------------------------------
+
 atlas_obj = load_atlas('canlab2018_2mm');
 S1 = select_atlas_subset(atlas_obj, {'Ctx_1_' 'Ctx_2_' 'Ctx_3a_' 'Ctx_3b_'}, 'flatten'); 
 S1.labels =  {'S1'};
@@ -170,6 +219,11 @@ S2 = select_atlas_subset(atlas_obj, {'_OP1'}, 'flatten'); % when I include OP4 a
 S2.labels = {'S2'};
 S2_LR = split_atlas_into_contiguous_regions(S2);
 S2_LR.labels = {'S2 L' 'S2 R'};
+
+
+% -------------------------------------------------------------------------------------
+% AUDITORY
+% -------------------------------------------------------------------------------------
 
 % auditory: % A1 = Core
 A1=select_atlas_subset(atlas_obj, {'Ctx_A1'}, 'flatten');
@@ -186,7 +240,10 @@ A_23_LR.labels = {'A23 L' 'A23 R'};
 A_123 = select_atlas_subset(atlas_obj, {'Ctx_A1' 'LBelt' 'MBelt' 'PBelt'}, 'flatten');
 A_123.labels={'A123'}; 
  
-% Visual
+% -------------------------------------------------------------------------------------
+% VISUAL
+% -------------------------------------------------------------------------------------
+
 V1 = select_atlas_subset(atlas_obj, {'Ctx_V1'},'flatten');
 V1.labels = {'V1'};
 V1_LR = split_atlas_into_contiguous_regions(V1);
@@ -203,7 +260,10 @@ V_1234.labels = {'V1234'};
 sense_obj = [S1 S2 A1 A_23 V1 V_234];
 sense_obj_LR = [S1_LR S2_LR A1_LR A_23_LR V1_LR V_234_LR];
 
-% Save all into one object 
+% -------------------------------------------------------------------------------------
+% SAVE ALL INTO ONE OBJECT 
+% -------------------------------------------------------------------------------------
+
 savefilename = fullfile(resultsdir, 'ROI_obj_to_plot.mat');
 save(savefilename, 'thal_obj', '-v7.3');
 save(savefilename,  'bs_obj', '-append');

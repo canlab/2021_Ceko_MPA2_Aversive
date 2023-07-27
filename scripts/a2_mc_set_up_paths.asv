@@ -63,9 +63,17 @@ addpath(genpath('/Users/marta/Google Drive/ROI_masks_and_parcellations/'));
 
 %% add spm12
 % BUT NOT WITH SUBFOLDERS!
+% for now, add spm12 version depending on matlab version
 
-addpath /Applications/spm12/
-%addpath /Applications/Canlab/spm12
+% if version('-release') == '2019a';
+%    addpath /Applications/spm12 
+% elseif version('-release') ~= '2019a';
+%    addpath /Applications/Canlab/spm12  % currently canlab-spm12 not functional; wrong MEX file?
+% end
+
+%addpath /Applications/spm12/
+
+addpath /Applications/Canlab/spm12
 which spm
 
 %% add wfupickatlas: 

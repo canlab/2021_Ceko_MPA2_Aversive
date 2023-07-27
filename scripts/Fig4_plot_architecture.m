@@ -27,9 +27,9 @@ load(fullfile(resultsdir, '/results_modelencode/results/model_encode_obj.mat'));
 load (fullfile(resultsdir, 'ROI_obj_to_plot.mat'));
 
 
-%% COMPACT FOR MAIN FIGURE 
+%% CREATE COMPACT FOR MAIN FIGURE -- 20 regions
 % ------------------------------------------------------------------------
-%compact_obj = [OFCMPFC thal_obj_mid thal_obj_vis A_123 V_1234]    
+compact_obj = [OFCMPFC thal_obj_mid thal_obj_vis A_123 V_1234]    
 for m = 1:5
     extracted_roi{m} = extract_roi_averages(encode_obj(m),compact_obj);
 end
@@ -55,8 +55,8 @@ end
 
 diary off
 
-figtitle = 'ROI_encoders_all_significance.png'
-savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
+%figtitle = 'ROI_encoders_all_significance.png'
+%savename = fullfile(figsavedir,figtitle);saveas(gcf,savename);
 
 
 %% DISTRIBUTION PLOTS 

@@ -35,11 +35,6 @@
 % -------------------------------------------------------------------------
 % -------------------------------------------------------------------------
 
-roiscriptsdir = fullfile(basedir, 'roi_scripts')
-
-if ~exist(roiscriptsdir, 'dir'), mkdir(roiscriptsdir); end
-cd(roiscriptsdir)
-
 %% Load "CANlab combined 2018" and Pain pathways atlas:
 atlas_obj = load_atlas('canlab2018_2mm');
 pain_pathways = load_atlas('pain_pathways_atlas_obj.mat');
