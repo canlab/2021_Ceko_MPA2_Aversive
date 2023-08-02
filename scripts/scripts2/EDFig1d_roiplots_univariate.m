@@ -90,6 +90,7 @@ create_figure(figtitle)
 
 subplot(3,4,1);
 
+
 clear r
 r = {1,8}
 for i =1:size(DATA_OBJ,2)

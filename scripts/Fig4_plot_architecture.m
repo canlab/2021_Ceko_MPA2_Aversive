@@ -34,6 +34,12 @@ for m = 1:5
     extracted_roi{m} = extract_roi_averages(encode_obj(m),compact_obj);
 end
 
+testregion = atlas2region(brainstem_obj)
+for m = 1:5
+    extracted_roi{m} = extract_roi_averages(encode_obj(m),affect_obj);
+end
+
+
 %% ALL ROIs in Figure, include significance stars     
 diary on
 diaryname = fullfile(['Architecture_barplots_significance_' date '_output.txt']);
